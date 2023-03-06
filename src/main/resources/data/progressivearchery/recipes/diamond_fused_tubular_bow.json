@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "addition": {
+      "item": "minecraft:diamond"
+    },
+    "base": {
+      "item": "progressivearchery:iron_fused_tubular_bow"
+    },
+    "result": {
+      "item": "progressivearchery:diamond_fused_tubular_bow"
+    }
+  }

@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "$": {
+        "tag": "minecraft:planks"
+      },
+      "~": {
+        "item": "progressivearchery:wooden_bow"
+      }
+    },
+    "pattern": [
+      "~",
+      "$",
+      "#"
+    ],
+    "result": {
+      "item": "progressivearchery:wooden_crossbow"
+    }
+  }

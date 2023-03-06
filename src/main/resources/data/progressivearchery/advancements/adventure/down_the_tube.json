@@ -1,0 +1,43 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "shot_tubular_bow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:wooden_tubular_bow",
+                "progressivearchery:copper_fused_tubular_bow",
+                "progressivearchery:gold_fused_tubular_bow",
+                "progressivearchery:iron_fused_tubular_bow",
+                "progressivearchery:diamond_fused_tubular_bow",
+                "progressivearchery:netherite_fused_tubular_bow"
+              ]
+            }
+          ]
+        },
+        "trigger": "progressivearchery:shot_tubular_bow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.down_the_tube.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:wooden_tubular_bow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.down_the_tube.title"
+      }
+    },
+    "requirements": [
+      [
+        "shot_tubular_bow"
+      ]
+    ]
+  }

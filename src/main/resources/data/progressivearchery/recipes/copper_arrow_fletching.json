@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:copper_nugget"
+  },
+  "body": {
+    "item": "minecraft:copper_ingot"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:lava_bucket"
+  },
+  "output": {
+    "item": "progressivearchery:copper_arrow",
+    "count": 4
+  }
+}

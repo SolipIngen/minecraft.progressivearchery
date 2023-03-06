@@ -1,0 +1,268 @@
+{
+    "type": "minecraft:gift",
+    "pools": [
+      {
+        "bonus_rolls": 0.0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "progressivearchery:wooden_arrow",
+            "weight": 13
+          },
+          {
+            "type": "minecraft:item",
+            "name": "progressivearchery:flint_arrow",
+            "weight": 13
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:swiftness"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:slowness"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:strength"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:healing"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:harming"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:leaping"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:regeneration"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:fire_resistance"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:water_breathing"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:invisibility"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:night_vision"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:weakness"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          },
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "function": "minecraft:set_potion",
+                "id": "minecraft:poison"
+              }
+            ],
+            "name": "progressivearchery:tipped_arrow"
+          }
+        ],
+        "rolls": 1.0
+      }
+    ]
+  }

@@ -1,0 +1,50 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "killed_skeleton_with_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:skeleton", 
+                  "distance": {
+                    "horizontal": {
+                      "min": 50.0
+                    }
+                  }
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_bow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.sniper_duel.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:diamond_fused_bow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.sniper_duel.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_skeleton_with_bow"
+      ]
+    ],
+    "rewards": {
+      "experience": 50
+    }
+}

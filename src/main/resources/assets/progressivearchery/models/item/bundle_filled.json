@@ -1,0 +1,6 @@
+{
+    "parent":"progressivearchery:item/quiver",
+    "textures": {
+        "layer0": "progressivearchery:item/bundle_filled"
+    }
+}

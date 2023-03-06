@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "addition": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "base": {
+      "item": "progressivearchery:diamond_fused_crossbow"
+    },
+    "result": {
+      "item": "progressivearchery:netherite_fused_crossbow"
+    }
+  }

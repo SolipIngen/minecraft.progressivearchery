@@ -1,0 +1,43 @@
+{
+    "parent": "progressivearchery:adventure/trust_the_rust",
+    "criteria": {
+      "tipped": {
+        "conditions": {
+          "item": {
+            "items": [
+              "progressivearchery:golden_arrow",
+              "progressivearchery:golden_kid_arrow"
+            ]
+          },
+          "location": {
+            "block": {
+              "blocks": [
+                "progressivearchery:potion_cauldron"
+              ]
+            }
+          }
+        },
+        "trigger": "minecraft:item_used_on_block"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.tipped_arrow.description"
+      },
+      "frame": "goal",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:golden_arrow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.tipped_arrow.title"
+      }
+    },
+    "requirements": [
+      [
+        "tipped"
+      ]
+    ]
+  }

@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:glowstone_dust"
+  },
+  "body": {
+    "item": "progressivearchery:spectral_arrow"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:iron_axe"
+  },
+  "output": {
+    "item": "progressivearchery:spectral_kid_arrow",
+    "count": 2
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "addition": {
+      "item": "minecraft:diamond"
+    },
+    "base": {
+      "item": "progressivearchery:gold_fused_longbow"
+    },
+    "result": {
+      "item": "progressivearchery:diamond_fused_longbow"
+    }
+  }

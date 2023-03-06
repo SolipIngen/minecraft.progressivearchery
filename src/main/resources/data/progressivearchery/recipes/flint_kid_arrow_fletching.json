@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:flint"
+  },
+  "body": {
+    "item": "progressivearchery:flint_arrow"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:flint"
+  },
+  "output": {
+    "item": "progressivearchery:flint_kid_arrow",
+    "count": 2
+  }
+}

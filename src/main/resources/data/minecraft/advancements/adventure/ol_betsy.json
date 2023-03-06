@@ -1,0 +1,42 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "shot_crossbow": {
+        "conditions": {
+          "item": {
+            "items": [
+              "minecraft:crossbow",
+              "progressivearchery:wooden_crossbow",
+              "progressivearchery:copper_fused_crossbow",
+              "progressivearchery:gold_fused_crossbow",
+              "progressivearchery:iron_fused_crossbow",
+              "progressivearchery:diamond_fused_crossbow",
+              "progressivearchery:netherite_fused_crossbow"
+            ]
+          }
+        },
+        "trigger": "minecraft:shot_crossbow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.ol_betsy.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:wooden_crossbow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.ol_betsy.title"
+      }
+    },
+    "requirements": [
+      [
+        "shot_crossbow"
+      ]
+    ]
+}

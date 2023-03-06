@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "addition": {
+      "item": "minecraft:copper_ingot"
+    },
+    "base": {
+      "item": "progressivearchery:wooden_crossbow"
+    },
+    "result": {
+      "item": "progressivearchery:copper_fused_crossbow"
+    }
+  }
