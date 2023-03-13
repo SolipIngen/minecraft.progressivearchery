@@ -26,6 +26,6 @@ public abstract class ItemsMixin {
             cbireturn.setReturnValue(Registry.register(Registries.ITEM, bundleRawId, "bundle", newBundleItem));
         }
     }
-    
+
 
 }
