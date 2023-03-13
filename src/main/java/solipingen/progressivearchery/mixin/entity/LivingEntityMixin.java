@@ -18,6 +18,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.item.QuiverItem;
@@ -221,7 +222,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
 
     @Inject(method = "onKilledBy", at = @At("TAIL"))
     private void injectedOnKilledBy(@Nullable LivingEntity adversary, CallbackInfo cbi) {
-        if (adversary instanceof VillagerEntity) {
+        if (adversary instanceof VillagerEntity && adversary.world instanceof ServerWorld) {
             VillagerEntity villager = (VillagerEntity)adversary;
             VillagerProfession profession = villager.getVillagerData().getProfession();
             if (profession == ModVillagerProfessions.ARCHER) {
@@ -232,6 +233,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
                 else if (((LivingEntity)(Object)this) instanceof PlayerEntity && ((PlayerEntity)(Object)this).getXpToDrop() >= 1) {
                     villager.setExperience(villager.getExperience() + i*this.random.nextBetween(1, ((PlayerEntity)(Object)this).getXpToDrop()));
                 }
+                villager.reinitializeBrain((ServerWorld)adversary.world);
             }
         }
     }
