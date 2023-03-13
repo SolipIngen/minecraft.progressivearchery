@@ -16,29 +16,28 @@ import solipingen.progressivearchery.block.cauldron.PotionCauldronBlock;
 public class ModBlocks {
 
     // Potion Cauldron
-    public static final Block POTION_CAULDRON = registerBlockWithoutItem("potion_cauldron", 
-        new PotionCauldronBlock(FabricBlockSettings.copy(Blocks.CAULDRON).luminance(PotionCauldronBlock.LEVEL_TO_LUMINANCE), null, PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR));
+    public static final Block POTION_CAULDRON = ModBlocks.registerBlock("potion_cauldron", 
+        new PotionCauldronBlock(FabricBlockSettings.copy(Blocks.CAULDRON).luminance(PotionCauldronBlock.LEVEL_TO_LUMINANCE), null, PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR), false);
 
     // Archer Villager Marker
-    public static final Block ARCHER_MARKER = registerBlock("archer_marker", 
-        new VillagerFighterMarkerBlock(FabricBlockSettings.copy(Blocks.POLISHED_DIORITE_SLAB)));
+    public static final Block ARCHER_MARKER = ModBlocks.registerBlock("archer_marker", 
+        new VillagerFighterMarkerBlock(FabricBlockSettings.copy(Blocks.POLISHED_DIORITE_SLAB)), true);
 
 
-    private static Block registerBlock(String name, Block block) {
-        registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(ProgressiveArchery.MOD_ID, name), block);
-    }
-
-    private static Block registerBlockWithoutItem(String name, Block block) {
+    private static Block registerBlock(String name, Block block, boolean withBlockItem) {
+        if (withBlockItem) {
+            ModBlocks.registerBlockItem(name, block);
+        }
         return Registry.register(Registries.BLOCK, new Identifier(ProgressiveArchery.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(ProgressiveArchery.MOD_ID, name), 
-            new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, new Identifier(ProgressiveArchery.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks() {
         ProgressiveArchery.LOGGER.debug("Registering Mod Blocks for " + ProgressiveArchery.MOD_ID);
     }
+
+    
 }

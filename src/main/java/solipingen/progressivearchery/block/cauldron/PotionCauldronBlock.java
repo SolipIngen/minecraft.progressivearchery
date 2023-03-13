@@ -16,6 +16,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
@@ -105,6 +106,11 @@ public class PotionCauldronBlock extends AbstractCauldronBlock {
                 }
             }
         }
+    }
+
+    @Override
+    public Item asItem() {
+        return Items.CAULDRON;
     }
 
     
