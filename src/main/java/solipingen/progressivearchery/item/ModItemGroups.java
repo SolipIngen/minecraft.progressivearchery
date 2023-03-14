@@ -25,7 +25,7 @@ public class ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.IRON_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.GOLDEN_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> 
-            addPotions(entries, ModItems.TIPPED_ARROW, StackVisibility.PARENT_AND_SEARCH_TABS));
+            ModItemGroups.addPotions(entries, ModItems.TIPPED_ARROW, StackVisibility.PARENT_AND_SEARCH_TABS));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.SPECTRAL_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.DIAMOND_ARROW));
 
@@ -36,7 +36,7 @@ public class ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.IRON_KID_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.GOLDEN_KID_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> 
-            addPotions(entries, ModItems.TIPPED_KID_ARROW, StackVisibility.PARENT_AND_SEARCH_TABS));
+        ModItemGroups.addPotions(entries, ModItems.TIPPED_KID_ARROW, StackVisibility.PARENT_AND_SEARCH_TABS));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.SPECTRAL_KID_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.DIAMOND_KID_ARROW));
 
