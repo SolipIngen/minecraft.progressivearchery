@@ -54,14 +54,14 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         float randomf = random.nextFloat();
         if (randomf < 0.6f) {
             float bowrandom = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*this.world.getDifficulty().getId(), 1.0f);
-            if (0.4f <= bowrandom && bowrandom < 0.6f) {
+            if (0.4f <= bowrandom && bowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_BOW;
             }
-            else if (0.6f <= bowrandom && bowrandom < 0.98f) {
-                return ModItems.GOLD_FUSED_BOW;
-            }
-            else if (0.98f <= bowrandom && bowrandom < 0.998f) {
+            else if (0.7f <= bowrandom && bowrandom < 0.9f) {
                 return ModItems.IRON_FUSED_BOW;
+            }
+            else if (0.9f <= bowrandom && bowrandom < 0.998f) {
+                return ModItems.GOLD_FUSED_BOW;
             }
             else if (0.998f <= bowrandom && bowrandom < 1.0f) {
                 return ModItems.DIAMOND_FUSED_BOW;
@@ -72,14 +72,14 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
             if (hornbowrandom < 0.4f) {
                 return ModItems.WOODEN_HORN_BOW;
             }
-            else if (0.4f <= hornbowrandom && hornbowrandom < 0.6f) {
+            else if (0.4f <= hornbowrandom && hornbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_HORN_BOW;
             }
-            else if (0.6f <= hornbowrandom && hornbowrandom < 0.98f) {
-                return ModItems.GOLD_FUSED_HORN_BOW;
-            }
-            else if (0.98f <= hornbowrandom && hornbowrandom < 0.998f) {
+            else if (0.7f <= hornbowrandom && hornbowrandom < 0.9f) {
                 return ModItems.IRON_FUSED_HORN_BOW;
+            }
+            else if (0.9f <= hornbowrandom && hornbowrandom < 0.998f) {
+                return ModItems.GOLD_FUSED_HORN_BOW;
             }
             else if (0.998f <= hornbowrandom && hornbowrandom < 1.0f) {
                 return ModItems.DIAMOND_FUSED_HORN_BOW;
@@ -90,14 +90,14 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
             if (longbowrandom < 0.4f) {
                 return ModItems.WOODEN_LONGBOW;
             }
-            else if (0.4f <= longbowrandom && longbowrandom < 0.6f) {
+            else if (0.4f <= longbowrandom && longbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_LONGBOW;
             }
-            else if (0.6f <= longbowrandom && longbowrandom < 0.98f) {
-                return ModItems.GOLD_FUSED_LONGBOW;
-            }
-            else if (0.98f <= longbowrandom && longbowrandom < 0.998f) {
+            else if (0.7f <= longbowrandom && longbowrandom < 0.9f) {
                 return ModItems.IRON_FUSED_LONGBOW;
+            }
+            else if (0.9f <= longbowrandom && longbowrandom < 0.998f) {
+                return ModItems.GOLD_FUSED_LONGBOW;
             }
             else if (0.998f <= longbowrandom && longbowrandom < 1.0f) {
                 return ModItems.DIAMOND_FUSED_LONGBOW;
@@ -108,14 +108,14 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
             if (tubularbowrandom < 0.4f) {
                 return ModItems.WOODEN_TUBULAR_BOW;
             }
-            else if (0.4f <= tubularbowrandom && tubularbowrandom < 0.6f) {
+            else if (0.4f <= tubularbowrandom && tubularbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_TUBULAR_BOW;
             }
-            else if (0.6f <= tubularbowrandom && tubularbowrandom < 0.98f) {
-                return ModItems.GOLD_FUSED_TUBULAR_BOW;
-            }
-            else if (0.98f <= tubularbowrandom && tubularbowrandom < 0.998f) {
+            else if (0.7f <= tubularbowrandom && tubularbowrandom < 0.9f) {
                 return ModItems.IRON_FUSED_TUBULAR_BOW;
+            }
+            else if (0.9f <= tubularbowrandom && tubularbowrandom < 0.998f) {
+                return ModItems.GOLD_FUSED_TUBULAR_BOW;
             }
             else if (0.998f <= tubularbowrandom && tubularbowrandom < 1.0f) {
                 return ModItems.DIAMOND_FUSED_TUBULAR_BOW;

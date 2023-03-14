@@ -38,28 +38,6 @@ public class ModVillagerProfessions {
     public static final PointOfInterestType ARCHER_MARKER_POI = ModVillagerProfessions.registerPOI("archer_marker_poi", ModBlocks.ARCHER_MARKER);
 
 
-    private static VillagerProfession registerVillagerProfession(String name, RegistryKey<PointOfInterestType> poiType, @Nullable ImmutableSet<Item> gatherableItems, @Nullable ImmutableSet<Block> secondaryJobSites, @Nullable SoundEvent workSound) {
-        ImmutableSet<Item> gatherableItemsSet = ImmutableSet.of();
-        if (gatherableItems != null) {
-            gatherableItemsSet = gatherableItems; 
-        }
-        ImmutableSet<Block> secondaryJobSitesSet = ImmutableSet.of();
-        if (secondaryJobSites != null) {
-            secondaryJobSitesSet = secondaryJobSites; 
-        }
-        return Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(ProgressiveArchery.MOD_ID, name), 
-            new VillagerProfession(name, entry -> entry.matchesKey(poiType), entry -> entry.matchesKey(poiType), gatherableItemsSet, secondaryJobSitesSet, workSound));
-    }
-
-    private static PointOfInterestType registerPOI(String name, Block block) {
-        return PointOfInterestHelper.register(new Identifier(ProgressiveArchery.MOD_ID, name), 
-            1, 1, ImmutableSet.copyOf(block.getStateManager().getStates()));
-    }
-
-    public static void registerModVillagerProfessions() {
-        ProgressiveArchery.LOGGER.debug("Registering Villagers for " + ProgressiveArchery.MOD_ID);
-    }
-
     // Trade Offer Replacements
     public static void replaceFletcherProfessionToLeveledTrade(Map<VillagerProfession, Int2ObjectMap<Factory[]>> originalTradeOffers) {
         originalTradeOffers.replace(VillagerProfession.FLETCHER, ModVillagerProfessions.copyToFastUtilMap(
@@ -87,6 +65,28 @@ public class ModVillagerProfessions {
                     new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_LONGBOW, 17, 3, 15), new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_TUBULAR_BOW, 17, 3, 15),
                     new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_CROSSBOW, 17, 3, 15)}
                 )));
+    }
+
+    private static VillagerProfession registerVillagerProfession(String name, RegistryKey<PointOfInterestType> poiType, @Nullable ImmutableSet<Item> gatherableItems, @Nullable ImmutableSet<Block> secondaryJobSites, @Nullable SoundEvent workSound) {
+        ImmutableSet<Item> gatherableItemsSet = ImmutableSet.of();
+        if (gatherableItems != null) {
+            gatherableItemsSet = gatherableItems; 
+        }
+        ImmutableSet<Block> secondaryJobSitesSet = ImmutableSet.of();
+        if (secondaryJobSites != null) {
+            secondaryJobSitesSet = secondaryJobSites; 
+        }
+        return Registry.register(Registries.VILLAGER_PROFESSION, new Identifier(ProgressiveArchery.MOD_ID, name), 
+            new VillagerProfession(name, entry -> entry.matchesKey(poiType), entry -> entry.matchesKey(poiType), gatherableItemsSet, secondaryJobSitesSet, workSound));
+    }
+
+    private static PointOfInterestType registerPOI(String name, Block block) {
+        return PointOfInterestHelper.register(new Identifier(ProgressiveArchery.MOD_ID, name), 
+            1, 1, ImmutableSet.copyOf(block.getStateManager().getStates()));
+    }
+
+    public static void registerModVillagerProfessions() {
+        ProgressiveArchery.LOGGER.debug("Registering Villagers for " + ProgressiveArchery.MOD_ID);
     }
 
     private static Int2ObjectMap<Factory[]> copyToFastUtilMap(ImmutableMap<Integer, Factory[]> map) {
