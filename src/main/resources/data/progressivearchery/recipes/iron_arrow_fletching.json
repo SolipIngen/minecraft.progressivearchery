@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:iron_nugget"
+  },
+  "body": {
+    "item": "minecraft:iron_ingot"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:lava_bucket"
+  },
+  "output": {
+    "item": "progressivearchery:iron_arrow",
+    "count": 8
+  }
+}

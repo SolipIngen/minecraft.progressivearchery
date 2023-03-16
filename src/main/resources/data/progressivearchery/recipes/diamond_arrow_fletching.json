@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:diamond"
+  },
+  "body": {
+    "item": "minecraft:iron_ingot"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:lava_bucket"
+  },
+  "output": {
+    "item": "progressivearchery:diamond_arrow",
+    "count": 4
+  }
+}

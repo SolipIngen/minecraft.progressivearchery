@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:diamond"
+  },
+  "body": {
+    "item": "progressivearchery:diamond_arrow"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:iron_axe"
+  },
+  "output": {
+    "item": "progressivearchery:diamond_kid_arrow",
+    "count": 2
+  }
+}

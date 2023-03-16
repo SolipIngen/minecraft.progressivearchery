@@ -1,0 +1,8 @@
+{
+    "parent": "progressivearchery:block/villager_fighter_marker",
+    "textures": {
+      "bottom": "minecraft:block/polished_diorite",
+      "side": "minecraft:block/polished_diorite",
+      "top": "progressivearchery:block/archer_marker"
+    }
+}

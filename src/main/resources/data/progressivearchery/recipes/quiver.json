@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "tag": "minecraft:wooden_slabs"
+      },
+      "$": {
+        "tag": "minecraft:wool_carpets"
+      }
+    },
+    "pattern": [
+      "#$#",
+      "###"
+    ],
+    "result": {
+      "item": "progressivearchery:quiver"
+    }
+}

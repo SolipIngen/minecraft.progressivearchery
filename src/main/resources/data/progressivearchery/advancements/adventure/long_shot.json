@@ -1,0 +1,43 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "shot_longbow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:wooden_longbow",
+                "progressivearchery:copper_fused_longbow",
+                "progressivearchery:gold_fused_longbow",
+                "progressivearchery:iron_fused_longbow",
+                "progressivearchery:diamond_fused_longbow",
+                "progressivearchery:netherite_fused_longbow"
+              ]
+            }
+          ]
+        },
+        "trigger": "progressivearchery:shot_longbow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.long_shot.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:wooden_longbow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.long_shot.title"
+      }
+    },
+    "requirements": [
+      [
+        "shot_longbow"
+      ]
+    ]
+  }

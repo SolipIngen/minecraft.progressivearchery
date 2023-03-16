@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:gold_nugget"
+  },
+  "body": {
+    "item": "progressivearchery:golden_arrow"
+  },
+  "tail": {
+    "item": "minecraft:feather"
+  },
+  "addition": {
+    "item": "minecraft:iron_axe"
+  },
+  "output": {
+    "item": "progressivearchery:golden_kid_arrow",
+    "count": 2
+  }
+}

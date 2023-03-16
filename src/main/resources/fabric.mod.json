@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "progressivearchery",
+  "version": "0.2.0-1.19.4",
+
+  "name": "Progressive Archery",
+  "description": "A mod that revamps and expands archery and ranged combat in Minecraft. New variants of bows, upgrades, and arrows are added, along with changes and tweaks to all things archery related.",
+  "authors": [
+    "SolipIngen"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/SolipIngen/"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/progressivearchery/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "solipingen.progressivearchery.ProgressiveArchery"
+    ],
+    "client": [
+      "solipingen.progressivearchery.ProgressiveArcheryClient"
+    ]
+  },
+  "mixins": [
+    "progressivearchery.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric-api": "*",
+    "minecraft": ">=1.19.3",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

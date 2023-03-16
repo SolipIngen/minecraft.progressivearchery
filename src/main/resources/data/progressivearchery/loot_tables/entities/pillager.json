@@ -1,0 +1,85 @@
+{
+    "type": "minecraft:entity",
+    "pools": [
+      {
+        "bonus_rolls": 0.0,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "functions": [
+              {
+                "add": false,
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 2.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:set_count"
+              },
+              {
+                "count": {
+                  "type": "minecraft:uniform",
+                  "max": 1.0,
+                  "min": 0.0
+                },
+                "function": "minecraft:looting_enchant"
+              }
+            ],
+            "name": "progressivearchery:flint_arrow"
+          }
+        ],
+        "rolls": 1.0
+      },
+      {
+        "bonus_rolls": 0.0,
+        "conditions": [
+          {
+            "chance": 0.16,
+            "condition": "minecraft:random_chance_with_looting",
+            "looting_multiplier": 0.04
+          }
+        ],
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "progressivearchery:copper_arrow"
+          }
+        ],
+        "rolls": 1.0
+      },
+      {
+        "bonus_rolls": 0.0,
+        "conditions": [
+          {
+            "chance": 0.16,
+            "condition": "minecraft:random_chance_with_looting",
+            "looting_multiplier": 0.04
+          }
+        ],
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "progressivearchery:golden_arrow"
+          }
+        ],
+        "rolls": 1.0
+      },
+      {
+        "bonus_rolls": 0.0,
+        "conditions": [
+          {
+            "chance": 0.08,
+            "condition": "minecraft:random_chance_with_looting",
+            "looting_multiplier": 0.02
+          }
+        ],
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "progressivearchery:iron_arrow"
+          }
+        ],
+        "rolls": 1.0
+      }
+    ]
+  }
