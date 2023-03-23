@@ -208,36 +208,36 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         if (stack.getItem() instanceof ModBowItem && ((ModBowItem)stack.getItem()).getBowType() == 3) {
             if (itemStack.isEmpty()) {
                 if (level == 2) {
-                    return new ItemStack(ModItems.FLINT_KID_ARROW);
-                }
-                else if (level == 3) {
                     return new ItemStack(ModItems.COPPER_KID_ARROW);
                 }
-                else if (level == 4) {
+                else if (level == 3) {
                     return new ItemStack(ModItems.GOLDEN_KID_ARROW);
                 }
-                else if (level == 5) {
+                else if (level == 4) {
                     return new ItemStack(ModItems.IRON_KID_ARROW);
                 }
-                return new ItemStack(ModItems.WOODEN_KID_ARROW);
+                else if (level == 5) {
+                    return new ItemStack(ModItems.DIAMOND_KID_ARROW);
+                }
+                return new ItemStack(ModItems.FLINT_KID_ARROW);
             }
             return itemStack;
         }
         else {
             if (itemStack.isEmpty()) {
                 if (level == 2) {
-                    return new ItemStack(ModItems.FLINT_ARROW);
-                }
-                else if (level == 3) {
                     return new ItemStack(ModItems.COPPER_ARROW);
                 }
-                else if (level == 4) {
+                else if (level == 3) {
                     return new ItemStack(ModItems.GOLDEN_ARROW);
                 }
-                else if (level == 5) {
+                else if (level == 4) {
                     return new ItemStack(ModItems.IRON_ARROW);
                 }
-                return new ItemStack(ModItems.WOODEN_ARROW);
+                else if (level == 5) {
+                    return new ItemStack(ModItems.DIAMOND_ARROW);
+                }
+                return new ItemStack(ModItems.FLINT_ARROW);
             }
             return itemStack;
         }
@@ -428,11 +428,10 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     @Override
     public void setAngryAt(@Nullable UUID angryAt) {
         VillagerProfession profession = this.getVillagerData().getProfession();
-        if (this.world instanceof ServerWorld && angryAt != null && profession == ModVillagerProfessions.ARCHER) {
-            if (this.getAngryAt() == angryAt) return;
+        if (this.world instanceof ServerWorld && profession == ModVillagerProfessions.ARCHER) {
+            if (angryAt != null && this.getAngryAt() == angryAt) return;
             this.angryAt = angryAt;
             ((VillagerEntity)(Object)this).reinitializeBrain((ServerWorld)this.world);
-            this.playSound(SoundEvents.ENTITY_VILLAGER_NO, this.getSoundVolume(), this.getSoundPitch());
         }
     }
 
