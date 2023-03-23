@@ -46,7 +46,8 @@
     "entity.CrossbowUserMixin", 
     "entity.LivingEntityMixin", 
     "item.ItemsMixin", 
-    "item.SmithingTemplateItemMixin"
+    "item.SmithingTemplateItemMixin", 
+    "server.network.ServerPlayerEntityMixin"
   ],
   "client": [
     "client.WelcomeMixin", 

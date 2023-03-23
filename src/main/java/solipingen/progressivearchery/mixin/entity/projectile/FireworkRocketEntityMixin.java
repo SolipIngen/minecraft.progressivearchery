@@ -66,17 +66,17 @@ public abstract class FireworkRocketEntityMixin extends ProjectileEntity impleme
                     reachBl = true;
                     break;
                 }
-                if (!reachBl) continue;
-                int flameLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.FLAME, (LivingEntity)this.getOwner());
+                if (!reachBl || this.shooter == null) continue;
+                int flameLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.FLAME, this.shooter);
                 if (flameLevel > 0) {
                     livingEntity.setOnFireFor(5);
                 }
                 float g = f*((5.0f + 0.5f*(nbtList.size() - 1) - this.distanceTo(livingEntity)) / (5.0f + 0.5f*(nbtList.size() - 1)));
-                if (EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, (LivingEntity)this.getOwner()) > 0) {
-                    g *= (1.0f + 0.2f*EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, (LivingEntity)this.getOwner()));
+                if (EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, this.shooter) > 0) {
+                    g *= (1.0f + 0.2f*EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, this.shooter));
                 }
-                livingEntity.damage(this.getDamageSources().fireworks(((FireworkRocketEntity)(Object)this), this.getOwner()), g);
-                int punchLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.PUNCH, (LivingEntity)this.getOwner());
+                livingEntity.damage(this.getDamageSources().fireworks(((FireworkRocketEntity)(Object)this), this.shooter), g);
+                int punchLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.PUNCH, this.shooter);
                 double d = 0.8*Math.max(0.0, 1.0 - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
                 Vec3d vec3d2 = this.getVelocity().normalize().multiply(punchLevel*d);
                 if (vec3d2.lengthSquared() > 0.0) {
