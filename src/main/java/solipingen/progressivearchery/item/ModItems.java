@@ -17,7 +17,7 @@ import solipingen.progressivearchery.item.arrows.TippedKidArrowItem;
 
 public class ModItems {
 
-// Arrows
+    // Arrows
     public static final Item WOODEN_ARROW = ModItems.registerItem("wooden_arrow",
         new ModArrowItem(new FabricItemSettings()));
 
@@ -43,7 +43,7 @@ public class ModItems {
         new ModArrowItem(new FabricItemSettings()));
 
 
-// Kid Arrows
+    // Kid Arrows
     public static final Item WOODEN_KID_ARROW = ModItems.registerItem("wooden_kid_arrow",
         new KidArrowItem(new FabricItemSettings()));
 
@@ -69,7 +69,7 @@ public class ModItems {
         new KidArrowItem(new FabricItemSettings()));
 
 
-// Regular Bows
+    // Regular Bows
     public static final Item WOODEN_BOW = ModItems.registerItem("wooden_bow", 
         new ModBowItem(BowMaterials.WOOD, 0, new FabricItemSettings()));
 
@@ -89,7 +89,7 @@ public class ModItems {
         new ModBowItem(BowMaterials.NETHERITE, 0, new FabricItemSettings().fireproof()));
 
 
-// Horn Bows
+    // Horn Bows
     public static final Item WOODEN_HORN_BOW = ModItems.registerItem("wooden_horn_bow", 
         new ModBowItem(BowMaterials.WOOD, 1, new FabricItemSettings()));
 
@@ -109,7 +109,7 @@ public class ModItems {
         new ModBowItem(BowMaterials.NETHERITE, 1, new FabricItemSettings().fireproof()));
 
 
-// Longbows
+    // Longbows
     public static final Item WOODEN_LONGBOW = ModItems.registerItem("wooden_longbow", 
         new ModBowItem(BowMaterials.WOOD, 2, new FabricItemSettings()));
 
@@ -129,7 +129,7 @@ public class ModItems {
         new ModBowItem(BowMaterials.NETHERITE, 2, new FabricItemSettings().fireproof()));
     
 
-// Tubular Bows
+    // Tubular Bows
     public static final Item WOODEN_TUBULAR_BOW = ModItems.registerItem("wooden_tubular_bow", 
         new ModBowItem(BowMaterials.WOOD, 3, new FabricItemSettings()));
 
@@ -149,7 +149,7 @@ public class ModItems {
         new ModBowItem(BowMaterials.NETHERITE, 3, new FabricItemSettings().fireproof()));
 
 
-// Crossbows
+    // Crossbows
     public static final Item WOODEN_CROSSBOW = ModItems.registerItem("wooden_crossbow", 
         new ModCrossbowItem(BowMaterials.WOOD, new FabricItemSettings()));
 
@@ -169,20 +169,20 @@ public class ModItems {
         new ModCrossbowItem(BowMaterials.NETHERITE, new FabricItemSettings().fireproof()));
 
 
-// Quiver
+    // Quiver
     public static final Item QUIVER = ModItems.registerItem("quiver", 
         new QuiverItem(new FabricItemSettings().maxCount(1)));
 
-// Bow Fusion Template
+    // Bow Fusion Template
     public static final Item BOW_FUSION_SMITHING_TEMPLATE = ModItems.registerItem("bow_fusion_smithing_template", 
         (Item)BowFusionTemplateItem.createBowFusionTemplate());
 
-// Copper Nugget
+    // Copper Nugget
     public static final Item COPPER_NUGGET = ModItems.registerItem("copper_nugget",
         new Item(new FabricItemSettings()));
 
 
-// Horse, Strider and Hoglin Hairs
+    // Horse, Strider and Hoglin Hairs
     public static final Item HORSEHAIR = ModItems.registerItem("horsehair",
         new Item(new FabricItemSettings()));
 
@@ -192,12 +192,12 @@ public class ModItems {
     public static final Item HOGLINHAIR = ModItems.registerItem("hoglinhair",
         new Item(new FabricItemSettings()));
 
-// Fireproof Lead
+    // Fireproof Lead
     public static final Item FIREPROOF_LEAD = ModItems.registerItem("fireproof_lead",
         new LeadItem(new FabricItemSettings().fireproof()));
 
 
-// Registering Methods
+    // Registering Methods
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(ProgressiveArchery.MOD_ID, name), item);
     }

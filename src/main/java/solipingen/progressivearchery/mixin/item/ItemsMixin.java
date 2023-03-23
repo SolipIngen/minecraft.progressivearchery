@@ -20,10 +20,11 @@ public abstract class ItemsMixin {
     
     @Inject(method = "register(Lnet/minecraft/util/Identifier;Lnet/minecraft/item/Item;)Lnet/minecraft/item/Item;", at = @At("TAIL"), cancellable = true)
     private static void injectedRegister(Identifier id, Item item, CallbackInfoReturnable<Item> cbireturn) {
+        String name = id.getPath();
+        int rawId = Item.getRawId(item);
         if (item instanceof BundleItem) {
             Item newBundleItem = (Item)new ModBundleItem(new Item.Settings().maxCount(1));
-            int bundleRawId = Item.getRawId(item);
-            cbireturn.setReturnValue(Registry.register(Registries.ITEM, bundleRawId, "bundle", newBundleItem));
+            cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newBundleItem));
         }
     }
 
