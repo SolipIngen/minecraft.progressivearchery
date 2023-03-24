@@ -26,7 +26,7 @@ public abstract class AnimalEntityMixin extends PassiveEntity {
     @Inject(method = "mobTick", at = @At("TAIL"))
     private void injectedDropFeather(CallbackInfo info) {
         if (this.getType().isIn(ModEntityTypeTags.BIRDS)) {
-            float featherThreshold = ((AnimalEntity)(Object)this) instanceof ChickenEntity ? 0.00005f : 0.000025f;
+            float featherThreshold = ((AnimalEntity)(Object)this) instanceof ChickenEntity ? 0.0001f : 0.00005f;
             if (!this.world.isClient && this.isAlive() && !this.isBaby() && this.random.nextFloat() < featherThreshold) {
                 ItemEntity itemEntity = this.dropItem(Items.FEATHER);
                 itemEntity.setVelocity(itemEntity.getVelocity().add((this.random.nextFloat() - this.random.nextFloat()) * 0.025f, this.random.nextFloat() * 0.0125f, (this.random.nextFloat() - this.random.nextFloat()) * 0.025f));

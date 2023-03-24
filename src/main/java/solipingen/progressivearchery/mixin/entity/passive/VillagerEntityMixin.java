@@ -340,68 +340,68 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
                 int materialLevel = modBowItem.getMaterial().getMiningLevel();
                 if (materialLevel < level - 1) {
                     if (modBowItem.getBowType() == 1) {
-                        if (level == 2 && fletcherLevel >= 2) {
+                        if (level >= 2 && fletcherLevel >= 2) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_HORN_BOW));
                         }
-                        if (level == 3 && fletcherLevel >= 3) {
+                        if (level >= 3 && fletcherLevel >= 3) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.GOLD_FUSED_HORN_BOW));
                         }
                     }
                     else if (modBowItem.getBowType () == 2) {
-                        if (level == 2 && fletcherLevel >= 2) {
+                        if (level >= 2 && fletcherLevel >= 2) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_LONGBOW));
                         }
-                        if (level == 3 && fletcherLevel >= 3) {
+                        if (level >= 3 && fletcherLevel >= 3) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.GOLD_FUSED_LONGBOW));
                         }
                     }
                     else if (modBowItem.getBowType () == 3) {
-                        if (level == 2 && fletcherLevel >= 2) {
+                        if (level >= 2 && fletcherLevel >= 2) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_TUBULAR_BOW));
                         }
-                        if (level == 3 && fletcherLevel >= 3) {
+                        if (level >= 3 && fletcherLevel >= 3) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.GOLD_FUSED_TUBULAR_BOW));
                         }
                     }
                     else {
-                        if (level == 2 && fletcherLevel >= 2) {
+                        if (level >= 2 && fletcherLevel >= 2) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_BOW));
                         }
-                        if (level == 3 && fletcherLevel >= 3) {
+                        if (level >= 3 && fletcherLevel >= 3) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.GOLD_FUSED_BOW));
                         }
                     }
                 }
                 if (materialLevel < level - 2) {
                     if (modBowItem.getBowType() == 1) {
-                        if (level == 4 && fletcherLevel >= 4) {
+                        if (level >= 4 && fletcherLevel >= 4) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_FUSED_HORN_BOW));
                         }
-                        if (level == 5 && fletcherLevel == 5) {
+                        if (level >= 5 && fletcherLevel == 5) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIAMOND_FUSED_HORN_BOW));
                         }
                     }
                     else if (modBowItem.getBowType () == 2) {
-                        if (level == 4 && fletcherLevel >= 4) {
+                        if (level >= 4 && fletcherLevel >= 4) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_FUSED_LONGBOW));
                         }
-                        if (level == 5 && fletcherLevel == 5) {
+                        if (level >= 5 && fletcherLevel == 5) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIAMOND_FUSED_LONGBOW));
                         }
                     }
                     else if (modBowItem.getBowType () == 3) {
-                        if (level == 4 && fletcherLevel >= 4) {
+                        if (level >= 4 && fletcherLevel >= 4) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_FUSED_TUBULAR_BOW));
                         }
-                        if (level == 5 && fletcherLevel == 5) {
+                        if (level >= 5 && fletcherLevel == 5) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIAMOND_FUSED_TUBULAR_BOW));
                         }
                     }
                     else {
-                        if (level == 4 && fletcherLevel >= 4) {
+                        if (level >= 4 && fletcherLevel >= 4) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_FUSED_BOW));
                         }
-                        if (level == 5 && fletcherLevel == 5) {
+                        if (level >= 5 && fletcherLevel == 5) {
                             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.DIAMOND_FUSED_BOW));
                         }
                     }
