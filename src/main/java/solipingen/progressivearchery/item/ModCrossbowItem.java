@@ -52,7 +52,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.server.network.Server
 
 
 public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
-    public static final Predicate<ItemStack> MOD_CROSSBOW_PROJECTILES = stack -> stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof FireworkRocketItem;
+    public static final Predicate<ItemStack> MOD_CROSSBOW_PROJECTILES = stack -> stack.getItem() instanceof ModArrowItem || stack.isOf(Items.SPECTRAL_ARROW) || stack.getItem() instanceof FireworkRocketItem;
     public static final Predicate<ItemStack> MOD_CROSSBOW_HELD_PROJECTILES = MOD_CROSSBOW_PROJECTILES;
     private static final String CHARGED_KEY = "Charged";
     private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
@@ -203,7 +203,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         else if (projectile.isOf(ModItems.COPPER_ARROW) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(ModItems.SPECTRAL_ARROW)) && randomf > 0.5f) {
+        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(Items.SPECTRAL_ARROW)) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
         else if (projectile.isOf(ModItems.IRON_ARROW) && randomf > 0.25f) {

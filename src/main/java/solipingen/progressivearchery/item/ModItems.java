@@ -9,7 +9,6 @@ import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
-import solipingen.progressivearchery.item.arrows.SpectralArrowItem;
 import solipingen.progressivearchery.item.arrows.SpectralKidArrowItem;
 import solipingen.progressivearchery.item.arrows.TippedArrowItem;
 import solipingen.progressivearchery.item.arrows.TippedKidArrowItem;
@@ -35,9 +34,6 @@ public class ModItems {
 
     public static final Item TIPPED_ARROW = ModItems.registerItem("tipped_arrow",
         new TippedArrowItem(new FabricItemSettings()));
-
-    public static final Item SPECTRAL_ARROW = ModItems.registerItem("spectral_arrow",
-        new SpectralArrowItem(new FabricItemSettings()));
 
     public static final Item DIAMOND_ARROW = ModItems.registerItem("diamond_arrow", 
         new ModArrowItem(new FabricItemSettings()));

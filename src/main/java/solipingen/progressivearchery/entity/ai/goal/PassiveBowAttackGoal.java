@@ -93,8 +93,8 @@ public class PassiveBowAttackGoal<T extends PassiveEntity> extends Goal {
     public void start() {
         super.start();
         ((MobEntity)this.actor).setAttacking(true);
-        if (actor.world instanceof ServerWorld) {
-            actor.playSound(SoundEvents.ENTITY_VILLAGER_NO, 1.0f, actor.getSoundPitch());
+        if (this.actor.world instanceof ServerWorld && this.actor instanceof VillagerEntity) {
+            this.actor.playSound(SoundEvents.ENTITY_VILLAGER_NO, 1.0f, actor.getSoundPitch());
         }
     }
 

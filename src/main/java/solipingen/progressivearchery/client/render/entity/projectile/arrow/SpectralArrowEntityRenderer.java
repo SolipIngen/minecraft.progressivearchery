@@ -5,13 +5,12 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import net.minecraft.util.Identifier;
-import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 
 
 @Environment(value=EnvType.CLIENT)
 public class SpectralArrowEntityRenderer extends ProjectileEntityRenderer<SpectralArrowEntity> {
-    public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/spectral_arrow.png");
+    public static final Identifier TEXTURE = new Identifier("textures/entity/projectiles/spectral_arrow.png");
 
 
     public SpectralArrowEntityRenderer(EntityRendererFactory.Context context) {

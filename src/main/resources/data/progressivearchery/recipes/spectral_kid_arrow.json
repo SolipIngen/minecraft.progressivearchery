@@ -4,7 +4,7 @@
     "item": "minecraft:glowstone_dust"
   },
   "body": {
-    "item": "progressivearchery:spectral_arrow"
+    "item": "minecraft:spectral_arrow"
   },
   "tail": {
     "item": "minecraft:feather"

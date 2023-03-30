@@ -53,7 +53,7 @@ public class QuiverItem extends Item {
         }
         ItemStack itemStack = slot.getStack();
         Item item = itemStack.getItem();
-        if (!(item instanceof ModArrowItem || item instanceof KidArrowItem || itemStack.isOf(Items.FIREWORK_ROCKET) || itemStack.isEmpty())) {
+        if (!(item instanceof ModArrowItem || item instanceof KidArrowItem || itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.isOf(Items.FIREWORK_ROCKET) || itemStack.isEmpty())) {
             return false;
         }
         if (itemStack.isEmpty()) {
@@ -119,7 +119,7 @@ public class QuiverItem extends Item {
         if (stack.isEmpty() || !stack.getItem().canBeNested()) {
             return 0;
         }
-        if (!(stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof KidArrowItem || stack.isOf(Items.FIREWORK_ROCKET))) {
+        if (!(stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof KidArrowItem || stack.isOf(Items.SPECTRAL_ARROW) || stack.isOf(Items.FIREWORK_ROCKET))) {
             return 0;
         }
         NbtCompound nbtCompound = quiver.getOrCreateNbt();

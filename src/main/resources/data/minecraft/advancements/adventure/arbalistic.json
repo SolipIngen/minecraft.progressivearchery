@@ -40,7 +40,7 @@
       "frame": "challenge",
       "hidden": false,
       "icon": {
-        "item": "progressivearchery:spectral_arrow",
+        "item": "minecraft:spectral_arrow",
         "nbt": "{Damage:0}"
       },
       "show_toast": true,

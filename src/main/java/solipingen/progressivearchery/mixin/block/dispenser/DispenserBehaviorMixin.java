@@ -11,6 +11,7 @@ import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.projectile.arrow.CopperArrowEntity;
@@ -145,7 +146,7 @@ public interface DispenserBehaviorMixin {
                 return arrowEntity;
             }
         });
-        DispenserBlock.registerBehavior(ModItems.SPECTRAL_ARROW, new ProjectileDispenserBehavior(){
+        DispenserBlock.registerBehavior(Items.SPECTRAL_ARROW, new ProjectileDispenserBehavior(){
 
             @Override
             protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
