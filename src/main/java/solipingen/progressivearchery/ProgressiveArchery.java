@@ -17,7 +17,6 @@ import solipingen.progressivearchery.village.ModVillagerProfessions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class ProgressiveArchery implements ModInitializer {
 	
 	public static final String MOD_ID = "progressivearchery";
