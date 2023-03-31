@@ -29,6 +29,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.advancement.criterion.ModCriteria;
+import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
 import solipingen.progressivearchery.sound.ModSoundEvents;
@@ -111,11 +112,14 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
         if (f < 0.1f) {
             return;
         }
-        boolean bl2 = bl && (itemStack.getItem() instanceof ModArrowItem || itemStack.getItem() instanceof KidArrowItem);
+        boolean bl2 = bl && (itemStack.getItem() instanceof ModArrowItem || itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.getItem() instanceof KidArrowItem);
         if (!world.isClient) {
             ModArrowItem arrowItem = (ModArrowItem)(itemStack.getItem() instanceof ModArrowItem ? itemStack.getItem() : ModItems.WOODEN_ARROW);
             KidArrowItem kidArrowItem = (KidArrowItem)(itemStack.getItem() instanceof KidArrowItem ? itemStack.getItem() : ModItems.WOODEN_KID_ARROW);
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createModArrow(world, itemStack, playerEntity);
+            if (itemStack.isOf(Items.SPECTRAL_ARROW) && this.bowType != 3) {
+                persistentProjectileEntity = new SpectralArrowEntity(world, playerEntity);
+            }
             if (this.bowType == 3) {
                 persistentProjectileEntity = kidArrowItem.createKidArrow(world, itemStack, playerEntity);
             }
@@ -244,7 +248,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
     }
 
     private ItemStack getModArrowType(PlayerEntity playerEntity, ItemStack stack) {
-        if (!(stack.getItem() instanceof ModBowItem || stack.getItem() instanceof KidArrowItem)) {
+        if (!(stack.getItem() instanceof ModBowItem)) {
             return ItemStack.EMPTY;
         }
         if (ModBowItem.getFilledQuiver(playerEntity) != ItemStack.EMPTY) {
@@ -255,7 +259,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
                 itemStack3 = quiverStream.filter(item -> item.getItem() instanceof KidArrowItem).findFirst().orElse(ItemStack.EMPTY);
             }
             else {
-                itemStack3 = quiverStream.filter(item -> item.getItem() instanceof ModArrowItem).findFirst().orElse(ItemStack.EMPTY);
+                itemStack3 = quiverStream.filter(item -> (item.getItem() instanceof ModArrowItem || item.isOf(Items.SPECTRAL_ARROW))).findFirst().orElse(ItemStack.EMPTY);
             }
             return itemStack3;
         }
