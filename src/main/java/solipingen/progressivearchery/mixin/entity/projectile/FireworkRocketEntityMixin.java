@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingItemEntity;
 import net.minecraft.entity.LivingEntity;
@@ -39,6 +40,13 @@ public abstract class FireworkRocketEntityMixin extends ProjectileEntity impleme
 
     public FireworkRocketEntityMixin(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Inject(method = "<init>(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;DDDLnet/minecraft/item/ItemStack;)V", at = @At("TAIL"))
+    private void injectedInit(World world, @Nullable Entity entity, double x, double y, double z, ItemStack itemStack, CallbackInfo cbi) {
+        if (entity != null) {
+            this.addVelocity(entity.getVelocity());
+        }
     }
 
     @Inject(method = "explode", at = @At("HEAD"), cancellable = true)

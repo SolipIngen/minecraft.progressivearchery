@@ -45,8 +45,12 @@
     "entity.raid.RaiderEntityMixin", 
     "entity.CrossbowUserMixin", 
     "entity.LivingEntityMixin", 
+    "item.EggItemMixin", 
+    "item.EnderPearlItemMixin", 
     "item.ItemsMixin", 
     "item.SmithingTemplateItemMixin", 
+    "item.SnowballItemMixin", 
+    "item.ThrowablePotionItemMixin", 
     "server.network.ServerPlayerEntityMixin"
   ],
   "client": [
