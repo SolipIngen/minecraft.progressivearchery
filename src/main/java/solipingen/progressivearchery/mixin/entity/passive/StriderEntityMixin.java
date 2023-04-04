@@ -93,7 +93,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements ItemSte
     @Inject(method = "initDataTracker", at = @At("TAIL"))
     private void injectedInitDataTracker(CallbackInfo cbi) {
         this.dataTracker.startTracking(IS_SHEARED, false);
-        this.dataTracker.startTracking(HAIR_GROWTH_TIME, world.getRandom().nextBetween(6000, 12000));
+        this.dataTracker.startTracking(HAIR_GROWTH_TIME, this.random.nextBetween(6000, 12000));
     }
 
     @Invoker("isCold")
@@ -107,7 +107,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements ItemSte
             }
             this.setHairGrowthTime(this.getHairGrowthTime() - 1);
             if (this.getHairGrowthTime() <= 0) {
-                this.setHairGrowthTime(this.world.getRandom().nextBetween(6000, 12000));
+                this.setHairGrowthTime(this.random.nextBetween(6000, 12000));
                 this.setIsSheared(false);
             }
         }

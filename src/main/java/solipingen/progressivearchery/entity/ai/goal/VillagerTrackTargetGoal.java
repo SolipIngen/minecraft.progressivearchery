@@ -16,12 +16,13 @@ public class VillagerTrackTargetGoal extends TrackTargetGoal {
     private final VillagerEntity villager;
     @Nullable
     private LivingEntity target;
-    private final TargetPredicate targetPredicate = TargetPredicate.createAttackable().setBaseMaxDistance(64.0);
+    private final TargetPredicate targetPredicate;
 
     public VillagerTrackTargetGoal(VillagerEntity villager) {
         super(villager, false, true);
         this.villager = villager;
         this.setControls(EnumSet.of(Goal.Control.TARGET));
+        this.targetPredicate = TargetPredicate.createAttackable().setBaseMaxDistance(48.0);
     }
 
     @Override

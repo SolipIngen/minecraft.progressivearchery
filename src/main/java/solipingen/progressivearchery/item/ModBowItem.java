@@ -38,7 +38,7 @@ import solipingen.progressivearchery.sound.ModSoundEvents;
 public class ModBowItem extends RangedWeaponItem implements Vanishable {
     public static final Predicate<ItemStack> MOD_BOW_PROJECTILES = stack -> stack.getItem() instanceof ModArrowItem || stack.isOf(Items.SPECTRAL_ARROW);
     public static final Predicate<ItemStack> TUBULAR_BOW_PROJECTILES = stack -> stack.getItem() instanceof KidArrowItem;
-    public static final int RANGE = 15;
+    public static final int RANGE = 24;
     private final ToolMaterial material;
     private final int bowType;
     private final float maxReleaseSpeed;

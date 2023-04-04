@@ -47,7 +47,12 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
 
     @ModifyConstant(method = "initGoals", constant = @Constant(floatValue = 8.0f))
     private float modifiedCrossbowRange(float originalRange) {
-        return 15.0f;
+        return 24.0f;
+    }
+
+    @ModifyConstant(method = "initGoals", constant = @Constant(floatValue = 15.0f))
+    private float modifiedSightRange(float originalRange) {
+        return 32.0f;
     }
 
     @Inject(method = "getState", at = @At("TAIL"), cancellable = true)

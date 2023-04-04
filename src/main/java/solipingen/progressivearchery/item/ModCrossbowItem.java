@@ -57,7 +57,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
     public static final Predicate<ItemStack> MOD_CROSSBOW_HELD_PROJECTILES = MOD_CROSSBOW_PROJECTILES;
     private static final String CHARGED_KEY = "Charged";
     private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
-    public static final int RANGE = 15;
+    public static final int RANGE = 24;
     private boolean charged = false;
     private boolean loaded = false;
     private final ToolMaterial material;

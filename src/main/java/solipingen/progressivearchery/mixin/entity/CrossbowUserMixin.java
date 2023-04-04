@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import solipingen.progressivearchery.item.ModCrossbowItem;
 import solipingen.progressivearchery.item.ModItems;
@@ -53,7 +54,10 @@ public interface CrossbowUserMixin extends RangedAttackMob {
 
     @ModifyConstant(method = "Lnet/minecraft/entity/CrossbowUser;shoot(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/entity/projectile/ProjectileEntity;FF)V", constant = @Constant(doubleValue = (double)0.2f))
     private double modifiedDivergenceConstant(double originalD, LivingEntity entity, LivingEntity target, ProjectileEntity projectile, float multishotSpray, float speed) {
-        return 0.12;
+        if (entity.isHolding(Items.CROSSBOW)) {
+            return originalD;
+        }
+        return 0.1;
     }
 
 }

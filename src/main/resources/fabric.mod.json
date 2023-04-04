@@ -23,6 +23,9 @@
     ],
     "client": [
       "solipingen.progressivearchery.ProgressiveArcheryClient"
+    ],
+    "fabric-datagen": [
+      "solipingen.progressivearchery.ProgressiveArcheryDataGenerator"
     ]
   },
   "mixins": [
