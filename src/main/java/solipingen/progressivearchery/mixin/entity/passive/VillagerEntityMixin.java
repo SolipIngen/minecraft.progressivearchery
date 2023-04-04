@@ -181,9 +181,9 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     }
 
     private static ImmutableList<Pair<Integer, ? extends Task<? super VillagerEntity>>> createArcherRaidTasks(ServerWorld world, VillagerEntity villager, float speed) {
-        return ImmutableList.of(Pair.of(0, TaskTriggerer.runIf(TaskTriggerer.predicate( VillagerEntityMixin::wonRaid), Tasks.pickRandomly(ImmutableList.of(Pair.of(SeekSkyTask.create(speed), 5), Pair.of(FindWalkTargetTask.create(speed * 1.1f), 2))))), 
+        return ImmutableList.of(Pair.of(0, TaskTriggerer.runIf(TaskTriggerer.predicate(VillagerEntityMixin::wonRaid), Tasks.pickRandomly(ImmutableList.of(Pair.of(SeekSkyTask.create(speed), 5), Pair.of(FindWalkTargetTask.create(speed * 1.1f), 2))))), 
             Pair.of(0, new CelebrateRaidWinTask(600, 600)), 
-            Pair.of(2, TaskTriggerer.runIf(TaskTriggerer.predicate(VillagerEntityMixin::hasActiveRaid), VillagerWalkTowardsTask.create(MemoryModuleType.JOB_SITE, speed, 24, 100, 1200))), 
+            Pair.of(2, TaskTriggerer.runIf(TaskTriggerer.predicate(VillagerEntityMixin::hasActiveRaid), VillagerWalkTowardsTask.create(MemoryModuleType.JOB_SITE, speed, 1, 100, 1200))), 
             VillagerEntityMixin.createBusyFollowTask(), Pair.of(99, EndRaidTask.create()));
     }
 
