@@ -47,6 +47,7 @@
     "entity.LivingEntityMixin", 
     "item.EggItemMixin", 
     "item.EnderPearlItemMixin", 
+    "item.ExperienceBottleItemMixin", 
     "item.ItemsMixin", 
     "item.SmithingTemplateItemMixin", 
     "item.SnowballItemMixin", 
