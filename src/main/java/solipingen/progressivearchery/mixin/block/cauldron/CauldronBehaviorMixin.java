@@ -106,8 +106,8 @@ public interface CauldronBehaviorMixin {
                     PotionCauldronBlock.decrementFluidLevel(state, world, pos);
                 }
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_ARROW), potionType)));
-                int currentTippingNmber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
-                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNmber - 1));
+                int currentTippingNumber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
+                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNumber - 1));
 
                 player.incrementStat(Stats.USE_CAULDRON);
                 player.incrementStat(Stats.USED.getOrCreateStat(item));
@@ -128,8 +128,8 @@ public interface CauldronBehaviorMixin {
                     PotionCauldronBlock.decrementFluidLevel(state, world, pos);
                 }
                 player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_KID_ARROW), potionType)));
-                int currentTippingNmber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
-                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNmber - 1));
+                int currentTippingNumber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
+                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNumber - 1));
 
                 player.incrementStat(Stats.USE_CAULDRON);
                 player.incrementStat(Stats.USED.getOrCreateStat(item));

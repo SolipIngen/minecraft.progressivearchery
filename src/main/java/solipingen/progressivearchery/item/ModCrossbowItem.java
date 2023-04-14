@@ -202,7 +202,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         else if (projectile.isOf(ModItems.COPPER_ARROW) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(Items.SPECTRAL_ARROW)) && randomf > 0.5f) {
+        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(ModItems.TIPPED_ARROW) || projectile.isOf(Items.SPECTRAL_ARROW)) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
         else if (projectile.isOf(ModItems.IRON_ARROW) && randomf > 0.25f) {

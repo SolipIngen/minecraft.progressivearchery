@@ -12,6 +12,8 @@ import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PotionItem;
 import net.minecraft.item.ThrowablePotionItem;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -33,8 +35,8 @@ public abstract class ThrowablePotionItemMixin extends PotionItem {
 
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V"), cancellable = true)
     private void injectedUseCooldown(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cbireturn) {
-        if (!user.isCreative()) {
-            user.getItemCooldownManager().set(this, 40);
+        if (!user.isCreative() && PotionUtil.getPotion(user.getStackInHand(hand)) != Potions.WATER) {
+            user.getItemCooldownManager().set(this, 30);
         }
     }
 

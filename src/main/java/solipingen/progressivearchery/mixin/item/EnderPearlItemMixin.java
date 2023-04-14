@@ -2,6 +2,8 @@ package solipingen.progressivearchery.mixin.item;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import net.minecraft.entity.Entity;
@@ -16,6 +18,11 @@ public abstract class EnderPearlItemMixin extends Item {
 
     public EnderPearlItemMixin(Settings settings) {
         super(settings);
+    }
+
+    @ModifyConstant(method = "use", constant = @Constant(intValue = 20))
+    private int modifiedCooldownTime(int originalI) {
+        return 10;
     }
 
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/thrown/EnderPearlEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"))

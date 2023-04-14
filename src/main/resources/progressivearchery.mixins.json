@@ -49,6 +49,7 @@
     "item.EnderPearlItemMixin", 
     "item.ExperienceBottleItemMixin", 
     "item.ItemsMixin", 
+    "item.ItemStackMixin", 
     "item.SmithingTemplateItemMixin", 
     "item.SnowballItemMixin", 
     "item.ThrowablePotionItemMixin", 

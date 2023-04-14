@@ -31,7 +31,7 @@ public class ModArrowItem extends Item {
             arrowEntity = new CopperArrowEntity(world, shooter);
             ((CopperArrowEntity)arrowEntity).initFromStack(stack);
         }
-        else if (stack.isOf(ModItems.GOLDEN_ARROW)) {
+        else if (stack.isOf(ModItems.GOLDEN_ARROW) || stack.isOf(ModItems.TIPPED_ARROW)) {
             arrowEntity = new GoldenArrowEntity(world, shooter);
             ((GoldenArrowEntity)arrowEntity).initFromStack(stack);
         }

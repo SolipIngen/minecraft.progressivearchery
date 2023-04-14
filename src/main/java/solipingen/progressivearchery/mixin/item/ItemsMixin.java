@@ -36,7 +36,7 @@ public abstract class ItemsMixin {
                 cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newSplashPotionItem));
             }
             else if (item instanceof LingeringPotionItem) {
-                Item newLingeringPotionItem = (Item)new LingeringPotionItem(new Item.Settings().maxCount(4));
+                Item newLingeringPotionItem = (Item)new LingeringPotionItem(new Item.Settings().maxCount(8));
                 cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newLingeringPotionItem));
             }
             else {

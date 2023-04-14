@@ -34,12 +34,12 @@ public abstract class GiveGiftsToHeroTaskMixin extends MultiTickTask<VillagerEnt
     }
 
     @Inject(method = "getGifts", at = @At("HEAD"), cancellable = true)
-    private void injectedModProfessionGifts(VillagerEntity villager, CallbackInfoReturnable<List<ItemStack>> value) {
+    private void injectedModProfessionGifts(VillagerEntity villager, CallbackInfoReturnable<List<ItemStack>> cbireturn) {
         VillagerProfession villagerProfession = villager.getVillagerData().getProfession();
         if (villagerProfession == VillagerProfession.FLETCHER) {
             LootTable lootTable = villager.world.getServer().getLootManager().getTable(HERO_OF_THE_VILLAGE_FLETCHER_GIFT);
             Builder builder = new Builder((ServerWorld)villager.world).parameter(LootContextParameters.ORIGIN, villager.getPos()).parameter(LootContextParameters.THIS_ENTITY, villager).random(villager.getRandom());
-            value.setReturnValue(lootTable.generateLoot(builder.build(LootContextTypes.GIFT)));
+            cbireturn.setReturnValue(lootTable.generateLoot(builder.build(LootContextTypes.GIFT)));
         }
     }    
 

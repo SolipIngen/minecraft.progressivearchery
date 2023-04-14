@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "progressivearchery",
-  "version": "0.2.0-1.19.4",
+  "version": "0.1.0-1.19.4",
 
   "name": "Progressive Archery",
-  "description": "A mod that revamps and expands archery and ranged combat in Minecraft. New variants of bows, upgrades, and arrows are added, along with changes and tweaks to all things archery related.",
+  "description": "A mod that revamps and expands archery and ranged combat. New variants of bows, upgrades, and arrows are added, along with changes and tweaks to all things archery & projectile related.",
   "authors": [
     "SolipIngen"
   ],
@@ -35,10 +35,13 @@
   "depends": {
     "fabricloader": ">=0.14.9",
     "fabric-api": "*",
-    "minecraft": ">=1.19.3",
+    "minecraft": ">=1.19.4",
     "java": ">=17"
   },
   "suggests": {
-    "another-mod": "*"
+    "another-mod": [
+      "armorrestitched",
+      "sassot"
+    ]
   }
 }
