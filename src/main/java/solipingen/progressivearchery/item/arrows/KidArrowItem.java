@@ -31,7 +31,7 @@ public class KidArrowItem extends Item {
             kidArrowEntity = new CopperKidArrowEntity(world, shooter);
             ((CopperKidArrowEntity)kidArrowEntity).initFromStack(stack);
         }
-        else if (stack.isOf(ModItems.GOLDEN_KID_ARROW)) {
+        else if (stack.isOf(ModItems.GOLDEN_KID_ARROW) || stack.isOf(ModItems.TIPPED_KID_ARROW)) {
             kidArrowEntity = new GoldenKidArrowEntity(world, shooter);
             ((GoldenKidArrowEntity)kidArrowEntity).initFromStack(stack);
         }

@@ -51,7 +51,8 @@ public class ModVillagerProfessions {
                     new SellItemFactory(ModItems.COPPER_FUSED_HORN_BOW, 6, 1, 5), new SellItemFactory(ModItems.COPPER_FUSED_LONGBOW, 7, 1, 5), 
                     new SellItemFactory(ModItems.COPPER_FUSED_TUBULAR_BOW, 7, 1, 5), new SellItemFactory(ModItems.COPPER_FUSED_CROSSBOW, 7, 1, 5)}, 
                 3, new Factory[]{new BuyForOneEmeraldFactory(ModItems.COPPER_NUGGET, 18, 16, 20), new BuyForOneEmeraldFactory(Items.GOLD_NUGGET, 12, 16, 20), 
-                    new SellItemFactory(ModItems.GOLDEN_ARROW, 2, 4, 10), new SellItemFactory(ModItems.GOLD_FUSED_BOW, 5, 1, 10), 
+                    new SellItemFactory(ModItems.COPPER_ARROW, 3, 8, 10), new SellItemFactory(ModItems.GOLDEN_ARROW, 4, 4, 10), 
+                    new SellItemFactory(ModItems.GOLD_FUSED_BOW, 5, 1, 10), 
                     new SellItemFactory(ModItems.GOLD_FUSED_HORN_BOW, 6, 1, 10), new SellItemFactory(ModItems.GOLD_FUSED_LONGBOW, 7, 1, 10), 
                     new SellItemFactory(ModItems.GOLD_FUSED_TUBULAR_BOW, 7, 1, 10), new SellItemFactory(ModItems.GOLD_FUSED_CROSSBOW, 7, 1, 10)}, 
                 4, new Factory[]{new BuyForOneEmeraldFactory(Items.GOAT_HORN, 1, 16, 30), new BuyForOneEmeraldFactory(Items.IRON_NUGGET, 18, 16, 30), 
@@ -60,7 +61,7 @@ public class ModVillagerProfessions {
                     new SellItemFactory(ModItems.IRON_FUSED_HORN_BOW, 11, 1, 15), new SellItemFactory(ModItems.IRON_FUSED_LONGBOW, 12, 1, 15), 
                     new SellItemFactory(ModItems.IRON_FUSED_TUBULAR_BOW, 12, 1, 15), new SellItemFactory(ModItems.IRON_FUSED_CROSSBOW, 12, 1, 15)}, 
                 5, new Factory[]{new BuyForOneEmeraldFactory(Items.DIAMOND, 1, 16, 30), 
-                    new SellItemFactory(ModItems.DIAMOND_ARROW, 1, 1, 15), 
+                    new SellItemFactory(ModItems.DIAMOND_ARROW, 4, 1, 15), 
                     new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_BOW, 15, 3, 15), new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_HORN_BOW, 17, 3, 15), 
                     new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_LONGBOW, 17, 3, 15), new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_TUBULAR_BOW, 17, 3, 15),
                     new SellEnchantedToolFactory(ModItems.DIAMOND_FUSED_CROSSBOW, 17, 3, 15)}

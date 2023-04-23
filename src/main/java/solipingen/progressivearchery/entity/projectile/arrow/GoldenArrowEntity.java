@@ -82,7 +82,8 @@ public class GoldenArrowEntity extends ModArrowEntity {
         this.colorSet = false;
         if (this.potion == Potions.EMPTY && this.effects.isEmpty()) {
             this.dataTracker.set(COLOR, -1);
-        } else {
+        } 
+        else {
             this.dataTracker.set(COLOR, PotionUtil.getColor(PotionUtil.getPotionEffects(this.potion, this.effects)));
         }
     }
@@ -109,7 +110,8 @@ public class GoldenArrowEntity extends ModArrowEntity {
             } else {
                 this.spawnParticles(2);
             }
-        } else if (this.inGround && this.inGroundTime != 0 && !this.effects.isEmpty() && this.inGroundTime >= 600) {
+        } 
+        else if (this.inGround && this.inGroundTime != 0 && !this.effects.isEmpty() && this.inGroundTime >= 600) {
             this.world.sendEntityStatus(this, (byte)0);
             this.potion = Potions.EMPTY;
             this.effects.clear();
@@ -134,7 +136,7 @@ public class GoldenArrowEntity extends ModArrowEntity {
         return this.dataTracker.get(COLOR);
     }
 
-    private void setColor(int color) {
+    public void setColor(int color) {
         this.colorSet = true;
         this.dataTracker.set(COLOR, color);
     }

@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.common.collect.Lists;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -30,6 +32,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -60,9 +64,37 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
     @Shadow private int punch;
     @Shadow @Nullable private List<Entity> piercingKilledEntities;
 
+    @Invoker("clearPiercingStatus")
+    public abstract void invokeClearPiercingStatus();
+
 
     public PersistentProjectileEntityMixin(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void injectedTick(CallbackInfo cbi) {
+        if (this.isInsideWall() && this.getVelocity().length() > 0.0) {
+            boolean bl = true;
+            Box box = this.getBoundingBox();
+            for (int y = MathHelper.floor(box.minY); y <= box.maxY; y++) {
+                for (int x = MathHelper.floor(box.minX); x <= box.maxX; x++) {
+                    for (int z = MathHelper.floor(box.minZ); z <= box.maxZ; z++) {
+                        BlockPos blockPos = new BlockPos(x, y, z);
+                        BlockState state = this.world.getBlockState(blockPos);
+                        bl &= state.isSolidBlock(this.world, blockPos);
+                        if (!bl) break;
+                    }
+                }
+            }
+            if (bl) {
+                this.setVelocityClient(this.getVelocity().getX(), this.getVelocity().getY(), this.getVelocity().getZ());
+                this.setVelocity(0.0, 0.0, 0.0);
+            }
+            ((PersistentProjectileEntity)(Object)this).setCritical(false);
+            ((PersistentProjectileEntity)(Object)this).setPierceLevel((byte)0);
+            this.invokeClearPiercingStatus();
+        }
     }
 
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))

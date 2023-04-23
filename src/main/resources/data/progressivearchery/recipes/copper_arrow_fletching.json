@@ -7,7 +7,7 @@
     "item": "minecraft:copper_ingot"
   },
   "tail": {
-    "item": "minecraft:feather"
+    "tag": "progressivearchery:fletches"
   },
   "addition": {
     "item": "minecraft:lava_bucket"

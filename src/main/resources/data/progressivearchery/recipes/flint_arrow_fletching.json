@@ -7,7 +7,7 @@
     "item": "minecraft:stick"
   },
   "tail": {
-    "item": "minecraft:feather"
+    "tag": "progressivearchery:fletches"
   },
   "addition": {
     "item": "minecraft:string"

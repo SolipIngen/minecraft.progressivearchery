@@ -19,6 +19,7 @@ import net.minecraft.village.VillagerData;
 import net.minecraft.village.VillagerProfession;
 import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModItems;
+import solipingen.progressivearchery.sound.ModSoundEvents;
 import solipingen.progressivearchery.village.ModVillagerProfessions;
 
 
@@ -92,6 +93,9 @@ public class PassiveBowAttackGoal<T extends PassiveEntity> extends Goal {
     public void start() {
         super.start();
         ((MobEntity)this.actor).setAttacking(true);
+        if (this.actor.world instanceof ServerWorld && this.actor instanceof VillagerEntity) {
+            this.actor.playSound(ModSoundEvents.VILLAGER_ATTACK, 1.0f, actor.getSoundPitch());
+        }
     }
 
     @Override

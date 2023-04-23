@@ -7,7 +7,7 @@
     "item": "progressivearchery:copper_arrow"
   },
   "tail": {
-    "item": "minecraft:feather"
+    "tag": "progressivearchery:fletches"
   },
   "addition": {
     "item": "minecraft:iron_axe"

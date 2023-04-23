@@ -9,7 +9,7 @@ import solipingen.progressivearchery.item.ModItems;
 
 
 public class WoodenKidArrowEntity extends KidArrowEntity {
-    private static final double DAMAGE_AMOUNT = 1.0;
+    private static final double DAMAGE_AMOUNT = 1.5;
 
     
     public WoodenKidArrowEntity(EntityType<? extends WoodenKidArrowEntity> entityType, World world) {

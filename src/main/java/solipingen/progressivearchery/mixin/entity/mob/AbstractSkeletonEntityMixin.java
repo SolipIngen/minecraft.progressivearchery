@@ -173,7 +173,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
             double g = Math.sqrt(d * d + f * f);
             int difficultyLevel = this.world.getDifficulty().getId();
             if (itemStack.isOf(Items.BOW)) {
-                persistentProjectileEntity.setVelocity(d, e + g * 0.125, f, 2.4f - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
+                persistentProjectileEntity.setVelocity(d, e + g * 0.2, f, 2.4f - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
                 this.world.spawnEntity(persistentProjectileEntity);
                 this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             }
@@ -184,7 +184,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
                 if (((ModBowItem)itemStack.getItem()).getBowType() == 3) {
                     persistentProjectileEntity = this.createKidArrowProjectile(itemStack, pullProgress);
                 }
-                persistentProjectileEntity.setVelocity(d, e + g * 0.125, f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
+                persistentProjectileEntity.setVelocity(d, e + g * 0.1, f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
                 this.world.spawnEntity(persistentProjectileEntity);
                 this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             }

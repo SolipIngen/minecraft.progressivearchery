@@ -1,7 +1,19 @@
 {
-    "variants": {
-      "": {
-        "model": "progressivearchery:block/archer_marker"
-      }
+  "variants": {
+    "facing=east": {
+      "model": "progressivearchery:block/archer_marker",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "progressivearchery:block/archer_marker"
+    },
+    "facing=south": {
+      "model": "progressivearchery:block/archer_marker",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "progressivearchery:block/archer_marker",
+      "y": 270
     }
+  }
 }

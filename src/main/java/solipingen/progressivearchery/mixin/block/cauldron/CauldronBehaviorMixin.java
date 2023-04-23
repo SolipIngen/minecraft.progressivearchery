@@ -30,11 +30,122 @@ import solipingen.progressivearchery.sound.ModSoundEvents;
 @Mixin(CauldronBehavior.class)
 public interface CauldronBehaviorMixin {
 
+
+    @Inject(method = "registerBehavior", at = @At("TAIL"))
+    private static void injectedRegisterBehavior(CallbackInfo cbi) {
+        CauldronBehaviorMixin.registerCauldronPotionType();
+        // Empty Cauldron
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.replace(Items.POTION, (state, world, pos, player, hand, stack) -> {
+            if (!world.isClient) {
+                Item item = stack.getItem();
+                Potion potionType = PotionUtil.getPotion(stack);
+
+                if (potionType == Potions.WATER) {
+                    world.setBlockState(pos, Blocks.WATER_CAULDRON.getDefaultState());
+                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+                } else {
+                    BlockPotionType blockpotionType = PotionCauldronBlock.BLOCK_POTION_TYPE.get(potionType);
+                    world.setBlockState(pos, ModBlocks.POTION_CAULDRON.getDefaultState().with(PotionCauldronBlock.POTION_TYPE, blockpotionType));
+                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+                }
+
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(item));
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.emitGameEvent(null, GameEvent.FLUID_PLACE, pos);
+            }
+            return ActionResult.success(world.isClient);
+        });
+        // Potion Cauldron
+        // Take
+        PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, (state, world, pos, player, hand, stack) -> {
+            if (!world.isClient) {
+                Item item = stack.getItem();
+                BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
+                Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
+                
+                PotionCauldronBlock.decrementFluidLevel(state, world, pos);
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(Items.POTION), potionType)));
+
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(item));
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
+            }
+            return ActionResult.success(world.isClient);
+        });
+
+        // Fill
+        PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(Items.POTION, (state, world, pos, player, hand, stack) -> {
+            BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
+            Potion potionType = PotionUtil.getPotion(stack);
+
+            if (state.get(PotionCauldronBlock.LEVEL) == 3 || potionType != PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType)) {
+                return ActionResult.PASS;
+            }
+            if (!world.isClient) {
+                world.setBlockState(pos, (BlockState)state.cycle(PotionCauldronBlock.LEVEL));
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
+
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.emitGameEvent(null, GameEvent.FLUID_PLACE, pos);
+            }
+            return ActionResult.success(world.isClient);
+        });
+
+        // Make Tipped Arrows
+        PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(ModItems.GOLDEN_ARROW, (state, world, pos, player, hand, stack) -> {
+            if (!world.isClient) {
+                Item item = stack.getItem();
+                BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
+                Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
+
+                if (state.get(PotionCauldronBlock.TIPPING_NUMBER) <= 1) {
+                    PotionCauldronBlock.decrementFluidLevel(state, world, pos);
+                }
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_ARROW), potionType)));
+                int currentTippingNumber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
+                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNumber - 1));
+
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(item));
+                world.playSound(null, pos, ModSoundEvents.ARROW_TIPPED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
+            }
+            return ActionResult.success(world.isClient);
+        });
+
+        // Make Tipped Kid Arrows
+        PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(ModItems.GOLDEN_KID_ARROW, (state, world, pos, player, hand, stack) -> {
+            if (!world.isClient) {
+                Item item = stack.getItem();
+                BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
+                Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
+                
+                if (state.get(PotionCauldronBlock.TIPPING_NUMBER) <= 1) {
+                    PotionCauldronBlock.decrementFluidLevel(state, world, pos);
+                }
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_KID_ARROW), potionType)));
+                int currentTippingNumber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
+                world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNumber - 1));
+
+                player.incrementStat(Stats.USE_CAULDRON);
+                player.incrementStat(Stats.USED.getOrCreateStat(item));
+                world.playSound(null, pos, ModSoundEvents.ARROW_TIPPED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
+            }
+            return ActionResult.success(world.isClient);
+        });
+    }
+
     private static void registerCauldronPotionType() {
 
         PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.EMPTY, BlockPotionType.EMPTY);
         PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.WATER, BlockPotionType.WATER);
-        PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.MUNDANE, BlockPotionType.THICK);
+        PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.THICK, BlockPotionType.THICK);
+        PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.MUNDANE, BlockPotionType.MUNDANE);
         PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.AWKWARD, BlockPotionType.AWKWARD);
         PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.NIGHT_VISION, BlockPotionType.NIGHT_VISION);
         PotionCauldronBlock.BLOCK_POTION_TYPE.putIfAbsent(Potions.LONG_NIGHT_VISION, BlockPotionType.LONG_NIGHT_VISION);
@@ -118,116 +229,6 @@ public interface CauldronBehaviorMixin {
         PotionCauldronBlock.POTION_TYPE_IN_BLOCK.putIfAbsent(BlockPotionType.LUCK, Potions.LUCK);
         PotionCauldronBlock.POTION_TYPE_IN_BLOCK.putIfAbsent(BlockPotionType.SLOW_FALLING, Potions.SLOW_FALLING);
         PotionCauldronBlock.POTION_TYPE_IN_BLOCK.putIfAbsent(BlockPotionType.LONG_SLOW_FALLING, Potions.LONG_SLOW_FALLING);
-
-    }
-
-    @Inject(method = "registerBehavior", at = @At("TAIL"))
-    private static void injectedRegisterBehavior(CallbackInfo cbi) {
-        registerCauldronPotionType();
-        // Empty Cauldron
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.replace(Items.POTION, (state, world, pos, player, hand, stack) -> {
-            if (!world.isClient) {
-                Item item = stack.getItem();
-                Potion potionType = PotionUtil.getPotion(stack);
-
-                if (potionType == Potions.WATER) {
-                    world.setBlockState(pos, Blocks.WATER_CAULDRON.getDefaultState());
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
-                } else {
-                    BlockPotionType blockpotionType = PotionCauldronBlock.BLOCK_POTION_TYPE.get(potionType);
-                    world.setBlockState(pos, ModBlocks.POTION_CAULDRON.getDefaultState().with(PotionCauldronBlock.POTION_TYPE, blockpotionType));
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
-                }
-
-                player.incrementStat(Stats.USE_CAULDRON);
-                player.incrementStat(Stats.USED.getOrCreateStat(item));
-                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                world.emitGameEvent(null, GameEvent.FLUID_PLACE, pos);
-            }
-            return ActionResult.success(world.isClient);
-        });
-        // Potion Cauldron
-            // Take
-            PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, (state, world, pos, player, hand, stack) -> {
-                if (!world.isClient) {
-                    Item item = stack.getItem();
-                    BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
-                    Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
-                    
-                    PotionCauldronBlock.decrementFluidLevel(state, world, pos);
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(Items.POTION), potionType)));
-    
-                    player.incrementStat(Stats.USE_CAULDRON);
-                    player.incrementStat(Stats.USED.getOrCreateStat(item));
-                    world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
-                }
-                return ActionResult.success(world.isClient);
-            });
-    
-            // Fill
-            PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(Items.POTION, (state, world, pos, player, hand, stack) -> {
-                BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
-                Potion potionType = PotionUtil.getPotion(stack);
-    
-                if (state.get(PotionCauldronBlock.LEVEL) == 3 || potionType != PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType)) {
-                    return ActionResult.PASS;
-                }
-                if (!world.isClient) {
-                    world.setBlockState(pos, (BlockState)state.cycle(PotionCauldronBlock.LEVEL));
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
-    
-                    player.incrementStat(Stats.USE_CAULDRON);
-                    player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
-                    world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.emitGameEvent(null, GameEvent.FLUID_PLACE, pos);
-                }
-                return ActionResult.success(world.isClient);
-            });
-    
-            // Make Tipped Arrows
-            PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(ModItems.GOLDEN_ARROW, (state, world, pos, player, hand, stack) -> {
-                if (!world.isClient) {
-                    Item item = stack.getItem();
-                    BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
-                    Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
-
-                    if (state.get(PotionCauldronBlock.TIPPING_NUMBER) <= 1) {
-                        PotionCauldronBlock.decrementFluidLevel(state, world, pos);
-                    }
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_ARROW), potionType)));
-                    int currentTippingNmber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
-                    world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNmber - 1));
-    
-                    player.incrementStat(Stats.USE_CAULDRON);
-                    player.incrementStat(Stats.USED.getOrCreateStat(item));
-                    world.playSound(null, pos, ModSoundEvents.ARROW_TIPPED, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
-                }
-                return ActionResult.success(world.isClient);
-            });
-    
-            // Make Tipped Kid Arrows
-            PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR.put(ModItems.GOLDEN_KID_ARROW, (state, world, pos, player, hand, stack) -> {
-                if (!world.isClient) {
-                    Item item = stack.getItem();
-                    BlockPotionType blockpotionType = state.get(PotionCauldronBlock.POTION_TYPE);
-                    Potion potionType = PotionCauldronBlock.POTION_TYPE_IN_BLOCK.get(blockpotionType);
-                    
-                    if (state.get(PotionCauldronBlock.TIPPING_NUMBER) <= 1) {
-                        PotionCauldronBlock.decrementFluidLevel(state, world, pos);
-                    }
-                    player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_KID_ARROW), potionType)));
-                    int currentTippingNmber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
-                    world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNmber - 1));
-    
-                    player.incrementStat(Stats.USE_CAULDRON);
-                    player.incrementStat(Stats.USED.getOrCreateStat(item));
-                    world.playSound(null, pos, ModSoundEvents.ARROW_TIPPED, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.emitGameEvent(null, GameEvent.FLUID_PICKUP, pos);
-                }
-                return ActionResult.success(world.isClient);
-            });
 
     }
 

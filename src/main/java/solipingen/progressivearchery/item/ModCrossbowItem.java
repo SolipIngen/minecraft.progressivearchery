@@ -47,16 +47,17 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
 import solipingen.progressivearchery.util.interfaces.mixin.server.network.ServerPlayerEntityInterface;
 
 
 public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
-    public static final Predicate<ItemStack> MOD_CROSSBOW_PROJECTILES = stack -> stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof FireworkRocketItem;
+    public static final Predicate<ItemStack> MOD_CROSSBOW_PROJECTILES = stack -> stack.getItem() instanceof ModArrowItem || stack.isOf(Items.SPECTRAL_ARROW) || stack.getItem() instanceof FireworkRocketItem;
     public static final Predicate<ItemStack> MOD_CROSSBOW_HELD_PROJECTILES = MOD_CROSSBOW_PROJECTILES;
     private static final String CHARGED_KEY = "Charged";
     private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
-    public static final int RANGE = 15;
+    public static final int RANGE = 24;
     private boolean charged = false;
     private boolean loaded = false;
     private final ToolMaterial material;
@@ -112,20 +113,18 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
             return itemStack;
         }
         predicate = ((ModCrossbowItem)stack.getItem()).getProjectiles();
-
         if (shooter instanceof PlayerEntity) {
         PlayerEntity playerEntity = (PlayerEntity)shooter;
             if (ModCrossbowItem.getFilledQuiver(playerEntity) != ItemStack.EMPTY) {
                 ItemStack quiverStack = ModCrossbowItem.getFilledQuiver(playerEntity);
                 Stream<ItemStack> quiverStream = QuiverItem.getStoredStacks(quiverStack);
-                ItemStack itemStack3 = quiverStream.filter(a -> a.getItem() instanceof ModArrowItem || a.getItem() instanceof FireworkRocketItem).findFirst().orElse(ItemStack.EMPTY);
+                ItemStack itemStack3 = quiverStream.filter(a -> a.getItem() instanceof ModArrowItem || a.isOf(Items.SPECTRAL_ARROW) || a.getItem() instanceof FireworkRocketItem).findFirst().orElse(ItemStack.EMPTY);
                 return itemStack3;
             }
             if (!itemStack.isEmpty()) {
                 return itemStack;
             }
             predicate = ((ModCrossbowItem)stack.getItem()).getProjectiles();
-       
             for (int j = 0; j < playerEntity.getInventory().size(); ++j) {
                 ItemStack itemStack2 = playerEntity.getInventory().getStack(j);
                 if (predicate.test(itemStack2)) {
@@ -203,7 +202,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         else if (projectile.isOf(ModItems.COPPER_ARROW) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(ModItems.SPECTRAL_ARROW)) && randomf > 0.5f) {
+        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(ModItems.TIPPED_ARROW) || projectile.isOf(Items.SPECTRAL_ARROW)) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
         else if (projectile.isOf(ModItems.IRON_ARROW) && randomf > 0.25f) {
@@ -321,6 +320,9 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         else {
             ModArrowItem arrowItem = (ModArrowItem)(projectile.getItem() instanceof ModArrowItem ? projectile.getItem() : ModItems.WOODEN_ARROW);
             projectileEntity = arrowItem.createModArrow(world, projectile, shooter);
+            if (projectile.isOf(Items.SPECTRAL_ARROW)) {
+                projectileEntity = new SpectralArrowEntity(world, shooter);
+            }
             if (shooter instanceof PlayerEntity) {
                 ((PersistentProjectileEntity)projectileEntity).setCritical(true);
             }
@@ -335,11 +337,11 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
             if (EnchantmentHelper.getLevel(Enchantments.FLAME, crossbow) > 0) {
                 ((PersistentProjectileEntity)projectileEntity).setOnFireFor(100);
             }
-            ((PersistentProjectileEntity) projectileEntity).setSound(SoundEvents.ITEM_CROSSBOW_HIT);
-            ((PersistentProjectileEntity) projectileEntity).setShotFromCrossbow(true);
+            ((PersistentProjectileEntity)projectileEntity).setSound(SoundEvents.ITEM_CROSSBOW_HIT);
+            ((PersistentProjectileEntity)projectileEntity).setShotFromCrossbow(true);
             int i = EnchantmentHelper.getLevel(Enchantments.PIERCING, crossbow);
             if (i > 0) {
-                ((PersistentProjectileEntity) projectileEntity).setPierceLevel((byte)i);
+                ((PersistentProjectileEntity)projectileEntity).setPierceLevel((byte)i);
             }
             if (creative || EnchantmentHelper.getLevel(Enchantments.INFINITY, crossbow) > 0) {
                 ((PersistentProjectileEntity)projectileEntity).pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
@@ -364,7 +366,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         boolean bl2 = bl && modCrossbow.material.getMiningLevel() < MiningLevels.IRON;
         boolean bl3 = bl && modCrossbow.material.getMiningLevel() < MiningLevels.DIAMOND;
         crossbow.damage(bl2 ? 3 : (bl3 ? 2 : 1), shooter, e -> e.sendToolBreakStatus(hand));
-        shooter.playSound(SoundEvents.ITEM_CROSSBOW_SHOOT, 1.0f, soundPitch);
+        world.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), SoundEvents.ITEM_CROSSBOW_SHOOT, SoundCategory.PLAYERS, 1.0f, soundPitch);
     }
 
     public static void shootAll(World world, LivingEntity entity, Hand hand, ItemStack stack, float speed, float divergence) {

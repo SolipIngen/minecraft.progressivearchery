@@ -1,4 +1,4 @@
-package solipingen.progressivearchery.client.render;
+package solipingen.progressivearchery.client.item;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,7 +17,7 @@ import solipingen.progressivearchery.item.QuiverItem;
 public class ModModelPredicateProvider {
 
     
-    public static void registerModModelPredicates() {
+    public static void registerModItemModelPredicates() {
         
         //Bows
         ModModelPredicateProvider.registerBow(ModItems.WOODEN_BOW);

@@ -5,11 +5,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.ModEntityTypes;
-import solipingen.progressivearchery.item.ModItems;
 
 
 public class SpectralArrowEntity extends ModArrowEntity {
@@ -39,7 +39,7 @@ public class SpectralArrowEntity extends ModArrowEntity {
 
     @Override
     protected ItemStack asItemStack() {
-        return new ItemStack(ModItems.SPECTRAL_ARROW);
+        return new ItemStack(Items.SPECTRAL_ARROW);
     }
 
     @Override

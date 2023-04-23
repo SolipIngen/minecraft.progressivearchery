@@ -31,6 +31,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import solipingen.progressivearchery.item.ModBowItem;
+import solipingen.progressivearchery.item.ModCrossbowItem;
 import solipingen.progressivearchery.item.ModItems;
 import solipingen.progressivearchery.util.interfaces.mixin.entity.mob.MobEntityInterface;
 
@@ -76,6 +78,16 @@ public abstract class MobEntityMixin extends LivingEntity implements MobEntityIn
             this.setLeashedByFireproofLead(true);
             itemStack.decrement(1);
             cbireturn.setReturnValue(ActionResult.success(this.world.isClient));
+        }
+    }
+
+    @Inject(method = "prefersNewEquipment", at = @At("TAIL"), cancellable = true)
+    private void injectedPrefersNewEquipment(ItemStack newStack, ItemStack oldStack, CallbackInfoReturnable<Boolean> cbireturn) {
+        if (newStack.getItem() instanceof ModBowItem && oldStack.getItem() instanceof ModBowItem) {
+            cbireturn.setReturnValue(((MobEntity)(Object)this).prefersNewDamageableItem(newStack, oldStack));
+        }
+        if (newStack.getItem() instanceof ModCrossbowItem && oldStack.getItem() instanceof ModCrossbowItem) {
+            cbireturn.setReturnValue(((MobEntity)(Object)this).prefersNewDamageableItem(newStack, oldStack));
         }
     }
 

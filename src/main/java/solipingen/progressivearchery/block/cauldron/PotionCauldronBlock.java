@@ -17,13 +17,16 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.event.GameEvent;
@@ -75,7 +78,7 @@ public class PotionCauldronBlock extends AbstractCauldronBlock {
 
     @Override
     protected double getFluidHeight(BlockState state) {
-        return (6.0 + (double)state.get(LEVEL).intValue() * 3.0) / 16.0;
+        return (6.0 + state.get(LEVEL).intValue()*3.0) / 16.0;
     }
 
     @Override
@@ -111,6 +114,22 @@ public class PotionCauldronBlock extends AbstractCauldronBlock {
     @Override
     public Item asItem() {
         return Items.CAULDRON;
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        BlockPotionType blockpotionType = state.get(POTION_TYPE);
+        int color = PotionUtil.getColor(POTION_TYPE_IN_BLOCK.get(blockpotionType));
+        int level = state.get(LEVEL);
+        if (color == -1 || level <= 0 || random.nextInt(8 - 2*level) > 0) {
+            return;
+        }
+        double d = (double)(color >> 16 & 0xFF) / 255.0;
+        double e = (double)(color >> 8 & 0xFF) / 255.0;
+        double f = (double)(color >> 0 & 0xFF) / 255.0;
+        for (int j = 0; j < level; ++j) {
+            world.addParticle(ParticleTypes.ENTITY_EFFECT, pos.getX() + 0.5, pos.getY() + 15.0/16.0, pos.getZ() + 0.5, d, e, f);
+        }
     }
 
     

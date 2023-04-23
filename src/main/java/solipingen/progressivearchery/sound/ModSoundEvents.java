@@ -23,6 +23,7 @@ public class ModSoundEvents {
     public static final SoundEvent ARROW_TIPPED = ModSoundEvents.registerSoundEvent("arrow_tipped");
 
     public static final SoundEvent VILLAGER_SHOOT = ModSoundEvents.registerSoundEvent("villager_shoots_arrow");
+    public static final SoundEvent VILLAGER_ATTACK = ModSoundEvents.registerSoundEvent("villager_attack");
     
 
     private static SoundEvent registerSoundEvent(String name) {

@@ -110,12 +110,11 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity implements 
 
     @Inject(method = "prefersNewEquipment", at = @At("HEAD"), cancellable = true)
     private void injectedPrefersNewEquipment(ItemStack newStack, ItemStack oldStack, CallbackInfoReturnable<Boolean> cbireturn) {
-        boolean bl2;
         if (EnchantmentHelper.hasBindingCurse(oldStack)) {
             cbireturn.setReturnValue(false);
         }
-        boolean bl = newStack.isIn(ItemTags.PIGLIN_LOVED) || newStack.isOf(ModItems.GOLD_FUSED_CROSSBOW);
-        bl2 = oldStack.isIn(ItemTags.PIGLIN_LOVED) || oldStack.isOf(ModItems.GOLD_FUSED_CROSSBOW);
+        boolean bl = newStack.isIn(ItemTags.PIGLIN_LOVED);
+        boolean bl2 = oldStack.isIn(ItemTags.PIGLIN_LOVED);
         if (bl && !bl2) {
             cbireturn.setReturnValue(true);
         }
@@ -125,7 +124,9 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity implements 
         if ((this.isAdult() && !newStack.isOf(ModItems.GOLD_FUSED_CROSSBOW) && oldStack.isOf(ModItems.GOLD_FUSED_CROSSBOW))) {
             cbireturn.setReturnValue(false);
         }
-        cbireturn.setReturnValue(super.prefersNewEquipment(newStack, oldStack));
+        else {
+            cbireturn.setReturnValue(super.prefersNewEquipment(newStack, oldStack));
+        }
     }
 
     @Inject(method = "canUseRangedWeapon", at = @At("HEAD"), cancellable = true)

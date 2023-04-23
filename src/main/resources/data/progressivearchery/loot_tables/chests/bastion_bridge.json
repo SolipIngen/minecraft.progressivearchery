@@ -52,7 +52,7 @@
                 "function": "minecraft:set_count"
               }
             ],
-            "name": "progressivearchery:spectral_arrow"
+            "name": "minecraft:spectral_arrow"
           },
           {
             "type": "minecraft:item",
