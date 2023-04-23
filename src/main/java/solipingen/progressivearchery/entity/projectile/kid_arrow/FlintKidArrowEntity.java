@@ -9,7 +9,7 @@ import solipingen.progressivearchery.item.ModItems;
 
 
 public class FlintKidArrowEntity extends KidArrowEntity {
-    private static final double DAMAGE_AMOUNT = 2.0;
+    private static final double DAMAGE_AMOUNT = 2.5;
 
     
     public FlintKidArrowEntity(EntityType<? extends FlintKidArrowEntity> entityType, World world) {

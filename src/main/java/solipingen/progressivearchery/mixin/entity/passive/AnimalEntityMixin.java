@@ -13,7 +13,8 @@ import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import solipingen.progressivearchery.registry.ModEntityTypeTags;
+import solipingen.progressivearchery.registry.tag.ModEntityTypeTags;
+
 
 @Mixin(AnimalEntity.class)
 public abstract class AnimalEntityMixin extends PassiveEntity {

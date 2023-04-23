@@ -56,8 +56,8 @@
     "fletching_table_used": {
         "subtitle": "subtitles.progressivearchery.fletching_table_used",
         "sounds": [
-            "progressivearchery:fletching_table_used_ver1", 
-            "progressivearchery:fletching_table_used_ver2"
+            "minecraft:block/fletching_table/fletching_table1", 
+            "minecraft:block/fletching_table/fletching_table2"
         ]
     }, 
     "arrow_tipped": {
@@ -70,7 +70,15 @@
     "villager_shoots_arrow": {
         "subtitle": "subtitles.progressivearchery.villager_shoots_arrow",
         "sounds": [
-            "progressivearchery:arrow_shoot"
+            "minecraft:random/bow"
+        ]
+    }, 
+    "villager_attack": {
+        "subtitle": "subtitles.progressivearchery.villager_attack", 
+        "sounds": [
+            "minecraft:mob/villager/no1", 
+            "minecraft:mob/villager/no2", 
+            "minecraft:mob/villager/no3"
         ]
     }
 }

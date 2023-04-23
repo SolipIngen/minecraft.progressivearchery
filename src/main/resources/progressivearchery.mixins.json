@@ -41,6 +41,7 @@
     "entity.player.PlayerEntityMixin", 
     "entity.projectile.FireworkRocketEntityMixin", 
     "entity.projectile.PersistentProjectileEntityMixin", 
+    "entity.projectile.ProjectileEntityMixin", 
     "entity.projectile.ProjectileUtilMixin", 
     "entity.raid.RaiderEntityMixin", 
     "entity.CrossbowUserMixin", 

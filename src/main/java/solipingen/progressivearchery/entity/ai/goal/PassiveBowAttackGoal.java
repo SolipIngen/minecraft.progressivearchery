@@ -15,11 +15,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.village.VillagerData;
 import net.minecraft.village.VillagerProfession;
 import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModItems;
+import solipingen.progressivearchery.sound.ModSoundEvents;
 import solipingen.progressivearchery.village.ModVillagerProfessions;
 
 
@@ -94,7 +94,7 @@ public class PassiveBowAttackGoal<T extends PassiveEntity> extends Goal {
         super.start();
         ((MobEntity)this.actor).setAttacking(true);
         if (this.actor.world instanceof ServerWorld && this.actor instanceof VillagerEntity) {
-            this.actor.playSound(SoundEvents.ENTITY_VILLAGER_NO, 1.0f, actor.getSoundPitch());
+            this.actor.playSound(ModSoundEvents.VILLAGER_ATTACK, 1.0f, actor.getSoundPitch());
         }
     }
 
