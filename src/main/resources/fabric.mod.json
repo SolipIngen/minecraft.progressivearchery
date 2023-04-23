@@ -14,7 +14,7 @@
   },
 
   "license": "MIT License",
-  "icon": "assets/progressivearchery/icon.png",
+  "icon": "assets/progressivearchery/progressivearchery_icon.png",
 
   "environment": "*",
   "entrypoints": {
