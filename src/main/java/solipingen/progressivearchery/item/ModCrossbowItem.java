@@ -49,6 +49,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
+import solipingen.progressivearchery.util.interfaces.mixin.entity.projectile.FireworkRocketEntityInterface;
 import solipingen.progressivearchery.util.interfaces.mixin.server.network.ServerPlayerEntityInterface;
 
 
@@ -316,6 +317,9 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         boolean bl = projectile.isOf(Items.FIREWORK_ROCKET);
         if (bl) {
             projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - 0.15, shooter.getZ(), true);
+            ((FireworkRocketEntityInterface)projectileEntity).setPower(EnchantmentHelper.getLevel(Enchantments.POWER, crossbow));
+            ((FireworkRocketEntityInterface)projectileEntity).setPunch(EnchantmentHelper.getLevel(Enchantments.PUNCH, crossbow));
+            ((FireworkRocketEntityInterface)projectileEntity).setFlame(EnchantmentHelper.getLevel(Enchantments.FLAME, crossbow) > 0);
         } 
         else {
             ModArrowItem arrowItem = (ModArrowItem)(projectile.getItem() instanceof ModArrowItem ? projectile.getItem() : ModItems.WOODEN_ARROW);

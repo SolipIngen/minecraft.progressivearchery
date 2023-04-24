@@ -3,9 +3,11 @@ package solipingen.progressivearchery.entity.projectile.kid_arrow;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.ModEntityTypes;
 import solipingen.progressivearchery.item.ModItems;
+import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityInterface;
 
 
 public class FlintKidArrowEntity extends KidArrowEntity {
@@ -27,6 +29,16 @@ public class FlintKidArrowEntity extends KidArrowEntity {
     @Override
     protected ItemStack asItemStack() {
         return new ItemStack(ModItems.FLINT_KID_ARROW);
+    }
+
+    @Override
+    public void onEntityHit(EntityHitResult entityHitResult) {
+        super.onEntityHit(entityHitResult);
+        if (entityHitResult.getEntity() instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity)entityHitResult.getEntity();
+            LivingEntityInterface iLivingEntity = (LivingEntityInterface)livingEntity;
+            iLivingEntity.setStuckFlintKidArrowCount(iLivingEntity.getStuckFlintKidArrowCount() + 1);
+        }
     }
 
     
