@@ -25,26 +25,22 @@ public class ReplaceLootTableHandler implements LootTableEvents.Replace {
     private static final Identifier STRAY_DROP_ID = new Identifier(ProgressiveArchery.MOD_ID, "entities/stray");
     private static final Identifier PILLAGER_DROP_ID = new Identifier(ProgressiveArchery.MOD_ID, "entities/pillager");
 
-    // Hero of the Village Gift Loot
-    private static final Identifier HERO_OF_THE_VILLAGE_FLETCHER_ID = new Identifier(ProgressiveArchery.MOD_ID, "gameplay/hero_of_the_village/fletcher_gift");
-
     // Mod Loot Tables
     private static final Identifier[] ID_ARRAY = new Identifier[]{ 
         JUNGLE_TEMPLE_DISPENSER_ID, FLETCHER_CHEST_ID, PILLAGER_OUTPOST_ID, BASTION_GENERIC_ID, BASTION_BRIDGE_ID, BASTION_HOGLIN_STABLE_ID, 
-        SKELETON_DROP_ID, STRAY_DROP_ID, PILLAGER_DROP_ID, 
-        HERO_OF_THE_VILLAGE_FLETCHER_ID};
+        SKELETON_DROP_ID, STRAY_DROP_ID, PILLAGER_DROP_ID};
 
 
     @Override
     @Nullable
     public LootTable replaceLootTable(ResourceManager resourceManager, LootManager lootManager, Identifier id, LootTable original, LootTableSource source) {
         for (Identifier modIdentifier : ID_ARRAY) {
-            if (id.getPath().equals(modIdentifier.getPath()) && (source == LootTableSource.VANILLA || source == LootTableSource.DATA_PACK)) {
+            if (modIdentifier.getPath().matches(id.getPath()) && (source.isBuiltin() || source == LootTableSource.DATA_PACK)) {
                 LootTable newTable = lootManager.getTable(modIdentifier);
                 return newTable;
             }
         }
-        return original;
+        return null;
     }
 
 }

@@ -1,5 +1,5 @@
 {
-  "required": true,
+  "required": false,
   "minVersion": "0.8",
   "package": "solipingen.progressivearchery.mixin",
   "compatibilityLevel": "JAVA_17",
@@ -58,7 +58,6 @@
   ],
   "client": [
     "client.WelcomeMixin", 
-    "client.gui.screen.ingame.SmithingScreenMixin", 
     "client.render.entity.feature.HeldItemFeatureRendererMixin", 
     "client.render.entity.feature.VillagerHeldItemFeatureRendererMixin", 
     "client.render.entity.model.BipedEntityModelMixin", 

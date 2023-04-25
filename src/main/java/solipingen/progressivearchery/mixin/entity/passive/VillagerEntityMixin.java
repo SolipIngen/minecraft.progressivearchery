@@ -11,11 +11,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -29,7 +29,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.brain.Activity;
 import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.ai.brain.MemoryModuleState;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
+import net.minecraft.entity.ai.brain.Schedule;
 import net.minecraft.entity.ai.brain.task.CelebrateRaidWinTask;
 import net.minecraft.entity.ai.brain.task.EndRaidTask;
 import net.minecraft.entity.ai.brain.task.FindWalkTargetTask;
@@ -39,13 +41,11 @@ import net.minecraft.entity.ai.brain.task.SeekSkyTask;
 import net.minecraft.entity.ai.brain.task.Task;
 import net.minecraft.entity.ai.brain.task.TaskTriggerer;
 import net.minecraft.entity.ai.brain.task.Tasks;
+import net.minecraft.entity.ai.brain.task.VillagerTaskListProvider;
 import net.minecraft.entity.ai.brain.task.VillagerWalkTowardsTask;
 import net.minecraft.entity.ai.brain.task.WaitTask;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
-import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.attribute.DefaultAttributeContainer.Builder;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
@@ -81,7 +81,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.ai.goal.PassiveBowAttackGoal;
 import solipingen.progressivearchery.entity.ai.goal.VillagerTrackTargetGoal;
-import solipingen.progressivearchery.entity.passive.AngerableVillager;
+import solipingen.progressivearchery.entity.passive.AngerableArcherVillager;
 import solipingen.progressivearchery.entity.projectile.kid_arrow.GoldenKidArrowEntity;
 import solipingen.progressivearchery.entity.projectile.kid_arrow.KidArrowEntity;
 import solipingen.progressivearchery.item.ModBowItem;
@@ -92,7 +92,7 @@ import solipingen.progressivearchery.village.ModVillagerProfessions;
 
 
 @Mixin(VillagerEntity.class)
-public abstract class VillagerEntityMixin extends MerchantEntity implements AngerableVillager, InteractionObserver, RangedAttackMob, VillagerDataContainer {
+public abstract class VillagerEntityMixin extends MerchantEntity implements AngerableArcherVillager, InteractionObserver, RangedAttackMob, VillagerDataContainer {
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(60, 90);
     private int angerTime;
     @Nullable
@@ -128,31 +128,29 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         }
     }
 
-    @Redirect(method = "initBrain", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ai/brain/Brain;setTaskList(Lnet/minecraft/entity/ai/brain/Activity;Lcom/google/common/collect/ImmutableList;)V"))
-    private void redirectedSetTaskList(Brain<VillagerEntity> brain, Activity activity, ImmutableList<? extends Pair<Integer, ? extends Task<? super VillagerEntity>>> indexedTasks) {
+    @Inject(method = "initBrain", at = @At("HEAD"), cancellable = true)
+    private void injectedSetTaskList(Brain<VillagerEntity> brain, CallbackInfo cbi) {
         VillagerProfession villagerProfession = this.getVillagerData().getProfession();
         if (villagerProfession == ModVillagerProfessions.ARCHER) {
-            if (activity == Activity.REST) {
-                if (this.getTarget() == null && this.random.nextInt(4) > this.world.getDifficulty().getId() - 1) {
-                    brain.setTaskList(activity, indexedTasks);
-                }
+            brain.setSchedule(Schedule.VILLAGER_DEFAULT);
+            brain.setTaskList(Activity.WORK, VillagerTaskListProvider.createWorkTasks(villagerProfession, 0.5f), ImmutableSet.of(Pair.of(MemoryModuleType.JOB_SITE, MemoryModuleState.VALUE_PRESENT)));
+            brain.setTaskList(Activity.CORE, VillagerTaskListProvider.createCoreTasks(villagerProfession, 0.5f));
+            brain.setTaskList(Activity.MEET, VillagerTaskListProvider.createMeetTasks(villagerProfession, 0.5f), ImmutableSet.of(Pair.of(MemoryModuleType.MEETING_POINT, MemoryModuleState.VALUE_PRESENT)));
+            if (this.getArcherTarget() == null && this.random.nextInt(4) > this.world.getDifficulty().getId() - 1) {
+                brain.setTaskList(Activity.REST, VillagerTaskListProvider.createRestTasks(villagerProfession, 0.5f));
             }
-            if (!(activity == Activity.PANIC || activity == Activity.HIDE || activity == Activity.REST)) {
-                if (activity == Activity.IDLE) {
-                    if (this.getTarget() == null || (this.getTarget() != null && !this.getTarget().isAlive())) {
-                        brain.setTaskList(activity, indexedTasks);
-                    }
-                }
-                else if (activity == Activity.RAID && this.world instanceof ServerWorld) {
-                    brain.setTaskList(activity, VillagerEntityMixin.createArcherRaidTasks((ServerWorld)this.world, ((VillagerEntity)(Object)this), 0.67f));
-                }
-                else {
-                    brain.setTaskList(activity, indexedTasks);
-                }
+            if (this.getArcherTarget() == null || (this.getArcherTarget() != null && !this.getArcherTarget().isAlive())) {
+                brain.setTaskList(Activity.IDLE, VillagerTaskListProvider.createIdleTasks(villagerProfession, 0.5f));
             }
-        }
-        else {
-           brain.setTaskList(activity, indexedTasks);
+            brain.setTaskList(Activity.PRE_RAID, VillagerTaskListProvider.createPreRaidTasks(villagerProfession, 0.5f));
+            if (this.world instanceof ServerWorld) {
+                brain.setTaskList(Activity.RAID, VillagerEntityMixin.createArcherRaidTasks((ServerWorld)this.world, ((VillagerEntity)(Object)this), 0.67f));
+            }
+            brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
+            brain.setDefaultActivity(Activity.IDLE);
+            brain.doExclusively(Activity.IDLE);
+            brain.refreshActivities(this.world.getTimeOfDay(), this.world.getTime());
+            cbi.cancel();
         }
     }
 
@@ -174,7 +172,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         } 
         this.targetSelector.add(1, this.villagerTrackTargetGoal);
         this.targetSelector.add(2, new RevengeGoal(this, MerchantEntity.class, IronGolemEntity.class).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(3, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, false, this::shouldAngerAt));
+        this.targetSelector.add(3, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, false, this::shouldArcherAngerAt));
         this.targetSelector.add(3, new ActiveTargetGoal<RaiderEntity>((MobEntity)this, RaiderEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<ZombieEntity>((MobEntity)this, ZombieEntity.class, true, this::shouldBeTargetedMob));
         this.targetSelector.add(3, new ActiveTargetGoal<VexEntity>((MobEntity)this, VexEntity.class, false, this::shouldBeTargetedMob));
@@ -294,14 +292,6 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         return kiadArrowEntity;
     }
 
-    @Redirect(method = "createVillagerAttributes", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;add(Lnet/minecraft/entity/attribute/EntityAttribute;D)Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;"))
-    private static Builder redirectedDefaultAttributeAdd(Builder builder, EntityAttribute attribute, double baseValue) {
-        if (attribute == EntityAttributes.GENERIC_FOLLOW_RANGE) {
-            return builder.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0).add(attribute, baseValue);
-        }
-        return builder.add(attribute, baseValue);
-    }
-
     @Inject(method = "interactMob", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/VillagerEntity;getOffers()Lnet/minecraft/village/TradeOfferList;"), cancellable = true)
     private void injectedInteractMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cbireturn) {
         if (this.world instanceof ServerWorld && this.getVillagerData().getProfession() == ModVillagerProfessions.ARCHER) {
@@ -321,10 +311,10 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     @Inject(method = "onInteractionWith", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/passive/VillagerEntity;gossip:Lnet/minecraft/village/VillagerGossips;", opcode = Opcodes.GETFIELD))
     private void onInteractionWith(EntityInteraction interaction, Entity entity, CallbackInfo cbi) {
         if (interaction == EntityInteraction.VILLAGER_HURT) {
-            this.setAngryAt(entity.getUuid());
+            this.setArcherAngryAt(entity.getUuid());
             List<VillagerEntity> hurtNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(8.0), VillagerEntity::isAlive);
             for (VillagerEntity nearbyVillager : hurtNearbyVillagers) {
-                ((AngerableVillager)nearbyVillager).setAngryAt(entity.getUuid());
+                ((AngerableArcherVillager)nearbyVillager).setArcherAngryAt(entity.getUuid());
             }
             List<IronGolemEntity> hurtNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(8.0), IronGolemEntity::isAlive);
             for (IronGolemEntity nearbyIronGolem : hurtNeabyIronGolems) {
@@ -334,7 +324,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         else if (interaction == EntityInteraction.VILLAGER_KILLED) {
             List<VillagerEntity> killedNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(16.0), VillagerEntity::isAlive);
             for (VillagerEntity nearbyVillager : killedNearbyVillagers) {
-                ((AngerableVillager)nearbyVillager).setAngryAt(entity.getUuid());
+                ((AngerableArcherVillager)nearbyVillager).setArcherAngryAt(entity.getUuid());
             }
             List<IronGolemEntity> killedNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(16.0), IronGolemEntity::isAlive);
             for (IronGolemEntity nearbyIronGolem : killedNeabyIronGolems) {
@@ -346,7 +336,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     @Inject(method = "mobTick", at = @At("TAIL"))
     private void injectedMobTick(CallbackInfo cbi) {
         if (!this.world.isClient) {
-            this.tickAngerLogic((ServerWorld)this.world, true);
+            this.tickArcherAngerLogic((ServerWorld)this.world, true);
         }
         VillagerProfession villagerProfession = this.getVillagerData().getProfession();
         long currentTimeOfDay = this.world.getTimeOfDay();
@@ -448,25 +438,25 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     }
 
     @Override
-    public void chooseRandomAngerTime() {
-        this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
+    public void chooseRandomArcherAngerTime() {
+        this.setArcherAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
 
     @Override
-    public void setAngerTime(int angerTime) {
+    public void setArcherAngerTime(int angerTime) {
         this.angerTime = angerTime;
     }
 
     @Override
-    public int getAngerTime() {
+    public int getArcherAngerTime() {
         return this.angerTime;
     }
 
     @Override
-    public void setAngryAt(@Nullable UUID angryAt) {
+    public void setArcherAngryAt(@Nullable UUID angryAt) {
         VillagerProfession profession = this.getVillagerData().getProfession();
         if (this.world instanceof ServerWorld && profession == ModVillagerProfessions.ARCHER) {
-            if (angryAt != null && this.getAngryAt() == angryAt) return;
+            if (angryAt != null && this.getArcherAngryAt() == angryAt) return;
             this.angryAt = angryAt;
             ((VillagerEntity)(Object)this).reinitializeBrain((ServerWorld)this.world);
         }
@@ -474,8 +464,35 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
 
     @Override
     @Nullable
-    public UUID getAngryAt() {
+    public UUID getArcherAngryAt() {
         return this.angryAt;
+    }
+
+    @Override
+    public boolean canArcherTarget(LivingEntity target) {
+        return this.shouldBeTargetedMob(target);
+    }
+
+    @Override
+    @Nullable
+    public LivingEntity getArcherTarget() {
+        return this.getTarget();
+    }
+
+    @Override
+    public void setArcherTarget(@Nullable LivingEntity target) {
+        this.setTarget(target);
+    }
+
+    @Override
+    @Nullable
+    public LivingEntity getArcherAttacker() {
+        return this.getAttacker();
+    }
+
+    @Override
+    public void setArcherAttacker(@Nullable LivingEntity attacker) {
+        this.setAttacker(attacker);
     }
 
     private boolean shouldBeTargetedMob(LivingEntity livingEntity) {

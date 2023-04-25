@@ -10,8 +10,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingItemEntity;
@@ -30,12 +28,16 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import solipingen.progressivearchery.util.interfaces.mixin.entity.projectile.FireworkRocketEntityInterface;
 
 
 @Mixin(FireworkRocketEntity.class)
-public abstract class FireworkRocketEntityMixin extends ProjectileEntity implements FlyingItemEntity {
+public abstract class FireworkRocketEntityMixin extends ProjectileEntity implements FlyingItemEntity, FireworkRocketEntityInterface {
     @Shadow @Final private static TrackedData<ItemStack> ITEM;
     @Shadow @Nullable private LivingEntity shooter;
+    private boolean flameBl = false;
+    private int powerLevel = 0;
+    private int punchLevel = 0;
 
 
     public FireworkRocketEntityMixin(EntityType<? extends ProjectileEntity> entityType, World world) {
@@ -74,25 +76,35 @@ public abstract class FireworkRocketEntityMixin extends ProjectileEntity impleme
                     reachBl = true;
                     break;
                 }
-                if (!reachBl || this.shooter == null) continue;
-                int flameLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.FLAME, this.shooter);
-                if (flameLevel > 0) {
+                if (!reachBl) continue;
+                float g = f*((5.0f + 0.5f*(nbtList.size() - 1) - this.distanceTo(livingEntity)) / (5.0f + 0.5f*(nbtList.size() - 1)))*(1.0f + 0.2f*this.powerLevel);
+                if (this.flameBl) {
                     livingEntity.setOnFireFor(5);
                 }
-                float g = f*((5.0f + 0.5f*(nbtList.size() - 1) - this.distanceTo(livingEntity)) / (5.0f + 0.5f*(nbtList.size() - 1)));
-                if (EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, this.shooter) > 0) {
-                    g *= (1.0f + 0.2f*EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, this.shooter));
-                }
-                livingEntity.damage(this.getDamageSources().fireworks(((FireworkRocketEntity)(Object)this), this.shooter), g);
-                int punchLevel = EnchantmentHelper.getEquipmentLevel(Enchantments.PUNCH, this.shooter);
                 double d = 0.8*Math.max(0.0, 1.0 - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
-                Vec3d vec3d2 = this.getVelocity().normalize().multiply(punchLevel*d);
+                Vec3d vec3d2 = this.getVelocity().normalize().multiply(this.punchLevel*d);
                 if (vec3d2.lengthSquared() > 0.0) {
                     livingEntity.addVelocity(vec3d2.x, vec3d2.y, vec3d2.z);
                 }
+                livingEntity.damage(this.getDamageSources().fireworks(((FireworkRocketEntity)(Object)this), this.getOwner()), g);   
             }
         }
         cbi.cancel();
+    }
+
+    @Override
+    public void setFlame(boolean flame) {
+        this.flameBl = flame;
+    }
+
+    @Override
+    public void setPower(int power) {
+        this.powerLevel = power;
+    }
+
+    @Override
+    public void setPunch(int punch) {
+        this.punchLevel = punch;
     }
     
 

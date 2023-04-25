@@ -14,9 +14,9 @@ import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModItems;
 
 
@@ -33,8 +33,8 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
         Predicate<ItemStack> predicate = ((RangedWeaponItem)stack.getItem()).getHeldProjectiles();
         ItemStack itemStack = RangedWeaponItem.getHeldProjectile(this, predicate);
         Random random = this.getRandom();
-        float arrowrandomf = MathHelper.clamp((this.world.getDifficulty().getId() + this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty())*random.nextFloat(), 0.0f, 1.0f);
-        if (stack.isOf(ModItems.WOODEN_TUBULAR_BOW) || stack.isOf(ModItems.COPPER_FUSED_TUBULAR_BOW) || stack.isOf(ModItems.GOLD_FUSED_TUBULAR_BOW) || stack.isOf(ModItems.IRON_FUSED_TUBULAR_BOW) || stack.isOf(ModItems.DIAMOND_FUSED_TUBULAR_BOW)) {
+        float arrowrandomf = random.nextFloat() + this.world.getDifficulty().getId()*this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty();
+        if (stack.getItem() instanceof ModBowItem && ((ModBowItem)stack.getItem()).getBowType() == 3) {
             if (itemStack.isEmpty()) {
                 if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {
                     cbireturn.setReturnValue(new ItemStack(ModItems.FLINT_KID_ARROW));
