@@ -7,7 +7,7 @@
       "item": "minecraft:diamond"
     },
     "base": {
-      "item": "progressivearchery:iron_fused_longbow"
+      "item": "progressivearchery:wooden_longbow"
     },
     "result": {
       "item": "progressivearchery:diamond_fused_longbow"
