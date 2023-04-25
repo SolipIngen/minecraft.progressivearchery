@@ -172,7 +172,7 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
 
     @ModifyConstant(method = "getDragInWater", constant = @Constant(floatValue = 0.6f))
     private float modifiedWaterDrag(float originalf) {
-        return 0.67f;
+        return 1.0f/3.0f;
     }
 
     
