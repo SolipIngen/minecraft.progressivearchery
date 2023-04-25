@@ -42,23 +42,25 @@ public class ModifyLootTableHandler implements LootTableEvents.Modify {
     @Override
     public void modifyLootTable(ResourceManager resourceManager, LootManager lootManager, Identifier id, LootTable.Builder tableBuilder, LootTableSource source) {
         for (Identifier identifier : ID_ARRAY) {
-            if (id.getPath().equals(identifier.getPath()) && (source == LootTableSource.REPLACED || source == LootTableSource.MOD)) {
-                float probability = id.getPath().startsWith("entities") ? 0.04f : (id.getPath().startsWith("gameplay") ? 0.12f : 0.33f);
+            if (identifier.getPath().matches(id.getPath()) && (source == LootTableSource.REPLACED || source.isBuiltin())) {
+                float probability = identifier.getPath().startsWith("entities") ? 0.04f : (identifier.getPath().startsWith("gameplay") ? 0.12f : 0.33f);
                 LootPool.Builder bowFusionPoolBuilder = LootPool.builder()
                     .rolls(ConstantLootNumberProvider.create(1))
-                    .conditionally(RandomChanceWithLootingLootCondition.builder(probability, id.getPath().startsWith("entities") ? 0.02f : 0.0f))
+                    .conditionally(RandomChanceWithLootingLootCondition.builder(probability, identifier.getPath().startsWith("entities") ? 0.02f : 0.0f))
                     .with(ItemEntry.builder(ModItems.BOW_FUSION_SMITHING_TEMPLATE))
                     .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)).build());
+                tableBuilder.pool(bowFusionPoolBuilder.build());
                 LootPool.Builder trimPoolBuilder = LootPool.builder();
                 LootPool.Builder upgradePoolBuilder = LootPool.builder();
-                if (id.getPath().equals(PILLAGER_OUTPOST_ID.getPath())) {
+                if (identifier.getPath().matches(PILLAGER_OUTPOST_ID.getPath())) {
                     trimPoolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1.0f))
                         .with(EmptyEntry.builder().weight(3))
                         .with(ItemEntry.builder(Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE).weight(1))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0f)).build());
+                    tableBuilder.pool(bowFusionPoolBuilder.build());
                 }
-                else if (id.getPath().equals(BASTION_HOGLIN_STABLE_ID.getPath()) || id.getPath().equals(BASTION_BRIDGE_ID.getPath()) || id.getPath().equals(BASTION_GENERIC_ID.getPath())) {
+                else if (identifier.getPath().matches(BASTION_HOGLIN_STABLE_ID.getPath()) || identifier.getPath().matches(BASTION_BRIDGE_ID.getPath()) || identifier.getPath().matches(BASTION_GENERIC_ID.getPath())) {
                     trimPoolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1.0f))
                         .with(EmptyEntry.builder().weight(11))
@@ -67,8 +69,8 @@ public class ModifyLootTableHandler implements LootTableEvents.Modify {
                         .rolls(ConstantLootNumberProvider.create(1.0f))
                         .with(EmptyEntry.builder().weight(9))
                         .with(ItemEntry.builder(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).weight(1));
+                    tableBuilder.pool(trimPoolBuilder.build()).pool(upgradePoolBuilder.build());
                 }
-                tableBuilder.pool(bowFusionPoolBuilder.build()).pool(trimPoolBuilder.build()).pool(upgradePoolBuilder.build());
             }
         }
     }
