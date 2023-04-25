@@ -14,6 +14,7 @@ import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.item.ModBowItem;
@@ -33,7 +34,7 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
         Predicate<ItemStack> predicate = ((RangedWeaponItem)stack.getItem()).getHeldProjectiles();
         ItemStack itemStack = RangedWeaponItem.getHeldProjectile(this, predicate);
         Random random = this.getRandom();
-        float arrowrandomf = random.nextFloat() + this.world.getDifficulty().getId()*this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty();
+        float arrowrandomf = MathHelper.clamp(this.world.getDifficulty().getId()*random.nextFloat() + this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty(), 0.0f, 1.0f);
         if (stack.getItem() instanceof ModBowItem && ((ModBowItem)stack.getItem()).getBowType() == 3) {
             if (itemStack.isEmpty()) {
                 if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {
