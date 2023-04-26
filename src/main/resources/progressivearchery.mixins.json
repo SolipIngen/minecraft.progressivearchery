@@ -54,7 +54,8 @@
     "item.SmithingTemplateItemMixin", 
     "item.SnowballItemMixin", 
     "item.ThrowablePotionItemMixin", 
-    "server.network.ServerPlayerEntityMixin"
+    "server.network.ServerPlayerEntityMixin", 
+    "structure.SwampHutGeneratorMixin"
   ],
   "client": [
     "client.WelcomeMixin", 

@@ -20,7 +20,6 @@ import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtil;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
@@ -31,7 +30,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.event.GameEvent;
 import solipingen.progressivearchery.block.enums.BlockPotionType;
-import solipingen.progressivearchery.sound.ModSoundEvents;
 import solipingen.progressivearchery.state.property.ModProperties;
 
 
@@ -39,8 +37,6 @@ public class PotionCauldronBlock extends AbstractCauldronBlock {
     public static final Map<Item, CauldronBehavior> POTION_CAULDRON_BEHAVIOR = new HashMap<>();
     public static final Map<Potion, BlockPotionType> BLOCK_POTION_TYPE = new HashMap<>();
     public static final Map<BlockPotionType, Potion> POTION_TYPE_IN_BLOCK = new HashMap<>();
-    public static final int field_31107 = 1;
-    public static final int field_31108 = 3;
     public static final IntProperty LEVEL = Properties.LEVEL_3;
     public static final IntProperty TIPPING_NUMBER = IntProperty.of("tipping_number", 1, 21);
     public static final ToIntFunction<BlockState> LEVEL_TO_LUMINANCE = state -> 4*state.get(LEVEL);
@@ -49,14 +45,13 @@ public class PotionCauldronBlock extends AbstractCauldronBlock {
 
     public PotionCauldronBlock(AbstractBlock.Settings settings, Predicate<Biome.Precipitation> precipitationPredicate, Map<Item, CauldronBehavior> behaviorMap) {
         super(settings, behaviorMap);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(LEVEL, 1).with(TIPPING_NUMBER, 21));
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(LEVEL, 1).with(TIPPING_NUMBER, 21).with(POTION_TYPE, BlockPotionType.WATER));
     }
 
     public static void decrementFluidLevel(BlockState state, World world, BlockPos pos) {
         int i = state.get(LEVEL) - 1;
         BlockState blockState = i == 0 ? Blocks.CAULDRON.getDefaultState() : (BlockState)state.with(LEVEL, i).with(TIPPING_NUMBER, 21);
         world.setBlockState(pos, blockState);
-        world.playSound(null, pos, ModSoundEvents.ARROW_TIPPED, SoundCategory.BLOCKS, 1.0f, 1.0f);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
     }
 
