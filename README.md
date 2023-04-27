@@ -1,7 +1,7 @@
 # Progressive Archery: A Minecraft Mod
 
 
-![progressivearchery_icon](https://user-images.githubusercontent.com/117603129/234380135-49d4b732-a3d1-41b9-897e-acc3f7f3a935.png)
+![progressivearchery_icon](https://user-images.githubusercontent.com/117603129/234379969-38b4face-04d7-4d01-964d-c999efccd91f.png)
 
 Welcome to Progressive Archery, a mod that reworks almost every aspect to do with archery and ranged combat in Minecraft.
 Please report any technical issues you find here, while I ask you to make content-related feedback on the mod's CurseForge page. 
