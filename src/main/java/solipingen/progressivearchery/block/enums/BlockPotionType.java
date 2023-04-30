@@ -3,8 +3,7 @@ package solipingen.progressivearchery.block.enums;
 import net.minecraft.util.StringIdentifiable;
 
 
-public enum BlockPotionType implements StringIdentifiable
-{
+public enum BlockPotionType implements StringIdentifiable {
     EMPTY("empty"),
     WATER("water"),
     MUNDANE("mundane"),
