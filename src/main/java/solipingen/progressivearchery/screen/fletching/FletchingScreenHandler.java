@@ -36,16 +36,33 @@ public class FletchingScreenHandler extends ArrowmakingScreenHandler {
         this.recipes = this.world.getRecipeManager().listAllOfType(FletchingRecipe.Type.INSTANCE);
         
         // Input Slots
-        this.addSlot(new Slot(this.input, 0, 69, 23));
-        this.addSlot(new Slot(this.input, 1, 44, 23));
-        this.addSlot(new Slot(this.input, 2, 19, 23));
+        this.addSlot(new Slot(this.input, 0, 69, 23){
+            
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return FletchingScreenHandler.this.isUsableAsHead(stack);
+            }
+        });
+        this.addSlot(new Slot(this.input, 1, 44, 23){
+            
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return FletchingScreenHandler.this.isUsableAsBody(stack);
+            }
+        });
+        this.addSlot(new Slot(this.input, 2, 19, 23){
+            
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return FletchingScreenHandler.this.isUsableAsTail(stack);
+            }
+        });
         this.addSlot(new Slot(this.input, 3, 44, 53){
 
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.isOf(Items.FLINT) || stack.isOf(Items.STRING) || stack.isOf(Items.LAVA_BUCKET) || stack.isOf(Items.IRON_AXE);
+                return FletchingScreenHandler.this.isUsableAsAddition(stack);
             }
-            
         });
 
         // Output Slot

@@ -13,6 +13,7 @@ import solipingen.progressivearchery.advancement.criterion.shot_bow.ShotLongbowC
 import solipingen.progressivearchery.advancement.criterion.shot_bow.ShotModBowCriterion;
 import solipingen.progressivearchery.advancement.criterion.shot_bow.ShotTubularBowCriterion;
 
+
 public class ModCriteria {
 
     public static final FletchedArrowCriterion FLETCHED_ARROW = Criteria.register(new FletchedArrowCriterion());

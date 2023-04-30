@@ -14,6 +14,7 @@ import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.util.Identifier;
 
+
 public class KilledByLongbowConditions extends AbstractCriterionConditions {
     static final Identifier ID = KilledByLongbowCriterion.ID;
     private final EntityPredicate.Extended[] victims;

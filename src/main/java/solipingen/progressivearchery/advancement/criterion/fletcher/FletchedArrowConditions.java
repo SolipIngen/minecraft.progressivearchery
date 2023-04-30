@@ -11,6 +11,7 @@ import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
+
 public class FletchedArrowConditions extends AbstractCriterionConditions {
     static final Identifier ID = FletchedArrowCriterion.ID;
     

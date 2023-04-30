@@ -5,6 +5,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.ProgressiveArchery;
 
+
 public class ModRecipes {
     
     
