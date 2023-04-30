@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+
 public class TippedArrowItem extends ModArrowItem {
 
 

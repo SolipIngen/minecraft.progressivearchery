@@ -13,6 +13,7 @@ import solipingen.progressivearchery.entity.projectile.kid_arrow.KidArrowEntity;
 import solipingen.progressivearchery.entity.projectile.kid_arrow.WoodenKidArrowEntity;
 import solipingen.progressivearchery.item.ModItems;
 
+
 public class KidArrowItem extends Item {
 
 

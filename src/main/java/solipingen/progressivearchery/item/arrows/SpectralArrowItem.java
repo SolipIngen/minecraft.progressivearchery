@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.projectile.arrow.ModArrowEntity;
 import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 
+
 public class SpectralArrowItem extends ModArrowItem {
 
 
