@@ -1,4 +1,11 @@
 {
+    "item.minecraft.tipped_arrow": "Tipped Arrow",
+    "item.minecraft.tipped_arrow.effect.empty": "Tipped Arrow",
+    "item.minecraft.tipped_arrow.effect.water": "Arrow of Splashing",
+    "item.minecraft.tipped_arrow.effect.mundane": "Mundane Tipped Arrow",
+    "item.minecraft.tipped_arrow.effect.thick": "Thick Tipped Arrow",
+    "item.minecraft.tipped_arrow.effect.awkward": "Awkward Tipped Arrow",
+    
     "advancements.adventure.sniper_duel.title": "Sniper Duel", 
     "advancements.adventure.sniper_duel.description": "Kill a Skeleton from at least 50 meters away with a Bow", 
     "advancements.adventure.arbalistic.title": "Ghost Shot", 

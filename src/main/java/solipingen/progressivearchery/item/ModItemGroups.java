@@ -24,8 +24,6 @@ public class ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.COPPER_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.IRON_ARROW));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.GOLDEN_ARROW));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> 
-            ModItemGroups.addPotions(entries, ModItems.TIPPED_ARROW, StackVisibility.PARENT_AND_SEARCH_TABS));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> entries.add(ModItems.DIAMOND_ARROW));
 
         // Kid Arrows

@@ -56,7 +56,7 @@ public class ModVillagerProfessions {
                     new SellItemFactory(ModItems.GOLD_FUSED_HORN_BOW, 6, 1, 10), new SellItemFactory(ModItems.GOLD_FUSED_LONGBOW, 7, 1, 10), 
                     new SellItemFactory(ModItems.GOLD_FUSED_TUBULAR_BOW, 7, 1, 10), new SellItemFactory(ModItems.GOLD_FUSED_CROSSBOW, 7, 1, 10)}, 
                 4, new Factory[]{new BuyForOneEmeraldFactory(Items.GOAT_HORN, 1, 16, 30), new BuyForOneEmeraldFactory(Items.IRON_NUGGET, 18, 16, 30), 
-                    new SellPotionHoldingItemFactory(ModItems.GOLDEN_ARROW, 4, ModItems.TIPPED_ARROW, 4, 2, 12, 30), 
+                    new SellPotionHoldingItemFactory(ModItems.GOLDEN_ARROW, 4, Items.TIPPED_ARROW, 4, 2, 12, 30), 
                     new SellItemFactory(ModItems.IRON_ARROW, 4, 8, 15), new SellItemFactory(ModItems.IRON_FUSED_BOW, 10, 1, 15), 
                     new SellItemFactory(ModItems.IRON_FUSED_HORN_BOW, 11, 1, 15), new SellItemFactory(ModItems.IRON_FUSED_LONGBOW, 12, 1, 15), 
                     new SellItemFactory(ModItems.IRON_FUSED_TUBULAR_BOW, 12, 1, 15), new SellItemFactory(ModItems.IRON_FUSED_CROSSBOW, 12, 1, 15)}, 
