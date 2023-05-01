@@ -1,5 +1,6 @@
 package solipingen.progressivearchery.util.interfaces.mixin.entity.passive;
 
+
 public interface StriderEntityInterface {
 
     public boolean getIsSheared();
