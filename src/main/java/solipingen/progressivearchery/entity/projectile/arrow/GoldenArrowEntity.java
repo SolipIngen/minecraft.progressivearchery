@@ -11,6 +11,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
@@ -54,7 +55,7 @@ public class GoldenArrowEntity extends ModArrowEntity {
     @Override
     public void initFromStack(ItemStack stack) {
         super.initFromStack(stack);
-        if (stack.isOf(ModItems.TIPPED_ARROW)) {
+        if (stack.isOf(Items.TIPPED_ARROW)) {
             int i = GoldenArrowEntity.getCustomPotionColor(stack);
             this.potion = PotionUtil.getPotion(stack);
             List<StatusEffectInstance> collection = PotionUtil.getCustomPotionEffects(stack);
@@ -207,7 +208,7 @@ public class GoldenArrowEntity extends ModArrowEntity {
         if (this.effects.isEmpty() && this.potion == Potions.EMPTY) {
             return new ItemStack(ModItems.GOLDEN_ARROW);
         }
-        ItemStack itemStack = new ItemStack(ModItems.TIPPED_ARROW);
+        ItemStack itemStack = new ItemStack(Items.TIPPED_ARROW);
         PotionUtil.setPotion(itemStack, this.potion);
         PotionUtil.setCustomPotionEffects(itemStack, this.effects);
         if (this.colorSet) {

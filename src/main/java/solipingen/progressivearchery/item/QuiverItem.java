@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
-import net.minecraft.item.BlockItem;
+import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -53,7 +53,7 @@ public class QuiverItem extends Item {
         }
         ItemStack itemStack = slot.getStack();
         Item item = itemStack.getItem();
-        if (!(item instanceof ModArrowItem || item instanceof KidArrowItem || itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.isOf(Items.FIREWORK_ROCKET) || itemStack.isEmpty())) {
+        if (!(item instanceof ArrowItem || item instanceof ModArrowItem || item instanceof KidArrowItem || itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.isOf(Items.FIREWORK_ROCKET) || itemStack.isEmpty())) {
             return false;
         }
         if (itemStack.isEmpty()) {
@@ -119,7 +119,7 @@ public class QuiverItem extends Item {
         if (stack.isEmpty() || !stack.getItem().canBeNested()) {
             return 0;
         }
-        if (!(stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof KidArrowItem || stack.isOf(Items.SPECTRAL_ARROW) || stack.isOf(Items.FIREWORK_ROCKET))) {
+        if (!(stack.getItem() instanceof ArrowItem || stack.getItem() instanceof ModArrowItem || stack.getItem() instanceof KidArrowItem || stack.isOf(Items.FIREWORK_ROCKET))) {
             return 0;
         }
         NbtCompound nbtCompound = quiver.getOrCreateNbt();
@@ -175,18 +175,14 @@ public class QuiverItem extends Item {
     }
 
     public static int getItemOccupancy(ItemStack stack) {
-        NbtCompound nbtCompound;
         if (stack.isOf(ModItems.QUIVER)) {
             return 4 + QuiverItem.getQuiverOccupancy(stack);
-        }
-        if ((stack.isOf(Items.BEEHIVE) || stack.isOf(Items.BEE_NEST)) && stack.hasNbt() && (nbtCompound = BlockItem.getBlockEntityNbt(stack)) != null && !nbtCompound.getList("Bees", NbtElement.COMPOUND_TYPE).isEmpty()) {
-            return 64;
         }
         return 64 / stack.getMaxCount();
     }
 
     public static int getQuiverOccupancy(ItemStack stack) {
-        return QuiverItem.getStoredStacks(stack).mapToInt(itemStack -> QuiverItem.getItemOccupancy(itemStack) * itemStack.getCount()).sum();
+        return QuiverItem.getStoredStacks(stack).mapToInt(itemStack -> QuiverItem.getItemOccupancy(itemStack)*itemStack.getCount()).sum();
     }
 
     private static Optional<ItemStack> removeFirstStack(ItemStack stack) {

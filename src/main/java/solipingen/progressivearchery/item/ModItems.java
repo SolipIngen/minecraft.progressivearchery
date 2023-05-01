@@ -10,7 +10,6 @@ import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
 import solipingen.progressivearchery.item.arrows.SpectralKidArrowItem;
-import solipingen.progressivearchery.item.arrows.TippedArrowItem;
 import solipingen.progressivearchery.item.arrows.TippedKidArrowItem;
 
 
@@ -31,9 +30,6 @@ public class ModItems {
 
     public static final Item IRON_ARROW = ModItems.registerItem("iron_arrow",
         new ModArrowItem(new FabricItemSettings()));
-
-    public static final Item TIPPED_ARROW = ModItems.registerItem("tipped_arrow",
-        new TippedArrowItem(new FabricItemSettings()));
 
     public static final Item DIAMOND_ARROW = ModItems.registerItem("diamond_arrow", 
         new ModArrowItem(new FabricItemSettings()));

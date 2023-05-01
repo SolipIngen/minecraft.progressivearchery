@@ -12,7 +12,6 @@ public class ModItemColorProvider {
 
 
     public static void registerModItemColors() {
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? PotionUtil.getColor(stack) : -1, ModItems.TIPPED_ARROW);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex == 0 ? PotionUtil.getColor(stack) : -1, ModItems.TIPPED_KID_ARROW);
     }
 

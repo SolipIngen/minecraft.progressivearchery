@@ -161,7 +161,7 @@
                 "id": "minecraft:slowness"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           }
         ],
         "rolls": 1.0

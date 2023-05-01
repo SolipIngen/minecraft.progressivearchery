@@ -31,7 +31,7 @@
                 "id": "minecraft:swiftness"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -50,7 +50,7 @@
                 "id": "minecraft:slowness"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -69,7 +69,7 @@
                 "id": "minecraft:strength"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -88,7 +88,7 @@
                 "id": "minecraft:healing"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -107,7 +107,7 @@
                 "id": "minecraft:harming"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -126,7 +126,7 @@
                 "id": "minecraft:leaping"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -145,7 +145,7 @@
                 "id": "minecraft:regeneration"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -164,7 +164,7 @@
                 "id": "minecraft:fire_resistance"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -183,7 +183,7 @@
                 "id": "minecraft:water_breathing"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -202,7 +202,7 @@
                 "id": "minecraft:invisibility"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -221,7 +221,7 @@
                 "id": "minecraft:night_vision"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -240,7 +240,7 @@
                 "id": "minecraft:weakness"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           },
           {
             "type": "minecraft:item",
@@ -259,7 +259,7 @@
                 "id": "minecraft:poison"
               }
             ],
-            "name": "progressivearchery:tipped_arrow"
+            "name": "minecraft:tipped_arrow"
           }
         ],
         "rolls": 1.0

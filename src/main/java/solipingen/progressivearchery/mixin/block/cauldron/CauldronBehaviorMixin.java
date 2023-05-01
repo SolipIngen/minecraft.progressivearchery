@@ -105,7 +105,7 @@ public interface CauldronBehaviorMixin {
                 if (state.get(PotionCauldronBlock.TIPPING_NUMBER) <= 1) {
                     PotionCauldronBlock.decrementFluidLevel(state, world, pos);
                 }
-                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(ModItems.TIPPED_ARROW), potionType)));
+                player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, PotionUtil.setPotion(new ItemStack(Items.TIPPED_ARROW), potionType)));
                 int currentTippingNumber = state.get(PotionCauldronBlock.TIPPING_NUMBER);
                 world.setBlockState(pos, state.with(PotionCauldronBlock.TIPPING_NUMBER, currentTippingNumber - 1));
 

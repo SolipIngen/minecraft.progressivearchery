@@ -8,8 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.entity.ModEntityTypes;
+import solipingen.progressivearchery.sound.ModSoundEvents;
 
 
 public class SpectralArrowEntity extends ModArrowEntity {
@@ -23,10 +26,12 @@ public class SpectralArrowEntity extends ModArrowEntity {
 
     public SpectralArrowEntity(World world, double x, double y, double z) {
         super(ModEntityTypes.SPECTRAL_ARROW_ENTITY, DAMAGE_AMOUNT, world, x, y, z);
+        this.setSound(ModSoundEvents.COPPER_GOLDEN_ARROW_HIT);
     }
 
     public SpectralArrowEntity(World world, LivingEntity owner) {
         super(ModEntityTypes.SPECTRAL_ARROW_ENTITY, DAMAGE_AMOUNT, world, owner);
+        this.setSound(ModSoundEvents.COPPER_GOLDEN_ARROW_HIT);
     }
 
     @Override
@@ -47,6 +52,17 @@ public class SpectralArrowEntity extends ModArrowEntity {
         super.onHit(target);
         StatusEffectInstance statusEffectInstance = new StatusEffectInstance(StatusEffects.GLOWING, this.duration, 0);
         target.addStatusEffect(statusEffectInstance, this.getEffectCause());
+    }
+
+    @Override
+    public void onBlockHit(BlockHitResult blockHitResult) {
+        super.onBlockHit(blockHitResult);
+        this.setSound(ModSoundEvents.COPPER_GOLDEN_ARROW_HIT);
+    }
+
+    @Override
+    public SoundEvent getHitSound() {
+        return ModSoundEvents.COPPER_GOLDEN_ARROW_HIT;
     }
 
     @Override

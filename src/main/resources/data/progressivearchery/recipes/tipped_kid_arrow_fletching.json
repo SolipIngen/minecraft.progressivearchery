@@ -1,13 +1,13 @@
 {
   "type": "progressivearchery:fletching",
   "head": {
-    "item": "progressivearchery:tipped_arrow"
+    "item": "minecraft:tipped_arrow"
   },
   "body": {
-    "item": "progressivearchery:tipped_arrow"
+    "item": "minecraft:tipped_arrow"
   },
   "tail": {
-    "item": "progressivearchery:tipped_arrow"
+    "item": "minecraft:tipped_arrow"
   },
   "addition": {
     "item": "minecraft:stonecutter"

@@ -126,7 +126,7 @@ public interface DispenserBehaviorMixin {
                 return arrowEntity;
             }
         });
-        DispenserBlock.registerBehavior(ModItems.TIPPED_ARROW, new ProjectileDispenserBehavior(){
+        DispenserBlock.registerBehavior(Items.TIPPED_ARROW, new ProjectileDispenserBehavior(){
 
             @Override
             protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {

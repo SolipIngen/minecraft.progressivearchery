@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 public abstract class AbstractCauldronBlockMixin extends Block {
     @Shadow @Final private Map<Item, CauldronBehavior> behaviorMap;
 
+    
     public AbstractCauldronBlockMixin(Settings settings) {
         super(settings);
     }

@@ -15,7 +15,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.item.ModBundleItem;
-import solipingen.progressivearchery.item.arrows.SpectralArrowItem;
 
 
 @Mixin(Items.class)
@@ -26,10 +25,6 @@ public abstract class ItemsMixin {
     private static void injectedRegister(Identifier id, Item item, CallbackInfoReturnable<Item> cbireturn) {
         String name = id.getPath();
         int rawId = Item.getRawId(item);
-        if (name.matches("spectral_arrow")) {
-            Item newSpectralArrowItem = (Item)new SpectralArrowItem(new Item.Settings());
-            cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newSpectralArrowItem));
-        }
         if (item instanceof PotionItem) {
             if (item instanceof SplashPotionItem) {
                 Item newSplashPotionItem = (Item)new SplashPotionItem(new Item.Settings().maxCount(8));
