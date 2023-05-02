@@ -15,6 +15,7 @@ import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.item.ModItems;
 
+
 public class ModifyLootTableHandler implements LootTableEvents.Modify {
 
     // Structure Chest Loot
@@ -42,7 +43,7 @@ public class ModifyLootTableHandler implements LootTableEvents.Modify {
     @Override
     public void modifyLootTable(ResourceManager resourceManager, LootManager lootManager, Identifier id, LootTable.Builder tableBuilder, LootTableSource source) {
         for (Identifier identifier : ID_ARRAY) {
-            if (identifier.getPath().matches(id.getPath()) && (source == LootTableSource.REPLACED || source.isBuiltin())) {
+            if (identifier.getPath().matches(id.getPath())) {
                 float probability = identifier.getPath().startsWith("entities") ? 0.04f : (identifier.getPath().startsWith("gameplay") ? 0.12f : 0.33f);
                 LootPool.Builder bowFusionPoolBuilder = LootPool.builder()
                     .rolls(ConstantLootNumberProvider.create(1))
