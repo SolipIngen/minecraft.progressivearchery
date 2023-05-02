@@ -81,10 +81,10 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
 
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     private boolean redirectedDamage(Entity entity, DamageSource damageSource, float originalf) {
-        int amount = MathHelper.ceil(MathHelper.clamp(0.5*this.getVelocity().lengthSquared()*this.damage, 0.0, 2.147483647E9));
+        float amount = (float)MathHelper.clamp(0.5*this.getVelocity().lengthSquared()*this.damage, 0.0, 2.147483647E9);
         if (((PersistentProjectileEntity)(Object)this).isCritical()) {
-            int criticalBonusLevel = this.random.nextInt(MathHelper.ceil(0.1f*amount));
-            amount = Math.min(MathHelper.ceil((1.0f + 0.1f*criticalBonusLevel)*amount), Integer.MAX_VALUE);
+            float criticalBonus = 0.15f + 0.1f*this.random.nextFloat();
+            amount *= 1.0f + criticalBonus;
         }
         return entity.damage(damageSource, amount);
     }
