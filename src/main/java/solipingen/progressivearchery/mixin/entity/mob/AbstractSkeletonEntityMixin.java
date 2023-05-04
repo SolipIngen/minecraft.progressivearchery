@@ -136,18 +136,18 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         ItemStack itemStack = this.getStackInHand(ProjectileUtil.getHandPossiblyHolding(this, mainhandItem));
 
         if (itemStack.isOf(Items.BOW)) {
-            int i = 15;
+            int i = 20;
             if (this.world.getDifficulty() != Difficulty.HARD) {
-                i = 35;
+                i = 40;
             }
             this.bowAttackGoal.setAttackInterval(i);
             this.goalSelector.add(4, this.bowAttackGoal);
             cbi.cancel();
         }
         if (itemStack.getItem() instanceof ModBowItem) {
-            int i = 15 + 5*((ModBowItem)itemStack.getItem()).getBowType();
+            int i = 20 + 5*((ModBowItem)itemStack.getItem()).getBowType();
             if (this.world.getDifficulty() != Difficulty.HARD) {
-                i = 35 + 5*((ModBowItem)itemStack.getItem()).getBowType();
+                i = 40 + 5*((ModBowItem)itemStack.getItem()).getBowType();
             }
             this.bowAttackGoal.setAttackInterval(i);
             this.goalSelector.add(4, this.bowAttackGoal);
