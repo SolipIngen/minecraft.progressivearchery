@@ -1,7 +1,7 @@
 {
     "parent": "progressivearchery:item/generic/generic_horn_bow_pulling_2",
     "textures": {
-        "3": "progressivearchery:item/iron_fused_horn_bow_pulling_2",
+        "2": "progressivearchery:item/iron_fused_horn_bow_pulling_2",
         "particle": "progressivearchery:item/iron_fused_horn_bow"
     }, 
     "display": {
