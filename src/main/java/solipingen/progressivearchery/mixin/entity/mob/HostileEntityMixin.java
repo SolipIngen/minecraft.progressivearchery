@@ -34,7 +34,7 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
         Predicate<ItemStack> predicate = ((RangedWeaponItem)stack.getItem()).getHeldProjectiles();
         ItemStack itemStack = RangedWeaponItem.getHeldProjectile(this, predicate);
         Random random = this.getRandom();
-        float arrowrandomf = MathHelper.clamp(this.world.getDifficulty().getId()*random.nextFloat() + this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty(), 0.0f, 1.0f);
+        float arrowrandomf = MathHelper.clamp((1.0f + 0.1f*(this.world.getDifficulty().getId() - 1) + this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty())*random.nextFloat(), 0.0f, 1.0f);
         if (stack.getItem() instanceof ModBowItem && ((ModBowItem)stack.getItem()).getBowType() == 3) {
             if (itemStack.isEmpty()) {
                 if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {

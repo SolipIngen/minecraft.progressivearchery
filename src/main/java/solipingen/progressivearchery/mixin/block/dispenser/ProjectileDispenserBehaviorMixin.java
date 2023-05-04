@@ -24,7 +24,7 @@ public abstract class ProjectileDispenserBehaviorMixin extends ItemDispenserBeha
         Vec3d dispenserPos = projectileEntity.getPos().subtract(originalX, originalY - 0.1, originalZ);
         BlockPos dispenserBlockPos = new BlockPos(dispenserPos.getX() < 0 ? -MathHelper.floor(Math.abs(dispenserPos.getX())) : MathHelper.floor(dispenserPos.getX()), dispenserPos.getY() < 0 ? -MathHelper.floor(Math.abs(dispenserPos.getY())) : MathHelper.floor(dispenserPos.getY()), dispenserPos.getZ() < 0 ? -MathHelper.floor(Math.abs(dispenserPos.getZ())) : MathHelper.floor(dispenserPos.getZ()));
         int dispenserPowerLevel = projectileEntity.world.getReceivedRedstonePower(dispenserBlockPos);
-        projectileEntity.setVelocity(originalX, originalY - 0.1, originalZ, projectileEntity instanceof KidArrowEntity ? Math.min(0.2f*dispenserPowerLevel, 4.2f) : Math.min(0.2f*dispenserPowerLevel, 3.0f), 2.0f);
+        projectileEntity.setVelocity(originalX, originalY - 0.1, originalZ, projectileEntity instanceof KidArrowEntity ? Math.min(MathHelper.sqrt(2.0f)*0.2f*dispenserPowerLevel, 4.2f) : Math.min(0.2f*dispenserPowerLevel, 3.0f), 2.0f);
     }
     
     @ModifyConstant(method = "getVariation", constant = @Constant(floatValue = 6.0f))
