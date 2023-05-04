@@ -81,8 +81,7 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
 
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     private boolean redirectedDamage(Entity entity, DamageSource damageSource, float originalf) {
-        float size = Math.max(this.getWidth(), this.getHeight());
-        float amount = size <= 0.0f ? 0.0f : 0.5f*MathHelper.clamp(size*(float)(this.damage*this.getVelocity().lengthSquared()), 0.0f, 2.147483647E9f);
+        float amount = 0.5f*MathHelper.clamp((float)(this.damage*this.getVelocity().lengthSquared()), 0.0f, 2.147483647E9f);
         if (((PersistentProjectileEntity)(Object)this).isCritical()) {
             float criticalBonus = 0.2f + 0.1f*this.random.nextFloat();
             amount *= 1.0f + criticalBonus;
@@ -107,7 +106,6 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
         Vec3d vec3d = this.getVelocity().normalize().multiply((double)this.punch* 0.6*d);
         livingEntity.addVelocity(vec3d.x, vec3d.y, vec3d.z);
     }
-
 
     @Inject(method = "onEntityHit", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", opcode = Opcodes.GETFIELD), 
         slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;onHit(Lnet/minecraft/entity/LivingEntity;)V")))
