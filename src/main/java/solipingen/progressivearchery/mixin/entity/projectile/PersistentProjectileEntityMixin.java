@@ -81,9 +81,10 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
 
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"))
     private boolean redirectedDamage(Entity entity, DamageSource damageSource, float originalf) {
-        float amount = (float)MathHelper.clamp(0.5*this.getVelocity().lengthSquared()*this.damage, 0.0, 2.147483647E9);
+        float size = Math.max(this.getWidth(), this.getHeight());
+        float amount = size <= 0.0f ? 0.0f : 0.5f*MathHelper.clamp(size*(float)(this.damage*1.0f/size*this.getVelocity().lengthSquared()), 0.0f, 2.147483647E9f);
         if (((PersistentProjectileEntity)(Object)this).isCritical()) {
-            float criticalBonus = 0.15f + 0.1f*this.random.nextFloat();
+            float criticalBonus = 0.2f + 0.1f*this.random.nextFloat();
             amount *= 1.0f + criticalBonus;
         }
         return entity.damage(damageSource, amount);
@@ -95,7 +96,7 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
         if (entity instanceof LivingEntity) {
             LivingEntity livingEntity = (LivingEntity)entity;
             double d = Math.max(0.0, 1.0 - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
-            return this.getVelocity().normalize().multiply((double)this.punch * 0.6 * d);
+            return this.getVelocity().normalize().multiply((double)this.punch*0.6*d);
         }
         return this.getVelocity().normalize().multiply((double)this.punch * 0.6);
     }
@@ -103,7 +104,7 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
     @Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;addVelocity(DDD)V"))
     private void redirectedAddVelocity(LivingEntity livingEntity, double originalX, double originalY, double originalZ) {
         double d = Math.max(0.0, 1.0 - livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
-        Vec3d vec3d = this.getVelocity().normalize().multiply((double)this.punch * 0.6 * d);
+        Vec3d vec3d = this.getVelocity().normalize().multiply((double)this.punch* 0.6*d);
         livingEntity.addVelocity(vec3d.x, vec3d.y, vec3d.z);
     }
 
