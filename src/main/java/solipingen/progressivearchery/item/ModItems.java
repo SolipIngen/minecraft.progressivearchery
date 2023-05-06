@@ -1,6 +1,7 @@
 package solipingen.progressivearchery.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.LeadItem;
 import net.minecraft.registry.Registries;
@@ -195,6 +196,15 @@ public class ModItems {
     }
 
     public static void registerModItems() {
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_BOW, 300);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_HORN_BOW, 300);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_LONGBOW, 400);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_TUBULAR_BOW, 350);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_CROSSBOW, 300);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_ARROW, 150);
+        FuelRegistry.INSTANCE.add(ModItems.WOODEN_KID_ARROW, 75);
+        FuelRegistry.INSTANCE.add(ModItems.QUIVER, 450);
+
         ProgressiveArchery.LOGGER.debug("Registering Mod Items for " + ProgressiveArchery.MOD_ID);
     }
 
