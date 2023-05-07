@@ -33,19 +33,19 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
         Predicate<ItemStack> predicate = ((RangedWeaponItem)stack.getItem()).getHeldProjectiles();
         ItemStack itemStack = RangedWeaponItem.getHeldProjectile(this, predicate);
         Random random = this.getRandom();
-        float arrowrandomf = (1.0f - 0.1f*this.world.getDifficulty().getId())*random.nextFloat() + 0.1f*this.world.getDifficulty().getId()*this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty();
+        float arrowrandomf = (1.0f - 0.05f*this.world.getDifficulty().getId())*random.nextFloat() + 0.05f*this.world.getDifficulty().getId()*this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty();
         if (stack.getItem() instanceof ModBowItem && ((ModBowItem)stack.getItem()).getBowType() == 3) {
             if (itemStack.isEmpty()) {
-                if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {
+                if (0.15f <= arrowrandomf && arrowrandomf < 0.5f) {
                     cbireturn.setReturnValue(new ItemStack(ModItems.FLINT_KID_ARROW));
                 }
-                else if (0.67f <= arrowrandomf && arrowrandomf < 0.85f) {
+                else if (0.5f <= arrowrandomf && arrowrandomf < 0.85f) {
                     cbireturn.setReturnValue(new ItemStack(ModItems.COPPER_KID_ARROW));
                 }
-                else if (0.85f <= arrowrandomf && arrowrandomf < 0.96f) {
+                else if (0.85f <= arrowrandomf && arrowrandomf < 0.95f) {
                     cbireturn.setReturnValue(new ItemStack(ModItems.GOLDEN_KID_ARROW));
                 }
-                else if (0.96f <= arrowrandomf && arrowrandomf <= 1.0f) {
+                else if (0.95f <= arrowrandomf && arrowrandomf <= 1.0f) {
                     cbireturn.setReturnValue(new ItemStack(ModItems.IRON_KID_ARROW));
                 }
                 else {
@@ -59,10 +59,10 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
         else {
             if (itemStack.isEmpty()) {
                 if (((HostileEntity)(Object)this) instanceof PiglinEntity) {
-                    if (arrowrandomf < 0.33f) {
+                    if (arrowrandomf < 0.15f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.WOODEN_ARROW));
                     }
-                    else if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {
+                    else if (0.15f <= arrowrandomf && arrowrandomf < 0.5f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.FLINT_ARROW));
                     }
                     else {
@@ -70,16 +70,16 @@ public abstract class HostileEntityMixin extends PathAwareEntity implements Mons
                     }
                 }
                 else {
-                    if (0.33f <= arrowrandomf && arrowrandomf < 0.67f) {
+                    if (0.15f <= arrowrandomf && arrowrandomf < 0.5f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.FLINT_ARROW));
                     }
-                    else if (0.67f <= arrowrandomf && arrowrandomf < 0.85f) {
+                    else if (0.5f <= arrowrandomf && arrowrandomf < 0.85f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.COPPER_ARROW));
                     }
-                    else if (0.85f <= arrowrandomf && arrowrandomf < 0.96f) {
+                    else if (0.85f <= arrowrandomf && arrowrandomf < 0.95f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.GOLDEN_ARROW));
                     }
-                    else if (0.96f <= arrowrandomf && arrowrandomf <= 1.0f) {
+                    else if (0.95f <= arrowrandomf && arrowrandomf <= 1.0f) {
                         cbireturn.setReturnValue(new ItemStack(ModItems.IRON_ARROW));
                     }
                     else {
