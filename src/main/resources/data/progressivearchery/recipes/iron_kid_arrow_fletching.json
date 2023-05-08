@@ -10,7 +10,7 @@
     "tag": "progressivearchery:fletches"
   },
   "addition": {
-    "item": "minecraft:iron_axe"
+    "item": "minecraft:stonecutter"
   },
   "output": {
     "item": "progressivearchery:iron_kid_arrow",
