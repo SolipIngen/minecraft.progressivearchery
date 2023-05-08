@@ -110,6 +110,8 @@
 
     "entity.minecraft.villager.archer": "Archer", 
 
+    "recipe.progressivearchery.fletching": "Fletching", 
+
     "advancements.adventure.fletcher.description": "Place and use a Fletching Table to make Arrows",
     "advancements.adventure.fletcher.title": "Fletcher",
     "advancements.adventure.long_shot.title": "Long Shot",

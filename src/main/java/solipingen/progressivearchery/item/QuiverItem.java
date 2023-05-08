@@ -107,7 +107,7 @@ public class QuiverItem extends Item {
 
     @Override
     public int getItemBarStep(ItemStack stack) {
-        return Math.min(1 + 12 * QuiverItem.getQuiverOccupancy(stack) / MAX_STORAGE, 13);
+        return Math.min(1 + 12*QuiverItem.getQuiverOccupancy(stack) / MAX_STORAGE, 13);
     }
 
     @Override

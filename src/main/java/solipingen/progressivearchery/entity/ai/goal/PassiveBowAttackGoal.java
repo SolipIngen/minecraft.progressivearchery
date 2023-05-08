@@ -18,7 +18,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.village.VillagerData;
 import net.minecraft.village.VillagerProfession;
 import solipingen.progressivearchery.item.ModBowItem;
-import solipingen.progressivearchery.item.ModItems;
 import solipingen.progressivearchery.sound.ModSoundEvents;
 import solipingen.progressivearchery.village.ModVillagerProfessions;
 
@@ -56,37 +55,12 @@ public class PassiveBowAttackGoal<T extends PassiveEntity> extends Goal {
     }
 
     protected boolean isHoldingBow() {
-        boolean bowbl = ((LivingEntity)this.actor).isHolding(Items.BOW);
-        boolean wbl = ((LivingEntity)this.actor).isHolding(ModItems.WOODEN_BOW);
-        boolean cbl = ((LivingEntity)this.actor).isHolding(ModItems.COPPER_FUSED_BOW);
-        boolean gbl = ((LivingEntity)this.actor).isHolding(ModItems.GOLD_FUSED_BOW);
-        boolean ibl = ((LivingEntity)this.actor).isHolding(ModItems.IRON_FUSED_BOW);
-        boolean dbl = ((LivingEntity)this.actor).isHolding(ModItems.DIAMOND_FUSED_BOW);
-
-        boolean whbl = ((LivingEntity)this.actor).isHolding(ModItems.WOODEN_HORN_BOW);
-        boolean chbl = ((LivingEntity)this.actor).isHolding(ModItems.COPPER_FUSED_HORN_BOW);
-        boolean ghbl = ((LivingEntity)this.actor).isHolding(ModItems.GOLD_FUSED_HORN_BOW);
-        boolean ihbl = ((LivingEntity)this.actor).isHolding(ModItems.IRON_FUSED_HORN_BOW);
-        boolean dhbl = ((LivingEntity)this.actor).isHolding(ModItems.DIAMOND_FUSED_HORN_BOW);
-
-        boolean wlbl = ((LivingEntity)this.actor).isHolding(ModItems.WOODEN_LONGBOW);
-        boolean clbl = ((LivingEntity)this.actor).isHolding(ModItems.COPPER_FUSED_LONGBOW);
-        boolean glbl = ((LivingEntity)this.actor).isHolding(ModItems.GOLD_FUSED_LONGBOW);
-        boolean ilbl = ((LivingEntity)this.actor).isHolding(ModItems.IRON_FUSED_LONGBOW);
-        boolean dlbl = ((LivingEntity)this.actor).isHolding(ModItems.DIAMOND_FUSED_LONGBOW);
-
-        boolean wtbl = ((LivingEntity)this.actor).isHolding(ModItems.WOODEN_TUBULAR_BOW);
-        boolean ctbl = ((LivingEntity)this.actor).isHolding(ModItems.COPPER_FUSED_TUBULAR_BOW);
-        boolean gtbl = ((LivingEntity)this.actor).isHolding(ModItems.GOLD_FUSED_TUBULAR_BOW);
-        boolean itbl = ((LivingEntity)this.actor).isHolding(ModItems.IRON_FUSED_TUBULAR_BOW);
-        boolean dtbl = ((LivingEntity)this.actor).isHolding(ModItems.DIAMOND_FUSED_TUBULAR_BOW);
-
-        return bowbl || wbl || cbl || gbl || ibl || dbl || whbl || chbl || ghbl || ihbl || dhbl || wlbl || clbl || glbl || ilbl || dlbl || wtbl || ctbl || gtbl || itbl || dtbl;
+        return ((LivingEntity)this.actor).isHolding((stack) -> stack.isOf(Items.BOW) || stack.getItem() instanceof ModBowItem);
     }
 
     @Override
     public boolean shouldContinue() {
-        return (this.canStart() || !((MobEntity)this.actor).getNavigation().isIdle()) && this.isHoldingBow();
+        return (this.canStart() || !((MobEntity)this.actor).getNavigation().isIdle()) && this.isHoldingBow() && ((MobEntity)this.actor).getTarget() != null;
     }
 
     @Override
@@ -188,21 +162,10 @@ public class PassiveBowAttackGoal<T extends PassiveEntity> extends Goal {
 
     private int getMaxPullTime() {
         ItemStack itemStack = ((LivingEntity)this.actor).getActiveItem();
-        if (itemStack.isOf(Items.BOW) || itemStack.isOf(ModItems.WOODEN_BOW) || itemStack.isOf(ModItems.COPPER_FUSED_BOW) || itemStack.isOf(ModItems.GOLD_FUSED_BOW) || itemStack.isOf(ModItems.IRON_FUSED_BOW) || itemStack.isOf(ModItems.DIAMOND_FUSED_BOW)) {
-            return 15;
+        if (itemStack.getItem() instanceof ModBowItem) {
+            return 20 + 5*((ModBowItem)itemStack.getItem()).getBowType();
         }
-        else if (itemStack.isOf(ModItems.WOODEN_HORN_BOW) || itemStack.isOf(ModItems.COPPER_FUSED_HORN_BOW) || itemStack.isOf(ModItems.GOLD_FUSED_HORN_BOW) || itemStack.isOf(ModItems.IRON_FUSED_HORN_BOW) || itemStack.isOf(ModItems.DIAMOND_FUSED_HORN_BOW)) {
-            return 20;
-        }
-        else if (itemStack.isOf(ModItems.WOODEN_LONGBOW) || itemStack.isOf(ModItems.COPPER_FUSED_LONGBOW) || itemStack.isOf(ModItems.GOLD_FUSED_LONGBOW) || itemStack.isOf(ModItems.IRON_FUSED_LONGBOW) || itemStack.isOf(ModItems.DIAMOND_FUSED_LONGBOW)) {
-            return 25;
-        }
-        else if (itemStack.isOf(ModItems.WOODEN_TUBULAR_BOW) || itemStack.isOf(ModItems.COPPER_FUSED_TUBULAR_BOW) || itemStack.isOf(ModItems.GOLD_FUSED_TUBULAR_BOW) || itemStack.isOf(ModItems.IRON_FUSED_TUBULAR_BOW) || itemStack.isOf(ModItems.DIAMOND_FUSED_TUBULAR_BOW)) {
-            return 30;
-        }
-        else {
-            return 20;
-        }
+        return 20;
     }
 
 

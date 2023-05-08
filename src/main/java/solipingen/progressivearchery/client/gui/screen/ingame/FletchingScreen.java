@@ -19,7 +19,7 @@ import solipingen.progressivearchery.screen.fletching.FletchingScreenHandler;
 
 @Environment(value=EnvType.CLIENT)
 public class FletchingScreen extends ArrowmakingScreen<FletchingScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID,"textures/gui/container/fletching_gui.png");
+    public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID,"textures/gui/container/fletching_gui.png");
 
 
     public FletchingScreen(FletchingScreenHandler handler, PlayerInventory playerInventory, Text title) {

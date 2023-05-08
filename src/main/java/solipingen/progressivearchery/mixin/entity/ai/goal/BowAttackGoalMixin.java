@@ -34,18 +34,16 @@ public abstract class BowAttackGoalMixin<T extends HostileEntity> extends Goal {
     
     @Inject(method = "isHoldingBow", at = @At("HEAD"), cancellable = true)
     private void injectedIsHoldingBow(CallbackInfoReturnable<Boolean> cbireturn) {
-        cbireturn.setReturnValue(((LivingEntity)this.actor).isHolding(Items.BOW) || (((LivingEntity)this.actor).getMainHandStack().getItem() instanceof ModBowItem || ((LivingEntity)this.actor).getOffHandStack().getItem() instanceof ModBowItem));
+        cbireturn.setReturnValue(((LivingEntity)this.actor).isHolding((stack) -> stack.isOf(Items.BOW) || stack.getItem() instanceof ModBowItem));
     }
 
     @ModifyConstant(method = "tick", constant = @Constant(intValue = 20), slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ai/RangedAttackMob;isUsingItem()Z"), to = @At("TAIL")))
     private int modifiedMaxPullTicks(int originalInt) {
         ItemStack itemStack = ((LivingEntity)this.actor).getActiveItem();
         if (itemStack.getItem() instanceof ModBowItem) {
-            return 15 + 5*((ModBowItem)itemStack.getItem()).getBowType();
+            return 20 + 5*((ModBowItem)itemStack.getItem()).getBowType();
         }
-        else {
-            return 20;
-        }
+        return 20;
     }
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/HostileEntity;clearActiveItem()V"))

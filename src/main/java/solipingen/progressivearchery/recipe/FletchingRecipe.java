@@ -15,6 +15,7 @@ import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 
@@ -58,7 +59,21 @@ public class FletchingRecipe implements Recipe<Inventory> {
     }
 
     @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(4);
+        ingredients.add(this.head);
+        ingredients.add(this.body);
+        ingredients.add(this.tail);
+        ingredients.add(this.addition);
+        return ingredients;
+    }
+
+    @Override
     public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return this.output;
+    }
+
+    public ItemStack getOutput() {
         return this.output;
     }
 
