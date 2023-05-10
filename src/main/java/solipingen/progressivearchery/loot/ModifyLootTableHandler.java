@@ -59,7 +59,7 @@ public class ModifyLootTableHandler implements LootTableEvents.Modify {
                         .with(EmptyEntry.builder().weight(3))
                         .with(ItemEntry.builder(Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE).weight(1))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0f)).build());
-                    tableBuilder.pool(bowFusionPoolBuilder.build());
+                    tableBuilder.pool(bowFusionPoolBuilder.build()).pool(trimPoolBuilder.build());
                 }
                 else if (identifier.getPath().matches(BASTION_HOGLIN_STABLE_ID.getPath()) || identifier.getPath().matches(BASTION_BRIDGE_ID.getPath()) || identifier.getPath().matches(BASTION_GENERIC_ID.getPath())) {
                     trimPoolBuilder = LootPool.builder()
