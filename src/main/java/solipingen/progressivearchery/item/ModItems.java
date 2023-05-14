@@ -166,12 +166,23 @@ public class ModItems {
     public static final Item QUIVER = ModItems.registerItem("quiver", 
         new QuiverItem(new FabricItemSettings().maxCount(1)));
 
+
     // Bow Fusion Template
     public static final Item BOW_FUSION_SMITHING_TEMPLATE = ModItems.registerItem("bow_fusion_smithing_template", 
         (Item)BowFusionTemplateItem.createBowFusionTemplate());
 
-    // Copper Nugget
-    public static final Item COPPER_NUGGET = ModItems.registerItem("copper_nugget",
+
+    // Metal Arrowheads
+    public static final Item COPPER_ARROWHEAD = ModItems.registerItem("copper_arrowhead",
+        new Item(new FabricItemSettings()));
+        
+    public static final Item IRON_ARROWHEAD = ModItems.registerItem("iron_arrowhead",
+        new Item(new FabricItemSettings()));
+
+    public static final Item GOLDEN_ARROWHEAD = ModItems.registerItem("golden_arrowhead",
+        new Item(new FabricItemSettings()));
+    
+    public static final Item DIAMOND_ARROWHEAD = ModItems.registerItem("diamond_arrowhead",
         new Item(new FabricItemSettings()));
 
 
@@ -184,6 +195,7 @@ public class ModItems {
 
     public static final Item HOGLINHAIR = ModItems.registerItem("hoglinhair",
         new Item(new FabricItemSettings()));
+        
 
     // Fireproof Lead
     public static final Item FIREPROOF_LEAD = ModItems.registerItem("fireproof_lead",

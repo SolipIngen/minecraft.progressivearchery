@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_gold_arrowhead": {
+      "has_iron": {
         "conditions": {
           "items": [
             {
               "items": [
-                "progressivearchery:golden_arrowhead"
+                "minecraft:iron_ingot"
               ]
             }
           ]
@@ -15,20 +15,20 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:golden_arrow_fletching"
+          "recipe": "progressivearchery:iron_arrowhead"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
     },
     "requirements": [
       [
-        "has_gold_arrowhead",
+        "has_iron",
         "has_the_recipe"
       ]
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:golden_arrow_fletching"
+        "progressivearchery:iron_arrowhead"
       ]
     }
-  }
+}

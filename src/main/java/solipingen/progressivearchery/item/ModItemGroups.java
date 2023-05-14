@@ -83,8 +83,11 @@ public class ModItemGroups {
         // Bow Fusion Template
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.BOW_FUSION_SMITHING_TEMPLATE));
 
-        // Copper Nugget
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.COPPER_NUGGET));
+        // Metal Arrowheads
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.COPPER_ARROWHEAD));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.IRON_ARROWHEAD));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.GOLDEN_ARROWHEAD));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.DIAMOND_ARROWHEAD));
 
         // Horse, Strider and Hoglin Hairs
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(ModItems.HORSEHAIR));

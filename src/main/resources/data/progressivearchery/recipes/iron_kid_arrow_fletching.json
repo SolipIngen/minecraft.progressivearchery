@@ -1,7 +1,7 @@
 {
   "type": "progressivearchery:fletching",
   "head": {
-    "item": "minecraft:iron_nugget"
+    "item": "progressivearchery:iron_arrowhead"
   },
   "body": {
     "item": "progressivearchery:iron_arrow"

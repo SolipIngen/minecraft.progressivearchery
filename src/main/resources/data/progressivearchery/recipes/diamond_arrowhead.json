@@ -2,15 +2,15 @@
     "type": "minecraft:crafting_shaped",
     "key": {
       "#": {
-        "item": "progressivearchery:copper_nugget"
+        "item": "minecraft:diamond"
       }
     },
     "pattern": [
-      "###",
-      "###",
-      "###"
+      "##",
+      " #"
     ],
     "result": {
-      "item": "minecraft:copper_ingot"
+      "item": "progressivearchery:diamond_arrowhead",
+      "count": 9
     }
 }

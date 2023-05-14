@@ -93,7 +93,10 @@
 
     "item.progressivearchery.bow_fusion_smithing_template": "Bow Fusion Template", 
 
-    "item.progressivearchery.copper_nugget": "Copper Nugget",
+    "item.progressivearchery.copper_arrowhead": "Copper Arrowhead",
+    "item.progressivearchery.iron_arrowhead": "Iron Arrowhead",
+    "item.progressivearchery.golden_arrowhead": "Golden Arrowhead",
+    "item.progressivearchery.diamond_arrowhead": "Diamond Arrowhead",
 
     "item.progressivearchery.horsehair": "Horsehair",
     "item.progressivearchery.striderhair": "Striderhair",

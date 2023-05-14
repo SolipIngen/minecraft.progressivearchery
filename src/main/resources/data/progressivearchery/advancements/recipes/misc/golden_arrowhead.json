@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_copper_nugget": {
+      "has_gold": {
         "conditions": {
           "items": [
             {
               "items": [
-                "progressivearchery:copper_nugget"
+                "minecraft:gold_ingot"
               ]
             }
           ]
@@ -15,20 +15,20 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:copper_ingot_from_nugget"
+          "recipe": "progressivearchery:golden_arrowhead"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
     },
     "requirements": [
       [
-        "has_copper_nugget",
+        "has_gold",
         "has_the_recipe"
       ]
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:copper_ingot_from_nugget"
+        "progressivearchery:golden_arrowhead"
       ]
     }
-  }
+}
