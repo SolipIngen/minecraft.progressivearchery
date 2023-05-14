@@ -1,7 +1,7 @@
 {
   "type": "progressivearchery:fletching",
   "head": {
-    "item": "progressivearchery:copper_nugget"
+    "item": "progressivearchery:copper_arrowhead"
   },
   "body": {
     "item": "minecraft:copper_ingot"

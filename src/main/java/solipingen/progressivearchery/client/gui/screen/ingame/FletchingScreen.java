@@ -52,7 +52,7 @@ public class FletchingScreen extends ArrowmakingScreen<FletchingScreenHandler> {
             else if (headSlot.getStack().isOf(Items.FLINT)) {
                 FletchingScreen.drawTexture(matrices, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 16, 16, 16);
             }
-            else if (headSlot.getStack().isOf(ModItems.COPPER_NUGGET) || headSlot.getStack().isOf(Items.GOLD_NUGGET) || headSlot.getStack().isOf(Items.IRON_NUGGET) || headSlot.getStack().isOf(Items.DIAMOND)) {
+            else if (headSlot.getStack().isOf(ModItems.COPPER_ARROWHEAD) || headSlot.getStack().isOf(ModItems.GOLDEN_ARROWHEAD) || headSlot.getStack().isOf(ModItems.IRON_ARROWHEAD) || headSlot.getStack().isOf(ModItems.DIAMOND_ARROWHEAD)) {
                 FletchingScreen.drawTexture(matrices, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 32, 16, 16);
             }
         }

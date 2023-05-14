@@ -16,6 +16,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import solipingen.progressivearchery.item.ModItems;
 
+
 @Mixin(HoglinEntity.class)
 public abstract class HoglinEntityMixin extends AnimalEntity implements Monster, Hoglin {
     

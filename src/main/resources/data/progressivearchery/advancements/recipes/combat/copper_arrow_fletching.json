@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_copper_nugget": {
+      "has_copper_arrowhead": {
         "conditions": {
           "items": [
             {
               "items": [
-                "progressivearchery:copper_nugget"
+                "progressivearchery:copper_arrowhead"
               ]
             }
           ]
@@ -22,7 +22,7 @@
     },
     "requirements": [
       [
-        "has_copper_nugget",
+        "has_copper_arrowhead",
         "has_the_recipe"
       ]
     ],

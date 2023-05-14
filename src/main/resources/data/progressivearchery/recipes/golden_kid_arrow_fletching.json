@@ -1,7 +1,7 @@
 {
   "type": "progressivearchery:fletching",
   "head": {
-    "item": "minecraft:gold_nugget"
+    "item": "progressivearchery:golden_arrowhead"
   },
   "body": {
     "item": "progressivearchery:golden_arrow"

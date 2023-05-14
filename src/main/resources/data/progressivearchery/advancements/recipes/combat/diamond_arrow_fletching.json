@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_diamond": {
+      "has_diamond_arrowhead": {
         "conditions": {
           "items": [
             {
               "items": [
-                "minecraft:diamond"
+                "progressivearchery:diamond_arrowhead"
               ]
             }
           ]
@@ -22,7 +22,7 @@
     },
     "requirements": [
       [
-        "has_diamond",
+        "has_diamond_arrowhead",
         "has_the_recipe"
       ]
     ],
