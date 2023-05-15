@@ -17,7 +17,6 @@ public class ReplaceLootTableHandler implements LootTableEvents.Replace {
     private static final Identifier JUNGLE_TEMPLE_DISPENSER_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/jungle_temple_dispenser");
     private static final Identifier FLETCHER_CHEST_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/village/village_fletcher");
     private static final Identifier PILLAGER_OUTPOST_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/pillager_outpost");
-    private static final Identifier UNDERWATER_RUIN_BIG_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/underwater_ruin_big");
     private static final Identifier BASTION_GENERIC_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/bastion_other");
     private static final Identifier BASTION_BRIDGE_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/bastion_bridge");
     private static final Identifier BASTION_HOGLIN_STABLE_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/bastion_hoglin_stable");
@@ -32,7 +31,7 @@ public class ReplaceLootTableHandler implements LootTableEvents.Replace {
 
     // Mod Loot Tables
     private static final Identifier[] ID_ARRAY = new Identifier[]{ 
-        JUNGLE_TEMPLE_DISPENSER_ID, FLETCHER_CHEST_ID, PILLAGER_OUTPOST_ID, UNDERWATER_RUIN_BIG_ID, BASTION_GENERIC_ID, BASTION_BRIDGE_ID, BASTION_HOGLIN_STABLE_ID, 
+        JUNGLE_TEMPLE_DISPENSER_ID, FLETCHER_CHEST_ID, PILLAGER_OUTPOST_ID, BASTION_GENERIC_ID, BASTION_BRIDGE_ID, BASTION_HOGLIN_STABLE_ID, 
         SKELETON_DROP_ID, STRAY_DROP_ID, PILLAGER_DROP_ID, FISHING_TREASURE_ID};
 
 
