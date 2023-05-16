@@ -110,12 +110,14 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
     @Inject(method = "onEntityHit", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;isClient:Z", opcode = Opcodes.GETFIELD), 
         slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;onHit(Lnet/minecraft/entity/LivingEntity;)V")))
     private void injectedKilledByBow(EntityHitResult entityHitResult, CallbackInfo cbi) {
-        LivingEntity livingEntity = (LivingEntity)entityHitResult.getEntity();
         Entity entity2 = this.getOwner();
-        if (this.piercingKilledEntities == null) {
-            this.piercingKilledEntities = Lists.newArrayListWithCapacity(5);
-            if (!livingEntity.isAlive()) {
-                this.piercingKilledEntities.add(livingEntity);
+        if (entityHitResult.getEntity() instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity)entityHitResult.getEntity();
+            if (this.piercingKilledEntities == null) {
+                this.piercingKilledEntities = Lists.newArrayListWithCapacity(5);
+                if (!livingEntity.isAlive()) {
+                    this.piercingKilledEntities.add(livingEntity);
+                }
             }
         }
         if (!this.world.isClient && this.piercingKilledEntities != null && entity2 instanceof ServerPlayerEntity) {
