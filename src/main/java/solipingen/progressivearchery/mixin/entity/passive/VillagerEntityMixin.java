@@ -312,21 +312,21 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
     private void onInteractionWith(EntityInteraction interaction, Entity entity, CallbackInfo cbi) {
         if (interaction == EntityInteraction.VILLAGER_HURT) {
             this.setArcherAngryAt(entity.getUuid());
-            List<VillagerEntity> hurtNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(8.0), VillagerEntity::isAlive);
+            List<VillagerEntity> hurtNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(this.isBaby() ? 16.0 : 8.0), VillagerEntity::isAlive);
             for (VillagerEntity nearbyVillager : hurtNearbyVillagers) {
                 ((AngerableArcherVillager)nearbyVillager).setArcherAngryAt(entity.getUuid());
             }
-            List<IronGolemEntity> hurtNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(8.0), IronGolemEntity::isAlive);
+            List<IronGolemEntity> hurtNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(this.isBaby() ? 16.0 : 8.0), IronGolemEntity::isAlive);
             for (IronGolemEntity nearbyIronGolem : hurtNeabyIronGolems) {
                 ((Angerable)nearbyIronGolem).setAngryAt(entity.getUuid());
             }
         }
         else if (interaction == EntityInteraction.VILLAGER_KILLED) {
-            List<VillagerEntity> killedNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(16.0), VillagerEntity::isAlive);
+            List<VillagerEntity> killedNearbyVillagers = this.world.getEntitiesByClass(VillagerEntity.class, this.getBoundingBox().expand(this.isBaby() ? 32.0 : 16.0), VillagerEntity::isAlive);
             for (VillagerEntity nearbyVillager : killedNearbyVillagers) {
                 ((AngerableArcherVillager)nearbyVillager).setArcherAngryAt(entity.getUuid());
             }
-            List<IronGolemEntity> killedNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(16.0), IronGolemEntity::isAlive);
+            List<IronGolemEntity> killedNeabyIronGolems = this.world.getEntitiesByClass(IronGolemEntity.class, this.getBoundingBox().expand(this.isBaby() ? 32.0 : 16.0), IronGolemEntity::isAlive);
             for (IronGolemEntity nearbyIronGolem : killedNeabyIronGolems) {
                 ((Angerable)nearbyIronGolem).setAngryAt(entity.getUuid());
             }
