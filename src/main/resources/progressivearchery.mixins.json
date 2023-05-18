@@ -9,6 +9,7 @@
     "block.dispenser.DispenserBehaviorMixin", 
     "block.dispenser.DispenserBlockMixin", 
     "block.dispenser.ProjectileDispenserBehaviorMixin", 
+    "block.ChorusFlowerBlockMixin", 
     "block.FletchingTableBlockMixin", 
     "enchantment.EnchantmentHelperMixin", 
     "enchantment.FlameEnchantmentMixin", 
