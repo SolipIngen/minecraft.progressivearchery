@@ -43,6 +43,10 @@ public abstract class ItemsMixin {
             Item newBundleItem = (Item)new ModBundleItem(new Item.Settings().maxCount(1));
             cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newBundleItem));
         }
+        else if (item == Items.MAGMA_CREAM) {
+            Item newMagmaCreamItem = (Item)new Item(new Item.Settings().fireproof());
+            cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newMagmaCreamItem));
+        }
     }
 
 
