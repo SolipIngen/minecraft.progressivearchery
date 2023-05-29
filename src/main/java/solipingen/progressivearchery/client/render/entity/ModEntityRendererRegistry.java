@@ -21,7 +21,7 @@ import solipingen.progressivearchery.client.render.entity.projectile.kid_arrow.W
 import solipingen.progressivearchery.entity.ModEntityTypes;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class ModEntityRendererRegistry {
 
 

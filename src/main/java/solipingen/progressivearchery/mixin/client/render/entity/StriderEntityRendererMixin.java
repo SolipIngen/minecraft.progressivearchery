@@ -23,7 +23,7 @@ import solipingen.progressivearchery.client.render.entity.feature.model.Striderh
 
 
 @Mixin(StriderEntityRenderer.class)
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public abstract class StriderEntityRendererMixin extends MobEntityRenderer<StriderEntity, StriderEntityModel<StriderEntity>> {
     private static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/strider/strider.png");
     private static final Identifier COLD_TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/strider/strider_cold.png");

@@ -15,7 +15,7 @@ import solipingen.progressivearchery.screen.fletching.ArrowmakingScreenHandler;
 
 
 @SuppressWarnings("unused")
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public abstract class ArrowmakingScreen<T extends ArrowmakingScreenHandler> extends HandledScreen<T> implements ScreenHandlerListener {
     private final Identifier texture;
     private boolean narrow;

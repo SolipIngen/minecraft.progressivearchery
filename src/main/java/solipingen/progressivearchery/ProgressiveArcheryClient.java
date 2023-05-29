@@ -12,7 +12,8 @@ import solipingen.progressivearchery.client.render.entity.ModEntityModelLayers;
 import solipingen.progressivearchery.client.render.entity.ModEntityRendererRegistry;
 import solipingen.progressivearchery.screen.ModScreenHandlers;
 
-@Environment(value=EnvType.CLIENT)
+
+@Environment(value = EnvType.CLIENT)
 public class ProgressiveArcheryClient implements ClientModInitializer {
 
     

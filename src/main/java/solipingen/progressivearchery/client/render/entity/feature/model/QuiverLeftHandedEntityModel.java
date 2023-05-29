@@ -17,7 +17,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class QuiverLeftHandedEntityModel<T extends LivingEntity> extends AnimalModel<T> {
 	private final ModelPart body;
 	private final ModelPart rim;

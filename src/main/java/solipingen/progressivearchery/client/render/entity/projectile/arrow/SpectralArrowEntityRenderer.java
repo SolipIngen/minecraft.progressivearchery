@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.entity.projectile.arrow.SpectralArrowEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class SpectralArrowEntityRenderer extends ProjectileEntityRenderer<SpectralArrowEntity> {
     public static final Identifier TEXTURE = new Identifier("textures/entity/projectiles/spectral_arrow.png");
 

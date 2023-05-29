@@ -30,7 +30,7 @@ import solipingen.progressivearchery.item.ModCrossbowItem;
 
 
 @Mixin(HeldItemRenderer.class)
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public abstract class HeldItemRendererMixin {
     @Shadow @Final MinecraftClient client;
     @Shadow @Final ItemRenderer itemRenderer;

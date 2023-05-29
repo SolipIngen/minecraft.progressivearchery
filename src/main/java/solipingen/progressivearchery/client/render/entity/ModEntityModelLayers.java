@@ -10,7 +10,7 @@ import solipingen.progressivearchery.client.render.entity.feature.model.QuiverLe
 import solipingen.progressivearchery.client.render.entity.feature.model.QuiverRightHandedEntityModel;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class ModEntityModelLayers {
     public static final EntityModelLayer QUIVER_LEFT_HANDED_ENTITY_MODEL_LAYER = new EntityModelLayer(new Identifier(ProgressiveArchery.MOD_ID, "quiver_left_handed"), "main");
     public static final EntityModelLayer QUIVER_RIGHT_HANDED_ENTITY_MODEL_LAYER = new EntityModelLayer(new Identifier(ProgressiveArchery.MOD_ID, "quiver_right_handed"), "main");

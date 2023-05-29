@@ -38,7 +38,7 @@ import solipingen.progressivearchery.item.ModCrossbowItem;
 
 
 @Mixin(PlayerEntityRenderer.class)
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> {
 
     
