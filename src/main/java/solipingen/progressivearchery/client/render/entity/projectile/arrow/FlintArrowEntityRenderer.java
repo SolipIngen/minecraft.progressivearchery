@@ -9,7 +9,7 @@ import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.entity.projectile.arrow.FlintArrowEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class FlintArrowEntityRenderer extends ProjectileEntityRenderer<FlintArrowEntity> {
     public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/flint_arrow.png");
 

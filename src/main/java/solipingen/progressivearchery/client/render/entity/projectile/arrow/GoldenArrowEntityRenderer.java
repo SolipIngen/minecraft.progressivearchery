@@ -9,7 +9,7 @@ import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.entity.projectile.arrow.GoldenArrowEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class GoldenArrowEntityRenderer extends ProjectileEntityRenderer<GoldenArrowEntity> {
     public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/golden_arrow.png");
     public static final Identifier TIPPED_TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/tipped_arrow.png");

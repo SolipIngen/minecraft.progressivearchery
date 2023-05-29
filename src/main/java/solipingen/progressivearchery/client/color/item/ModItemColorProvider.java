@@ -7,7 +7,7 @@ import net.minecraft.potion.PotionUtil;
 import solipingen.progressivearchery.item.ModItems;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class ModItemColorProvider {
 
 

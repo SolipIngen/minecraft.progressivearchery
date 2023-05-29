@@ -9,7 +9,7 @@ import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.entity.projectile.kid_arrow.DiamondKidArrowEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class DiamondKidArrowEntityRenderer extends ProjectileEntityRenderer<DiamondKidArrowEntity> {
     public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/diamond_kid_arrow.png");
 

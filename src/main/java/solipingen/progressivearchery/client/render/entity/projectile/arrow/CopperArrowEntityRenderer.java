@@ -9,7 +9,7 @@ import solipingen.progressivearchery.ProgressiveArchery;
 import solipingen.progressivearchery.entity.projectile.arrow.CopperArrowEntity;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class CopperArrowEntityRenderer extends ProjectileEntityRenderer<CopperArrowEntity> {
     public static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/entity/projectiles/copper_arrow.png");
 

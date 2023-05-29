@@ -13,7 +13,7 @@ import solipingen.progressivearchery.item.ModItems;
 import solipingen.progressivearchery.item.QuiverItem;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class ModModelPredicateProvider {
 
     

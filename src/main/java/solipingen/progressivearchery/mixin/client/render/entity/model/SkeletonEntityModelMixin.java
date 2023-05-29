@@ -16,7 +16,7 @@ import net.minecraft.item.ItemStack;
 
 
 @Mixin(SkeletonEntityModel.class)
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public abstract class SkeletonEntityModelMixin<T extends MobEntity> extends BipedEntityModel<T> {
 
 

@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
@@ -27,6 +29,7 @@ import solipingen.progressivearchery.item.ModCrossbowItem;
 
 
 @Mixin(HeldItemFeatureRenderer.class)
+@Environment(value = EnvType.CLIENT)
 public abstract class HeldItemFeatureRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
     @Shadow @Final private HeldItemRenderer heldItemRenderer;
 

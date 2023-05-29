@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.fabricmc.api.EnvType;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class StriderhairEntityModel<T extends StriderEntity> extends SinglePartEntityModel<T> {
     private static final String RIGHT_BOTTOM_HAIR = "right_bottom_bristle";
     private static final String RIGHT_MIDDLE_HAIR = "right_middle_bristle";
