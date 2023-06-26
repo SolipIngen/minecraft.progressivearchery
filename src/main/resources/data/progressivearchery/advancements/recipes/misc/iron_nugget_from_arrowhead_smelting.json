@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_iron_arrowhead": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:iron_arrowhead"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_the_recipe": {
+        "conditions": {
+          "recipe": "progressivearchery:iron_nugget_from_arrowhead_smelting"
+        },
+        "trigger": "minecraft:recipe_unlocked"
+      }
+    },
+    "requirements": [
+      [
+        "has_iron_arrowhead", 
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "progressivearchery:iron_nugget_from_arrowhead_smelting"
+      ]
+    }
+}

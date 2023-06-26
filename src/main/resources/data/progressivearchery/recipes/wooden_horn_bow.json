@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "progressivearchery:wooden_bow"
+      },
+      "X": {
+        "item": "minecraft:goat_horn"
+      }
+    },
+    "pattern": [
+      "  X",
+      " # ",
+      "  X"
+    ],
+    "result": {
+      "item": "progressivearchery:wooden_horn_bow"
+    }
+}

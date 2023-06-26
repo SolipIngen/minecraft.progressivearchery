@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "progressivearchery:wooden_bow"
+      },
+      {
+        "item": "minecraft:bamboo"
+      }
+    ],
+    "result": {
+      "item": "progressivearchery:wooden_tubular_bow"
+    }
+}

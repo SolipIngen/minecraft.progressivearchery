@@ -1,0 +1,41 @@
+{
+    "parent": "progressivearchery:adventure/upgrade_bow",
+    "criteria": {
+      "has_diamond_bow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:diamond_fused_bow",
+                "progressivearchery:diamond_fused_horn_bow",
+                "progressivearchery:diamond_fused_longbow",
+                "progressivearchery:diamond_fused_tubular_bow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.diamond_bow.description"
+        },
+        "frame": "goal",
+        "hidden": false,
+        "icon": {
+          "item": "progressivearchery:diamond_fused_bow",
+          "nbt": "{Damage:0}"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.diamond_bow.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_diamond_bow"
+      ]
+    ]
+  }

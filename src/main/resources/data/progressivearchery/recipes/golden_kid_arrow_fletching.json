@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:golden_arrowhead"
+  },
+  "body": {
+    "item": "progressivearchery:golden_arrow"
+  },
+  "tail": {
+    "tag": "progressivearchery:fletches"
+  },
+  "addition": {
+    "item": "minecraft:stonecutter"
+  },
+  "output": {
+    "item": "progressivearchery:golden_kid_arrow",
+    "count": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "parent": "minecraft:adventure/kill_a_mob",
+    "criteria": {
+      "fletched_arrow": {
+        "conditions": {},
+        "trigger": "progressivearchery:fletched_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.fletcher.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:wooden_arrow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.fletcher.title"
+      }
+    },
+    "requirements": [
+      [
+        "fletched_arrow"
+      ]
+    ]
+}
