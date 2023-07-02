@@ -26,7 +26,7 @@ import solipingen.progressivearchery.item.QuiverItem;
 import solipingen.progressivearchery.util.interfaces.mixin.entity.player.PlayerEntityInterface;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class QuiverFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
     private static final Identifier TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/models/quiver.png");
     private static final Identifier FILLED_TEXTURE = new Identifier(ProgressiveArchery.MOD_ID, "textures/models/quiver_filled.png");

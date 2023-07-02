@@ -16,7 +16,7 @@ import solipingen.progressivearchery.entity.projectile.kid_arrow.IronKidArrowEnt
 import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityInterface;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class StuckIronKidArrowFeatureRenderer<T extends LivingEntity, M extends PlayerEntityModel<T>> extends StuckObjectsFeatureRenderer<T, M> {
     private final EntityRenderDispatcher dispatcher;
 

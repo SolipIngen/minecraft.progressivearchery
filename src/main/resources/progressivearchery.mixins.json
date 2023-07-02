@@ -60,16 +60,6 @@
     "server.network.ServerPlayerEntityMixin", 
     "structure.SwampHutGeneratorMixin"
   ],
-  "client": [
-    "client.WelcomeMixin", 
-    "client.render.entity.feature.HeldItemFeatureRendererMixin", 
-    "client.render.entity.feature.VillagerHeldItemFeatureRendererMixin", 
-    "client.render.entity.model.BipedEntityModelMixin", 
-    "client.render.entity.model.SkeletonEntityModelMixin", 
-    "client.render.entity.PlayerEntityRendererMixin", 
-    "client.render.entity.StriderEntityRendererMixin", 
-    "client.render.item.HeldItemRendererMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   }

@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityInterface;
 
 
-@Environment(value=EnvType.CLIENT)
+@Environment(value = EnvType.CLIENT)
 public class StuckSpectralArrowFeatureRenderer<T extends LivingEntity, M extends PlayerEntityModel<T>> extends StuckObjectsFeatureRenderer<T, M> {
     private final EntityRenderDispatcher dispatcher;
 
