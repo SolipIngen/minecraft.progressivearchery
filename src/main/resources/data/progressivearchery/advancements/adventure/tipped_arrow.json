@@ -3,19 +3,27 @@
     "criteria": {
       "tipped": {
         "conditions": {
-          "item": {
-            "items": [
-              "progressivearchery:golden_arrow",
-              "progressivearchery:golden_kid_arrow"
-            ]
-          },
-          "location": {
-            "block": {
-              "blocks": [
-                "progressivearchery:potion_cauldron"
-              ]
+          "location": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "block": {
+                  "blocks": [
+                    "progressivearchery:potion_cauldron"
+                  ]
+                }
+              }
+            },
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": [
+                  "progressivearchery:golden_arrow",
+                  "progressivearchery:golden_kid_arrow"
+                ]
+              }
             }
-          }
+          ]
         },
         "trigger": "minecraft:item_used_on_block"
       }

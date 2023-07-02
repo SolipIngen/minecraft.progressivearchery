@@ -10,6 +10,7 @@ import solipingen.progressivearchery.ProgressiveArchery;
 public class ModItemTags {
 
     public static final TagKey<Item> FLETCHES = TagKey.of(RegistryKeys.ITEM, new Identifier(ProgressiveArchery.MOD_ID, "fletches"));
+    public static final TagKey<Item> QUIVER_COVERINGS = TagKey.of(RegistryKeys.ITEM, new Identifier(ProgressiveArchery.MOD_ID, "quiver_coverings"));
     
     
 }

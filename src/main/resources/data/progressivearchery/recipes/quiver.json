@@ -5,13 +5,13 @@
         "tag": "minecraft:wooden_slabs"
       },
       "$": {
-        "tag": "minecraft:wool_carpets"
+        "tag": "progressivearchery:quiver_coverings"
       }
     },
     "pattern": [
       "$$$",
       "# #",
-      "###"
+      " # "
     ],
     "result": {
       "item": "progressivearchery:quiver"

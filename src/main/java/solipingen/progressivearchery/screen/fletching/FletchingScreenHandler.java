@@ -116,9 +116,9 @@ public class FletchingScreenHandler extends ArrowmakingScreenHandler {
     @Override
     protected void onTakeOutput(PlayerEntity player, ItemStack stack) {
         stack.onCraft(player.getWorld(), player, stack.getCount());
-        ArrayList<ItemStack> inputStacks = new ArrayList<ItemStack>(4);
+        ArrayList<ItemStack> inputStacks = new ArrayList<ItemStack>();
         for (int i = 0; i < 4; i++) {
-            inputStacks.set(i, this.input.getStack(i));
+            inputStacks.add(i, this.input.getStack(i));
         }
         this.output.unlockLastRecipe(player, inputStacks);
         this.decrementStack(0);

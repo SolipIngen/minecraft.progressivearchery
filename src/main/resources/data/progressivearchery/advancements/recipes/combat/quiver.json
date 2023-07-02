@@ -80,9 +80,7 @@
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:quiver",
-        "progressivearchery:quiver_from_leather",
-        "progressivearchery:quiver_from_rabbit_hide"
+        "progressivearchery:quiver"
       ]
     }
 }
