@@ -36,41 +36,40 @@ public class QuiverRightHandedEntityModel<T extends LivingEntity> extends Animal
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
 		modelPartData.addChild("body", ModelPartBuilder.create()
-			.uv(0, 0).cuboid(-6.0f, -3.0f, 1.0f, 3.0f, 12.0f, 3.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
+			.uv(0, 0).cuboid(-4.5f, -3.0f, 1.0f, 3.0f, 12.0f, 3.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
 		modelPartData.addChild("rim", ModelPartBuilder.create()
-			.uv(11, 13).cuboid(-7.0f, -3.0f, 1.0f, 1.0f, 1.0f, 3.0f, new Dilation(0.0f))
-			.uv(14, 9).cuboid(-6.0f, -3.0f, 0.0f, 3.0f, 1.0f, 1.0f, new Dilation(0.0f))
-			.uv(14, 5).cuboid(-3.0f, -3.0f, 1.0f, 1.0f, 1.0f, 3.0f, new Dilation(0.0f))
-			.uv(14, 11).cuboid(-6.0f, -3.0f, 4.0f, 3.0f, 1.0f, 1.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
+			.uv(11, 13).cuboid(-5.5f, -3.0f, 1.0f, 1.0f, 1.0f, 3.0f, new Dilation(0.0f))
+			.uv(14, 9).cuboid(-4.5f, -3.0f, 0.0f, 3.0f, 1.0f, 1.0f, new Dilation(0.0f))
+			.uv(14, 5).cuboid(-1.5f, -3.0f, 1.0f, 1.0f, 1.0f, 3.0f, new Dilation(0.0f))
+			.uv(14, 11).cuboid(-4.5f, -3.0f, 4.0f, 3.0f, 1.0f, 1.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
 		modelPartData.addChild("belt", ModelPartBuilder.create()
-			.uv(0, 0).cuboid(-5.0f, -4.0f, 1.0f, 1.0f, 1.0f, 0.0f, new Dilation(0.0f))
-			.uv(10, 0).cuboid(-5.0f, -4.0f, -4.0f, 1.0f, 0.0f, 5.0f, new Dilation(0.0f))
-			.uv(12, 0).cuboid(-5.0f, -4.0f, -4.0f, 1.0f, 15.0f, 0.0f, new Dilation(0.0f))
-			.uv(10, 4).cuboid(-5.0f, 11.0f, -4.0f, 1.0f, 0.0f, 5.0f, new Dilation(0.0f))
-			.uv(0, 15).cuboid(-5.0f, 7.0f, 1.0f, 1.0f, 4.0f, 0.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
+			.uv(0, 0).cuboid(-3.5f, -4.0f, 1.0f, 1.0f, 1.0f, 0.0f, new Dilation(0.0f))
+			.uv(10, 0).cuboid(-3.5f, -4.0f, -4.0f, 1.0f, 0.0f, 5.0f, new Dilation(0.0f))
+			.uv(12, 0).cuboid(-3.5f, -4.0f, -4.0f, 1.0f, 15.0f, 0.0f, new Dilation(0.0f))
+			.uv(10, 4).cuboid(-3.5f, 11.0f, -4.0f, 1.0f, 0.0f, 5.0f, new Dilation(0.0f))
+			.uv(0, 15).cuboid(-3.5f, 7.0f, 1.0f, 1.0f, 4.0f, 0.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
 		modelPartData.addChild("arrows", ModelPartBuilder.create()
-			.uv(0, 21).cuboid(-5.0f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-6.0f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-4.0f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-5.0f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-6.0f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-4.0f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-5.0f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-6.0f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
-			.uv(0, 21).cuboid(-4.0f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
+			.uv(0, 21).cuboid(-3.5f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-4.5f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-2.5f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-3.5f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-4.5f, -5.0f, 2.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-2.5f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-3.5f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-4.5f, -5.0f, 3.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f))
+			.uv(0, 21).cuboid(-2.5f, -5.0f, 1.0f, 1.0f, 3.0f, 1.0f, new Dilation(0.0f)), ModelTransform.of(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -0.7854f));
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 
-	
 	@Override
 	public void setAngles(T livingEntity, float f, float g, float h, float i, float j) {
 		float k = 0.0f;
-        float l = -0.7854f;
+        float l = -0.733f;
         float m = 0.0f;
         float n = 0.0f;
 		if (livingEntity.isInSneakingPose()) {
             k = 0.5f;
-            l = -0.74f;
+            l = -0.73f;
             m = 3.2f;
             n = 0.08726646f;
 		}
