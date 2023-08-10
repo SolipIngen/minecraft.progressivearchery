@@ -7,7 +7,7 @@
       "item": "minecraft:gold_ingot"
     },
     "base": {
-      "item": "progressivearchery:wooden_horn_bow"
+      "item": "progressivearchery:horn_bow"
     },
     "result": {
       "item": "progressivearchery:gold_fused_horn_bow"

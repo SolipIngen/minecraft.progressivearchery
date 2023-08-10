@@ -47,7 +47,7 @@
                 "function": "minecraft:enchant_randomly"
               }
             ],
-            "name": "progressivearchery:wooden_crossbow",
+            "name": "minecraft:crossbow",
             "weight": 6
           },
           {

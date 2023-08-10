@@ -62,10 +62,7 @@ public class ModItems {
         new KidArrowItem(new FabricItemSettings()));
 
 
-    // Regular Bows
-    public static final Item WOODEN_BOW = ModItems.registerItem("wooden_bow", 
-        new ModBowItem(BowMaterials.WOOD, 0, new FabricItemSettings()));
-
+    // Bows
     public static final Item COPPER_FUSED_BOW = ModItems.registerItem("copper_fused_bow", 
         new ModBowItem(BowMaterials.COPPER, 0, new FabricItemSettings()));
 
@@ -83,7 +80,7 @@ public class ModItems {
 
 
     // Horn Bows
-    public static final Item WOODEN_HORN_BOW = ModItems.registerItem("wooden_horn_bow", 
+    public static final Item HORN_BOW = ModItems.registerItem("horn_bow", 
         new ModBowItem(BowMaterials.WOOD, 1, new FabricItemSettings()));
 
     public static final Item COPPER_FUSED_HORN_BOW = ModItems.registerItem("copper_fused_horn_bow", 
@@ -103,7 +100,7 @@ public class ModItems {
 
 
     // Longbows
-    public static final Item WOODEN_LONGBOW = ModItems.registerItem("wooden_longbow", 
+    public static final Item LONGBOW = ModItems.registerItem("longbow", 
         new ModBowItem(BowMaterials.WOOD, 2, new FabricItemSettings()));
 
     public static final Item COPPER_FUSED_LONGBOW = ModItems.registerItem("copper_fused_longbow", 
@@ -123,7 +120,7 @@ public class ModItems {
     
 
     // Tubular Bows
-    public static final Item WOODEN_TUBULAR_BOW = ModItems.registerItem("wooden_tubular_bow", 
+    public static final Item TUBULAR_BOW = ModItems.registerItem("tubular_bow", 
         new ModBowItem(BowMaterials.WOOD, 3, new FabricItemSettings()));
 
     public static final Item COPPER_FUSED_TUBULAR_BOW = ModItems.registerItem("copper_fused_tubular_bow", 
@@ -143,9 +140,6 @@ public class ModItems {
 
 
     // Crossbows
-    public static final Item WOODEN_CROSSBOW = ModItems.registerItem("wooden_crossbow", 
-        new ModCrossbowItem(BowMaterials.WOOD, new FabricItemSettings()));
-
     public static final Item COPPER_FUSED_CROSSBOW = ModItems.registerItem("copper_fused_crossbow", 
         new ModCrossbowItem(BowMaterials.COPPER, new FabricItemSettings()));
 
@@ -208,11 +202,9 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        FuelRegistry.INSTANCE.add(ModItems.WOODEN_BOW, 300);
-        FuelRegistry.INSTANCE.add(ModItems.WOODEN_HORN_BOW, 300);
-        FuelRegistry.INSTANCE.add(ModItems.WOODEN_LONGBOW, 400);
-        FuelRegistry.INSTANCE.add(ModItems.WOODEN_TUBULAR_BOW, 350);
-        FuelRegistry.INSTANCE.add(ModItems.WOODEN_CROSSBOW, 300);
+        FuelRegistry.INSTANCE.add(ModItems.HORN_BOW, 300);
+        FuelRegistry.INSTANCE.add(ModItems.LONGBOW, 400);
+        FuelRegistry.INSTANCE.add(ModItems.TUBULAR_BOW, 350);
         FuelRegistry.INSTANCE.add(ModItems.WOODEN_ARROW, 150);
         FuelRegistry.INSTANCE.add(ModItems.WOODEN_KID_ARROW, 75);
         FuelRegistry.INSTANCE.add(ModItems.QUIVER, 450);

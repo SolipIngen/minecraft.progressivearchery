@@ -1,8 +1,8 @@
 {
-    "parent": "progressivearchery:item/generic/generic_longbow",
+    "parent": "progressivearchery:item/generic/generic_bow",
     "textures": {
-        "bow": "progressivearchery:item/wooden_longbow",
-        "particle": "progressivearchery:item/wooden_longbow"
+        "bow": "progressivearchery:item/wooden_bow",
+        "particle": "progressivearchery:item/wooden_bow"
     },
     "display": {
         "thirdperson_righthand": {
@@ -13,13 +13,13 @@
             ],
             "translation": [
                 -1,
-                -2.0,
-                3.0
+                -2,
+                2.5
             ],
             "scale": [
                 0.9,
-                1.2,
-                1.2
+                0.9,
+                0.9
             ]
         },
         "thirdperson_lefthand": {
@@ -30,13 +30,13 @@
             ],
             "translation": [
                 -1,
-                -2.0,
-                3.0
+                -2,
+                2.5
             ],
             "scale": [
                 0.9,
-                1.2,
-                1.2
+                0.9,
+                0.9
             ]
         },
         "firstperson_righthand": {
@@ -52,7 +52,7 @@
             ],
             "scale": [
                 0.68,
-                0.78,
+                0.68,
                 0.68
             ]
         },
@@ -69,25 +69,8 @@
             ],
             "scale": [
                 0.68,
-                0.78,
+                0.68,
                 0.68
-            ]
-        }, 
-        "ground": {
-            "rotation": [ 
-                0, 
-                0, 
-                0 
-            ],
-            "translation": [ 
-                0, 
-                4, 
-                0
-            ],
-            "scale":[ 
-                0.8, 
-                0.8, 
-                0.8 
             ]
         }
     },
@@ -96,21 +79,21 @@
             "predicate": {
                 "minecraft:pulling": 1
             },
-            "model": "progressivearchery:item/wooden_longbow_pulling_0"
+            "model": "minecraft:item/bow_pulling_0"
         },
         {
             "predicate": {
                 "minecraft:pulling": 1,
-                "minecraft:pull": 0.5
+                "minecraft:pull": 0.65
             },
-            "model": "progressivearchery:item/wooden_longbow_pulling_1"
+            "model": "minecraft:item/bow_pulling_1"
         },
         {
             "predicate": {
                 "minecraft:pulling": 1,
                 "minecraft:pull": 0.9
             },
-            "model": "progressivearchery:item/wooden_longbow_pulling_2"
+            "model": "minecraft:item/bow_pulling_2"
         }
     ]  
 }

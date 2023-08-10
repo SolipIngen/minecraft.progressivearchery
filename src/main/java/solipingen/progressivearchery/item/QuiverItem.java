@@ -23,6 +23,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
@@ -36,8 +37,9 @@ import solipingen.progressivearchery.sound.ModSoundEvents;
 public class QuiverItem extends Item {
     public static final String ITEMS_KEY = "Items";
     public static final int MAX_STORAGE = 384;
-    private static final int ITEM_BAR_COLOR = MathHelper.packRgb(0.4f, 0.4f, 1.0f);
+    private static final int ITEM_BAR_COLOR = MathHelper.packRgb(0.53f, 0.81f, 0.92f);
 
+    
     public QuiverItem(Settings settings) {
         super(settings);
     }
@@ -240,6 +242,12 @@ public class QuiverItem extends Item {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         String occupancy = String.valueOf(QuiverItem.getQuiverOccupancy(stack));
         tooltip.add(Text.of(occupancy + "/" + MAX_STORAGE));
+        if (QuiverItem.getQuiverOccupancy(stack) < MAX_STORAGE) {
+            tooltip.add(Text.translatable("item.progressivearchery.quiver_add_tooltip").formatted(Formatting.GRAY));
+        }
+        if (QuiverItem.getQuiverOccupancy(stack) > 0) {
+            tooltip.add(Text.translatable("item.progressivearchery.quiver_take_tooltip").formatted(Formatting.GRAY));
+        }
     }
 
     @Override

@@ -79,21 +79,21 @@
             "predicate": {
                 "minecraft:pulling": 1
             },
-            "model": "progressivearchery:item/wooden_horn_bow_pulling_0"
+            "model": "progressivearchery:item/horn_bow_pulling_0"
         },
         {
             "predicate": {
                 "minecraft:pulling": 1,
                 "minecraft:pull": 0.65
             },
-            "model": "progressivearchery:item/wooden_horn_bow_pulling_1"
+            "model": "progressivearchery:item/horn_bow_pulling_1"
         },
         {
             "predicate": {
                 "minecraft:pulling": 1,
                 "minecraft:pull": 0.9
             },
-            "model": "progressivearchery:item/wooden_horn_bow_pulling_2"
+            "model": "progressivearchery:item/horn_bow_pulling_2"
         }
     ]  
 }

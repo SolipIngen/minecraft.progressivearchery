@@ -9,11 +9,11 @@
       }
     },
     "pattern": [
-      " # ",
-      "# #",
-      "XXX"
+      "X# ",
+      "X #",
+      "X# "
     ],
     "result": {
       "item": "minecraft:bow"
     }
-}
+  }

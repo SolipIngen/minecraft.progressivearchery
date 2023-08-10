@@ -7,7 +7,7 @@
       "item": "minecraft:diamond"
     },
     "base": {
-      "item": "progressivearchery:wooden_tubular_bow"
+      "item": "progressivearchery:tubular_bow"
     },
     "result": {
       "item": "progressivearchery:diamond_fused_tubular_bow"

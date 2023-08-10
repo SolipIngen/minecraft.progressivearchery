@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_string": {
+      "has_bamboo": {
         "conditions": {
           "items": [
             {
               "items": [
-                "minecraft:string"
+                "minecraft:bamboo"
               ]
             }
           ]
@@ -15,20 +15,20 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:wooden_bow_alt"
+          "recipe": "progressivearchery:tubular_bow"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
     },
     "requirements": [
       [
-        "has_string",
+        "has_bamboo",
         "has_the_recipe"
       ]
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:wooden_bow_alt"
+        "progressivearchery:tubular_bow"
       ]
     }
   }

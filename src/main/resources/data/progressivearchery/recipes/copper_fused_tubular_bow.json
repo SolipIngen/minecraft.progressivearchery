@@ -7,7 +7,7 @@
       "item": "minecraft:copper_ingot"
     },
     "base": {
-      "item": "progressivearchery:wooden_tubular_bow"
+      "item": "progressivearchery:tubular_bow"
     },
     "result": {
       "item": "progressivearchery:copper_fused_tubular_bow"

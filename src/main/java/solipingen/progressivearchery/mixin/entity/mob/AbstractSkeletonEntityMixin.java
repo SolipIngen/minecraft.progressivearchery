@@ -70,7 +70,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         else if (0.6f <= randomf && randomf < 0.9f) {
             float hornbowrandom = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*this.getWorld().getDifficulty().getId(), 1.0f);
             if (hornbowrandom < 0.4f) {
-                return ModItems.WOODEN_HORN_BOW;
+                return ModItems.HORN_BOW;
             }
             else if (0.4f <= hornbowrandom && hornbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_HORN_BOW;
@@ -88,7 +88,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         else if (0.9f <= randomf && randomf < 0.96f) {
             float longbowrandom = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*this.getWorld().getDifficulty().getId(), 1.0f);
             if (longbowrandom < 0.4f) {
-                return ModItems.WOODEN_LONGBOW;
+                return ModItems.LONGBOW;
             }
             else if (0.4f <= longbowrandom && longbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_LONGBOW;
@@ -106,7 +106,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         else if (0.96f <= randomf && randomf <= 1.0f) {
             float tubularbowrandom = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*this.getWorld().getDifficulty().getId(), 1.0f);
             if (tubularbowrandom < 0.4f) {
-                return ModItems.WOODEN_TUBULAR_BOW;
+                return ModItems.TUBULAR_BOW;
             }
             else if (0.4f <= tubularbowrandom && tubularbowrandom < 0.7f) {
                 return ModItems.COPPER_FUSED_TUBULAR_BOW;
@@ -121,7 +121,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
                 return ModItems.DIAMOND_FUSED_TUBULAR_BOW;
             }
         }
-        return ModItems.WOODEN_BOW;
+        return Items.BOW;
     }
 
     @Inject(method = "updateAttackType", at = @At("HEAD"), cancellable = true)

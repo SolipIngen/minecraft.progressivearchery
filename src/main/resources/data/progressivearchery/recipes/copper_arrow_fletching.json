@@ -10,7 +10,7 @@
     "tag": "progressivearchery:fletches"
   },
   "addition": {
-    "item": "minecraft:lava_bucket"
+    "tag": "progressivearchery:metal_arrow_welding_heat_sources"
   },
   "output": {
     "item": "progressivearchery:copper_arrow",

@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_wooden_bow": {
+      "has_string": {
         "conditions": {
           "items": [
             {
               "items": [
-                "progressivearchery:wooden_bow"
+                "minecraft:string"
               ]
             }
           ]
@@ -15,20 +15,20 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:wooden_longbow"
+          "recipe": "progressivearchery:copper_fused_tubular_bow"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
     },
     "requirements": [
       [
-        "has_wooden_bow",
+        "has_string",
         "has_the_recipe"
       ]
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:wooden_longbow"
+        "progressivearchery:bow"
       ]
     }
   }

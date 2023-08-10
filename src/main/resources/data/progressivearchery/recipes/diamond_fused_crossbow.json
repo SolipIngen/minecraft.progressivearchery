@@ -7,7 +7,7 @@
       "item": "minecraft:diamond"
     },
     "base": {
-      "item": "progressivearchery:wooden_crossbow"
+      "item": "minecraft:crossbow"
     },
     "result": {
       "item": "progressivearchery:diamond_fused_crossbow"

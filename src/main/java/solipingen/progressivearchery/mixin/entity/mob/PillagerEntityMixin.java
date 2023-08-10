@@ -57,7 +57,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
 
     @Inject(method = "getState", at = @At("TAIL"), cancellable = true)
     private void injectedState(CallbackInfoReturnable<IllagerEntity.State> cbireturn) {
-        if (this.isHolding(ModItems.WOODEN_CROSSBOW) || this.isHolding(ModItems.COPPER_FUSED_CROSSBOW) || this.isHolding(ModItems.IRON_FUSED_CROSSBOW) || this.isHolding(ModItems.GOLD_FUSED_CROSSBOW) || this.isHolding(ModItems.DIAMOND_FUSED_CROSSBOW)) {
+        if (this.isHolding(Items.CROSSBOW) || this.isHolding(ModItems.COPPER_FUSED_CROSSBOW) || this.isHolding(ModItems.IRON_FUSED_CROSSBOW) || this.isHolding(ModItems.GOLD_FUSED_CROSSBOW) || this.isHolding(ModItems.DIAMOND_FUSED_CROSSBOW)) {
             cbireturn.setReturnValue(IllagerEntity.State.CROSSBOW_HOLD);
         }
     }
@@ -73,7 +73,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
                 this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.IRON_FUSED_CROSSBOW));
             }
             else {
-                this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_CROSSBOW));
+                this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.CROSSBOW));
             }
         }
     }
@@ -100,7 +100,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
             EnchantmentHelper.set(map, itemStack);
             this.equipStack(EquipmentSlot.MAINHAND, itemStack);
         }
-        else if (random.nextInt(200) == 0 && itemStack.isOf(ModItems.WOODEN_CROSSBOW)) {
+        else if (random.nextInt(200) == 0 && itemStack.isOf(Items.CROSSBOW)) {
             Map<Enchantment, Integer> map = EnchantmentHelper.get(itemStack);
             map.putIfAbsent(Enchantments.PIERCING, 1);
             EnchantmentHelper.set(map, itemStack);
@@ -216,7 +216,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
                 this.equipStack(EquipmentSlot.MAINHAND, itemStack);
             }
             else {
-                ItemStack itemStack = new ItemStack(ModItems.WOODEN_CROSSBOW);
+                ItemStack itemStack = new ItemStack(Items.CROSSBOW);
                 HashMap<Enchantment, Integer> map = Maps.newHashMap();
                 if (wave > raid.getMaxWaves(Difficulty.NORMAL)) {
                     map.put(Enchantments.QUICK_CHARGE, 1);

@@ -60,14 +60,14 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity implements 
     @Redirect(method = "makeInitialWeapon", at = @At(value = "FIELD", target = "Lnet/minecraft/item/Items;CROSSBOW:Lnet/minecraft/item/Item;", opcode = Opcodes.GETSTATIC))
     private Item redirectedMakeInitialWeapon() {
         if (this.random.nextFloat() > 0.67f) {
-            return ModItems.WOODEN_CROSSBOW;
+            return Items.CROSSBOW;
         }
         return ModItems.GOLD_FUSED_CROSSBOW;
     }
 
     @Inject(method = "getActivity", at = @At("TAIL"), cancellable = true)
     private void injectedGetActivity(CallbackInfoReturnable<PiglinActivity> cbireturn) {
-        if (this.isAttacking() && (this.isHolding(ModItems.WOODEN_CROSSBOW) || this.isHolding(ModItems.GOLD_FUSED_CROSSBOW))) {
+        if (this.isAttacking() && (this.isHolding(Items.CROSSBOW) || this.isHolding(ModItems.GOLD_FUSED_CROSSBOW))) {
             cbireturn.setReturnValue(PiglinActivity.CROSSBOW_HOLD);
         }
         else {
@@ -85,7 +85,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity implements 
                 cbi.cancel();
             }
         }
-        if (handStack.isOf(ModItems.WOODEN_CROSSBOW)) {
+        if (handStack.isOf(Items.CROSSBOW)) {
             this.shoot(this, 3.6f - 0.6f*(3 - difficultyId));
             cbi.cancel();
         }
@@ -98,7 +98,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity implements 
     @Inject(method = "shoot", at = @At("HEAD"), cancellable = true)
     private void injectedShoot(LivingEntity target, ItemStack crossbow, ProjectileEntity projectile, float multiShotSpray, CallbackInfo cbi) {
         int difficultyId = this.getWorld().getDifficulty().getId();
-        if (crossbow.isOf(ModItems.WOODEN_CROSSBOW)) {
+        if (crossbow.isOf(Items.CROSSBOW)) {
             this.shoot(this, target, projectile, multiShotSpray, 3.6f - 0.6f*(3 - difficultyId));
             cbi.cancel();
         }

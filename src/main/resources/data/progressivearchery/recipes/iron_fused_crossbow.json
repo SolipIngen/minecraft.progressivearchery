@@ -7,7 +7,7 @@
       "item": "minecraft:iron_ingot"
     },
     "base": {
-      "item": "progressivearchery:wooden_crossbow"
+      "item": "minecraft:crossbow"
     },
     "result": {
       "item": "progressivearchery:iron_fused_crossbow"

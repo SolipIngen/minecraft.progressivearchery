@@ -6,7 +6,6 @@
           "item": {
             "items": [
               "minecraft:crossbow",
-              "progressivearchery:wooden_crossbow",
               "progressivearchery:copper_fused_crossbow",
               "progressivearchery:gold_fused_crossbow",
               "progressivearchery:iron_fused_crossbow",
@@ -26,7 +25,7 @@
       "frame": "task",
       "hidden": false,
       "icon": {
-        "item": "progressivearchery:wooden_crossbow",
+        "item": "minecraft:crossbow",
         "nbt": "{Damage:0}"
       },
       "show_toast": true,

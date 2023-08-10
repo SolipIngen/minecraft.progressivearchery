@@ -43,9 +43,9 @@ public class ModVillagerProfessions {
         originalTradeOffers.replace(VillagerProfession.FLETCHER, ModVillagerProfessions.copyToFastUtilMap(
             ImmutableMap.of(
                 1, new Factory[]{new BuyForOneEmeraldFactory(Items.STICK, 32, 16, 2), new BuyForOneEmeraldFactory(Items.FEATHER, 24, 16, 2), 
-                    new SellItemFactory(ModItems.WOODEN_ARROW, 1, 4, 1), new SellItemFactory(ModItems.WOODEN_BOW, 2, 1, 1), 
-                    new SellItemFactory(ModItems.WOODEN_HORN_BOW, 3, 1, 1), new SellItemFactory(ModItems.WOODEN_LONGBOW, 4, 1, 1), 
-                    new SellItemFactory(ModItems.WOODEN_TUBULAR_BOW, 4, 1, 1), new SellItemFactory(ModItems.WOODEN_CROSSBOW, 4, 1, 1)}, 
+                    new SellItemFactory(ModItems.WOODEN_ARROW, 1, 4, 1), new SellItemFactory(Items.BOW, 2, 1, 1), 
+                    new SellItemFactory(ModItems.HORN_BOW, 3, 1, 1), new SellItemFactory(ModItems.LONGBOW, 4, 1, 1), 
+                    new SellItemFactory(ModItems.TUBULAR_BOW, 4, 1, 1), new SellItemFactory(Items.CROSSBOW, 4, 1, 1)}, 
                 2, new Factory[]{new BuyForOneEmeraldFactory(Items.FLINT, 26, 12, 10), new BuyForOneEmeraldFactory(Items.STRING, 14, 12, 10), 
                     new SellItemFactory(ModItems.FLINT_ARROW, 2, 4, 5), new SellItemFactory(ModItems.COPPER_FUSED_BOW, 5, 1, 5), 
                     new SellItemFactory(ModItems.COPPER_FUSED_HORN_BOW, 6, 1, 5), new SellItemFactory(ModItems.COPPER_FUSED_LONGBOW, 7, 1, 5), 

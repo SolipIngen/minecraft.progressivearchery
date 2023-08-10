@@ -6,7 +6,7 @@
           "items": [
             {
               "items": [
-                "progressivearchery:wooden_longbow",
+                "progressivearchery:longbow",
                 "progressivearchery:copper_fused_longbow",
                 "progressivearchery:gold_fused_longbow",
                 "progressivearchery:iron_fused_longbow",
@@ -27,7 +27,7 @@
       "frame": "task",
       "hidden": false,
       "icon": {
-        "item": "progressivearchery:wooden_longbow",
+        "item": "progressivearchery:longbow",
         "nbt": "{Damage:0}"
       },
       "show_toast": true,

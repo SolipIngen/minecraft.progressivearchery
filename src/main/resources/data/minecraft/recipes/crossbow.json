@@ -8,7 +8,7 @@
         "tag": "minecraft:planks"
       },
       "~": {
-        "item": "progressivearchery:wooden_bow"
+        "item": "minecraft:bow"
       }
     },
     "pattern": [
@@ -17,6 +17,6 @@
       "#"
     ],
     "result": {
-      "item": "progressivearchery:wooden_crossbow"
+      "item": "minecraft:crossbow"
     }
   }

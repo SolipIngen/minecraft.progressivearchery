@@ -11,12 +11,12 @@ import net.minecraft.util.Lazy;
 
 @SuppressWarnings("deprecation")
 public enum BowMaterials implements ToolMaterial {
-    WOOD(MiningLevels.WOOD, 84, 2.0f, 0.0f, 15, () -> Ingredient.fromTag(ItemTags.PLANKS)),
-    COPPER(MiningLevels.STONE, 250, 6.0f, 1.0f, 14, () -> Ingredient.ofItems(Items.COPPER_INGOT)),
-    IRON(MiningLevels.IRON, 500, 8.0f, 2.0f, 14, () -> Ingredient.ofItems(Items.IRON_INGOT)),
-    DIAMOND(MiningLevels.DIAMOND, 2342, 10.0f, 3.0f, 10, () -> Ingredient.ofItems(Items.DIAMOND)),
-    GOLD(MiningLevels.STONE, 146, 13.0f, 0.0f, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
-    NETHERITE(MiningLevels.NETHERITE, 3047, 11.0f, 4.0f, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
+    WOOD(MiningLevels.WOOD, 184, 2.0f, 0.0f, 15, () -> Ingredient.fromTag(ItemTags.PLANKS)),
+    COPPER(MiningLevels.STONE, 350, 6.0f, 1.0f, 14, () -> Ingredient.ofItems(Items.COPPER_INGOT)),
+    IRON(MiningLevels.IRON, 600, 8.0f, 2.0f, 14, () -> Ingredient.ofItems(Items.IRON_INGOT)),
+    DIAMOND(MiningLevels.DIAMOND, 2442, 10.0f, 3.0f, 10, () -> Ingredient.ofItems(Items.DIAMOND)),
+    GOLD(MiningLevels.STONE, 246, 13.0f, 0.0f, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
+    NETHERITE(MiningLevels.NETHERITE, 3147, 11.0f, 4.0f, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;

@@ -111,6 +111,7 @@ public class FletchingRecipe implements Recipe<Inventory> {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
+    
 
     public static class Type implements RecipeType<FletchingRecipe> {
         private Type() { }

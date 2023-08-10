@@ -7,7 +7,7 @@
       "item": "minecraft:diamond"
     },
     "base": {
-      "item": "progressivearchery:wooden_horn_bow"
+      "item": "progressivearchery:horn_bow"
     },
     "result": {
       "item": "progressivearchery:diamond_fused_horn_bow"

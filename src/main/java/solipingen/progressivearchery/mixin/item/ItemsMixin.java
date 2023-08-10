@@ -5,7 +5,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.BundleItem;
+import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.LingeringPotionItem;
@@ -14,7 +17,10 @@ import net.minecraft.item.SplashPotionItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import solipingen.progressivearchery.item.BowMaterials;
+import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModBundleItem;
+import solipingen.progressivearchery.item.ModCrossbowItem;
 
 
 @Mixin(Items.class)
@@ -25,7 +31,15 @@ public abstract class ItemsMixin {
     private static void injectedRegister(Identifier id, Item item, CallbackInfoReturnable<Item> cbireturn) {
         String name = id.getPath();
         int rawId = Item.getRawId(item);
-        if (item instanceof PotionItem) {
+        if (item instanceof BowItem) {
+            Item woodenBowItem = (Item)new ModBowItem(BowMaterials.WOOD, 0, new FabricItemSettings());
+            cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, woodenBowItem));
+        }
+        else if (item instanceof CrossbowItem) {
+            Item woodenCrossbowItem = (Item)new ModCrossbowItem(BowMaterials.WOOD, new FabricItemSettings());
+            cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, woodenCrossbowItem));
+        }
+        else if (item instanceof PotionItem) {
             if (item instanceof SplashPotionItem) {
                 Item newSplashPotionItem = (Item)new SplashPotionItem(new Item.Settings().maxCount(8));
                 cbireturn.setReturnValue(Registry.register(Registries.ITEM, rawId, name, newSplashPotionItem));

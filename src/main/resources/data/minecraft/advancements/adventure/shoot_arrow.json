@@ -6,7 +6,6 @@
           "item": {
             "items": [
               "minecraft:bow",
-              "progressivearchery:wooden_bow",
               "progressivearchery:copper_fused_bow",
               "progressivearchery:gold_fused_bow",
               "progressivearchery:iron_fused_bow",
@@ -26,7 +25,7 @@
       "frame": "task",
       "hidden": false,
       "icon": {
-        "item": "progressivearchery:wooden_bow",
+        "item": "minecraft:bow",
         "nbt": "{Damage:0}"
       },
       "show_toast": true,

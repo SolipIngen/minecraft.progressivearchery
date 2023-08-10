@@ -27,7 +27,7 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:dispenser"
+          "recipe": "minecraft:dispenser"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
@@ -41,7 +41,7 @@
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:dispenser"
+        "minecraft:dispenser"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "progressivearchery",
-  "version": "1.1.2-1.20.1",
+  "version": "1.1.3-1.20.1",
 
   "name": "Progressive Archery",
   "description": "A mod that revamps and expands archery. New variants of bows, upgrades, and arrows are added, alongside various changes and tweaks to all things archery & projectile related.",
@@ -29,6 +29,9 @@
     ],
     "dynamiclights": [
       "solipingen.progressivearchery.client.integration.lambdynlights.ModLambDynamicLightsPlugin"
+    ],
+    "rei_common": [
+      "solipingen.progressivearchery.integration.rei.ModREIPlugin"
     ],
     "rei_client": [
       "solipingen.progressivearchery.client.integration.rei.ModREIClientPlugin"

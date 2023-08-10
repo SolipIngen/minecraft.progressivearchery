@@ -113,16 +113,16 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
             if (this.getMainHandStack().isEmpty()) {
                 float randomf = 0.75f*this.getRandom().nextFloat() + 0.25f*world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty();
                 if (randomf >= 0.4f && randomf < 0.7f) {
-                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_HORN_BOW));
+                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.HORN_BOW));
                 }
                 else if (randomf >= 0.7f && randomf < 0.9f) {
-                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_LONGBOW));
+                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.LONGBOW));
                 }
                 else if (randomf >= 0.9f) {
-                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_TUBULAR_BOW));
+                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.TUBULAR_BOW));
                 }
                 else {
-                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_BOW));
+                    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
                 }
             }
         }

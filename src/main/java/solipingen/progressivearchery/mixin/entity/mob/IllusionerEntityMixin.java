@@ -50,7 +50,7 @@ public abstract class IllusionerEntityMixin extends SpellcastingIllagerEntity im
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.GOLD_FUSED_HORN_BOW));
         } 
         else {
-            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.WOODEN_HORN_BOW));
+            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.HORN_BOW));
         }
     }
 

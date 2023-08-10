@@ -6,35 +6,33 @@
     "block.progressivearchery.potion_cauldron": "Potion Cauldron", 
     "block.progressivearchery.archer_marker": "Archer Marker", 
 
-    "item.progressivearchery.wooden_bow": "Wooden Bow",
     "item.progressivearchery.copper_fused_bow": "Copper Fused Bow",
     "item.progressivearchery.iron_fused_bow": "Iron Fused Bow",
     "item.progressivearchery.gold_fused_bow": "Gold Fused Bow",
     "item.progressivearchery.diamond_fused_bow": "Diamond Fused Bow",
     "item.progressivearchery.netherite_fused_bow": "Netherite Fused Bow",
 
-    "item.progressivearchery.wooden_horn_bow": "Wooden Horn Bow",
+    "item.progressivearchery.horn_bow": "Horn Bow",
     "item.progressivearchery.copper_fused_horn_bow": "Copper Fused Horn Bow",
     "item.progressivearchery.iron_fused_horn_bow": "Iron Fused Horn Bow",
     "item.progressivearchery.gold_fused_horn_bow": "Gold Fused Horn Bow",
     "item.progressivearchery.diamond_fused_horn_bow": "Diamond Fused Horn Bow",
     "item.progressivearchery.netherite_fused_horn_bow": "Netherite Fused Horn Bow",
 
-    "item.progressivearchery.wooden_tubular_bow": "Wooden Tubular Bow",
+    "item.progressivearchery.tubular_bow": "Tubular Bow",
     "item.progressivearchery.copper_fused_tubular_bow": "Copper Fused Tubular Bow",
     "item.progressivearchery.iron_fused_tubular_bow": "Iron Fused Tubular Bow",
     "item.progressivearchery.gold_fused_tubular_bow": "Gold Fused Tubular Bow",
     "item.progressivearchery.diamond_fused_tubular_bow": "Diamond Fused Tubular Bow",
     "item.progressivearchery.netherite_fused_tubular_bow": "Netherite Fused Tubular Bow",
 
-    "item.progressivearchery.wooden_longbow": "Wooden Longbow",
+    "item.progressivearchery.longbow": "Longbow",
     "item.progressivearchery.copper_fused_longbow": "Copper Fused Longbow",
     "item.progressivearchery.iron_fused_longbow": "Iron Fused Longbow",
     "item.progressivearchery.gold_fused_longbow": "Gold Fused Longbow",
     "item.progressivearchery.diamond_fused_longbow": "Diamond Fused Longbow",
     "item.progressivearchery.netherite_fused_longbow": "Netherite Fused Longbow",
 
-    "item.progressivearchery.wooden_crossbow": "Wooden Crossbow",
     "item.progressivearchery.copper_fused_crossbow": "Copper Fused Crossbow",
     "item.progressivearchery.iron_fused_crossbow": "Iron Fused Crossbow",
     "item.progressivearchery.gold_fused_crossbow": "Gold Fused Crossbow",
@@ -89,7 +87,9 @@
     "item.progressivearchery.tipped_kid_arrow.effect.uncraftable": "Uncraftable Tipped Kid Arrow",
 
     "item.progressivearchery.quiver": "Quiver",
-    "item.progressivearchery.bundle": "Bundle", 
+
+    "item.progressivearchery.quiver_add_tooltip": "Use on stack to add", 
+    "item.progressivearchery.quiver_take_tooltip": "Use on slot to release",
 
     "item.progressivearchery.bow_fusion_smithing_template": "Bow Fusion Template", 
 

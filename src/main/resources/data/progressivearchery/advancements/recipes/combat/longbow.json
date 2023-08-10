@@ -1,12 +1,12 @@
 {
     "parent": "minecraft:recipes/root",
     "criteria": {
-      "has_goat_horn": {
+      "has_wooden_bow": {
         "conditions": {
           "items": [
             {
               "items": [
-                "minecraft:goat_horn"
+                "minecraft:bow"
               ]
             }
           ]
@@ -15,20 +15,20 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:wooden_horn_bow"
+          "recipe": "progressivearchery:longbow"
         },
         "trigger": "minecraft:recipe_unlocked"
       }
     },
     "requirements": [
       [
-        "has_goat_horn",
+        "has_wooden_bow",
         "has_the_recipe"
       ]
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:wooden_horn_bow"
+        "progressivearchery:longbow"
       ]
     }
   }

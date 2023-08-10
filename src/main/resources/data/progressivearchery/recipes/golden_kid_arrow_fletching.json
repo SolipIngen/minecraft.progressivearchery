@@ -10,7 +10,7 @@
     "tag": "progressivearchery:fletches"
   },
   "addition": {
-    "item": "minecraft:stonecutter"
+    "tag": "progressivearchery:metal_arrow_cutters"
   },
   "output": {
     "item": "progressivearchery:golden_kid_arrow",

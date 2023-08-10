@@ -17,7 +17,7 @@ public abstract class PiglinBrainMixin {
     
     @Redirect(method = "isHoldingCrossbow", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;isHolding(Lnet/minecraft/item/Item;)Z"))
     private static boolean redirectedIsHoldingCrossbow(LivingEntity piglin, Item item) {
-        return piglin.isHolding(Items.CROSSBOW) || piglin.isHolding(ModItems.WOODEN_CROSSBOW) || piglin.isHolding(ModItems.GOLD_FUSED_CROSSBOW);
+        return piglin.isHolding(Items.CROSSBOW) || piglin.isHolding(ModItems.GOLD_FUSED_CROSSBOW);
     }
     
 }

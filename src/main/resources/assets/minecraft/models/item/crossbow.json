@@ -31,34 +31,34 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "progressivearchery:item/wooden_crossbow_pulling_0"
+            "model": "minecraft:item/crossbow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.58
             },
-            "model": "progressivearchery:item/wooden_crossbow_pulling_1"
+            "model": "minecraft:item/crossbow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 1.0
             },
-            "model": "progressivearchery:item/wooden_crossbow_pulling_2"
+            "model": "minecraft:item/crossbow_pulling_2"
         },
         {
             "predicate": {
                 "charged": 1
             },
-            "model": "progressivearchery:item/wooden_crossbow_arrow"
+            "model": "minecraft:item/crossbow_arrow"
         },
         {
             "predicate": {
                 "charged": 1,
                 "firework": 1
             },
-            "model": "progressivearchery:item/wooden_crossbow_firework"
+            "model": "minecraft:item/crossbow_firework"
         }
     ]
 }

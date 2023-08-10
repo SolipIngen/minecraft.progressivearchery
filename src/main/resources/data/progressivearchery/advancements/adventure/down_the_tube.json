@@ -6,7 +6,7 @@
           "items": [
             {
               "items": [
-                "progressivearchery:wooden_tubular_bow",
+                "progressivearchery:tubular_bow",
                 "progressivearchery:copper_fused_tubular_bow",
                 "progressivearchery:gold_fused_tubular_bow",
                 "progressivearchery:iron_fused_tubular_bow",
@@ -27,7 +27,7 @@
       "frame": "task",
       "hidden": false,
       "icon": {
-        "item": "progressivearchery:wooden_tubular_bow",
+        "item": "progressivearchery:tubular_bow",
         "nbt": "{Damage:0}"
       },
       "show_toast": true,

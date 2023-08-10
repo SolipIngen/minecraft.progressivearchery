@@ -6,7 +6,7 @@
           "items": [
             {
               "items": [
-                "progressivearchery:wooden_bow"
+                "minecraft:bow"
               ]
             }
           ]
@@ -15,7 +15,7 @@
       },
       "has_the_recipe": {
         "conditions": {
-          "recipe": "progressivearchery:wooden_crossbow"
+          "recipe": "minecraft:crossbow"
         },
         "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
     ],
     "rewards": {
       "recipes": [
-        "progressivearchery:wooden_crossbow"
+        "minecraft:crossbow"
       ]
     }
 }

@@ -25,8 +25,8 @@ public interface CrossbowUserMixin extends RangedAttackMob {
 
     @Inject(method = "shoot(Lnet/minecraft/entity/LivingEntity;F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/CrossbowUser;postShoot()V"))
     private void injectedShoot(LivingEntity entity, float speed, CallbackInfo cbi) {
-        if (entity.isHolding(ModItems.WOODEN_CROSSBOW)) {
-            Hand hand = ProjectileUtil.getHandPossiblyHolding(entity, ModItems.WOODEN_CROSSBOW);
+        if (entity.isHolding(Items.CROSSBOW)) {
+            Hand hand = ProjectileUtil.getHandPossiblyHolding(entity, Items.CROSSBOW);
             ItemStack itemStack = entity.getStackInHand(hand);
             ModCrossbowItem.shootAll(entity.getWorld(), entity, hand, itemStack, speed, 12 - entity.getWorld().getDifficulty().getId() * 3);
         }

@@ -45,13 +45,13 @@ public abstract class CrossbowAttackTaskMixin<E extends MobEntity, T extends Liv
     @Inject(method = "shouldRun", at = @At("HEAD"), cancellable = true)
     private void injectedShouldRun(ServerWorld serverWorld, E mobEntity, CallbackInfoReturnable<Boolean> cbireturn) {
         LivingEntity livingEntity = this.invokeGetAttackTarget(mobEntity);
-        cbireturn.setReturnValue((((LivingEntity)mobEntity).isHolding(Items.CROSSBOW) || ((LivingEntity)mobEntity).isHolding(ModItems.WOODEN_CROSSBOW) || ((LivingEntity)mobEntity).isHolding(ModItems.GOLD_FUSED_CROSSBOW)) 
+        cbireturn.setReturnValue((((LivingEntity)mobEntity).isHolding(Items.CROSSBOW) || ((LivingEntity)mobEntity).isHolding(ModItems.GOLD_FUSED_CROSSBOW)) 
             && LookTargetUtil.isVisibleInMemory(mobEntity, livingEntity) && LookTargetUtil.isTargetWithinAttackRange(mobEntity, livingEntity, 0));
     }
     
     @Inject(method = "finishRunning", at = @At("TAIL"))
     private void finishRunning(ServerWorld serverWorld, E mobEntity, long l, CallbackInfo cbi) {
-        if (((LivingEntity)mobEntity).isHolding(ModItems.WOODEN_CROSSBOW)) {
+        if (((LivingEntity)mobEntity).isHolding(Items.CROSSBOW)) {
             ((CrossbowUser)mobEntity).setCharging(false);
             ModCrossbowItem.setCharged(((LivingEntity)mobEntity).getActiveItem(), false);
         }
