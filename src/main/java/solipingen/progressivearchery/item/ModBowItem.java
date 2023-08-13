@@ -1,14 +1,8 @@
 package solipingen.progressivearchery.item;
 
-import java.util.Map;
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketInventory;
-import dev.emi.trinkets.api.TrinketsApi;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -293,21 +287,6 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
 
     private static ItemStack getFilledQuiver(PlayerEntity playerEntity) {
         ItemStack itemStack = ItemStack.EMPTY;
-        if (FabricLoader.getInstance().isModLoaded("trinkets")) {
-            Optional<TrinketComponent> trinketComponentOptional = TrinketsApi.getTrinketComponent(playerEntity);
-            if (trinketComponentOptional.isPresent()) {
-                Map<String, Map<String, TrinketInventory>> trinketInventoryMap = trinketComponentOptional.get().getInventory();
-                if (trinketInventoryMap.containsKey("chest") && trinketInventoryMap.get("chest").containsKey("back")) {
-                    TrinketInventory trinketInventory = trinketInventoryMap.get("chest").get("back");
-                    for (int j = 0; j < trinketInventory.size(); j++) {
-                        if (trinketInventory.getStack(j).getItem() instanceof QuiverItem) {
-                            itemStack = trinketInventory.getStack(j);
-                            return itemStack;
-                        }
-                    }
-                }
-            }
-        }
         for (int i = 0; i < playerEntity.getInventory().size(); i++) {
             itemStack = playerEntity.getInventory().getStack(i);
             if (itemStack.getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(itemStack) > 0) {

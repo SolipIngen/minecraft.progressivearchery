@@ -22,17 +22,6 @@ repositories {
 
 	// REI integration
 	maven { url "https://maven.shedaniel.me/" }
-
-	// Trinkets integration
-	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/"
-	}
-
-	maven {
-		name = "Ladysnake Libs"
-		url = "https://maven.ladysnake.org/releases"
-	}
 }
 
 loom {
@@ -100,9 +89,6 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
-
-	// Trinkets integration
-	modCompileOnly "dev.emi:trinkets:${project.trinkets_version}"
 }
 
 processResources {

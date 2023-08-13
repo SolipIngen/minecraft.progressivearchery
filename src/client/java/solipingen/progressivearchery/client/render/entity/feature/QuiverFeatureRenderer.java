@@ -1,14 +1,7 @@
 package solipingen.progressivearchery.client.render.entity.feature;
 
-import java.util.Map;
-import java.util.Optional;
-
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketInventory;
-import dev.emi.trinkets.api.TrinketsApi;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -55,24 +48,6 @@ public class QuiverFeatureRenderer<T extends LivingEntity, M extends EntityModel
         }
         Identifier identifier = TEXTURE;
         ItemStack quiverStack = ItemStack.EMPTY;
-        if (FabricLoader.getInstance().isModLoaded("trinkets")) {
-            Optional<TrinketComponent> trinketComponentOptional = TrinketsApi.getTrinketComponent(abstractClientPlayerEntity);
-            if (trinketComponentOptional.isPresent()) {
-                Map<String, Map<String, TrinketInventory>> trinketInventoryMap = trinketComponentOptional.get().getInventory();
-                if (trinketInventoryMap.containsKey("chest") && trinketInventoryMap.get("chest").containsKey("back")) {
-                    TrinketInventory trinketInventory = trinketInventoryMap.get("chest").get("back");
-                    for (int index = 0; index < trinketInventory.size(); index++) {
-                        if (trinketInventory.getStack(index).getItem() instanceof QuiverItem) {
-                            quiverStack = trinketInventory.getStack(index);
-                            if (QuiverItem.getQuiverOccupancy(quiverStack) > 0) {
-                                identifier = FILLED_TEXTURE;
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-        }
         if (quiverStack.isEmpty()) {
             for (int index = 0; index < abstractClientPlayerEntity.getInventory().size(); index++) {
                 quiverStack = abstractClientPlayerEntity.getInventory().getStack(index);
