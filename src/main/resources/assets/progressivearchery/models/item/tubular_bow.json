@@ -1,8 +1,8 @@
 {
     "parent": "progressivearchery:item/generic/generic_tubular_bow",
     "textures": {
-        "bow": "progressivearchery:item/wooden_tubular_bow",
-        "particle": "progressivearchery:item/wooden_tubular_bow"
+        "bow": "progressivearchery:item/tubular_bow",
+        "particle": "progressivearchery:item/tubular_bow"
     },
     "display": {
         "thirdperson_righthand": {

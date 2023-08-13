@@ -7,10 +7,12 @@ import net.minecraft.client.item.BundleTooltipData;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.ArrowItem;
+import net.minecraft.item.Equipment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -34,7 +36,7 @@ import solipingen.progressivearchery.item.arrows.ModArrowItem;
 import solipingen.progressivearchery.sound.ModSoundEvents;
 
 
-public class QuiverItem extends Item {
+public class QuiverItem extends Item implements Equipment {
     public static final String ITEMS_KEY = "Items";
     public static final int MAX_STORAGE = 384;
     private static final int ITEM_BAR_COLOR = MathHelper.packRgb(0.53f, 0.81f, 0.92f);
@@ -229,6 +231,11 @@ public class QuiverItem extends Item {
         }
         NbtList nbtList = nbtCompound.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE);
         return nbtList.stream().map(NbtCompound.class::cast).map(ItemStack::fromNbt);
+    }
+
+    @Override
+    public EquipmentSlot getSlotType() {
+        return EquipmentSlot.CHEST;
     }
 
     @Override

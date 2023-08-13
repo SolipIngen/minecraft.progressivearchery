@@ -5,11 +5,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -17,11 +14,9 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.World;
-import solipingen.progressivearchery.item.QuiverItem;
 import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityInterface;
 import solipingen.progressivearchery.village.ModVillagerProfessions;
 
@@ -211,13 +206,6 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityIn
                 }
             }
 
-        }
-    }
-    
-    @Inject(method = "getPreferredEquipmentSlot", at = @At("TAIL"), cancellable = true)
-    private static void injectedGetPreferredEquipmentSlot(ItemStack stack, CallbackInfoReturnable<EquipmentSlot> cbireturn) {
-        if (stack.getItem() instanceof QuiverItem) {
-            cbireturn.setReturnValue(EquipmentSlot.CHEST);
         }
     }
 

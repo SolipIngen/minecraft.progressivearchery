@@ -1,7 +1,7 @@
 {
     "parent": "progressivearchery:item/generic/generic_bow_pulling_1",
     "textures": {
-        "1": "progressivearchery:item/wooden_bow_pulling_1"
+        "1": "progressivearchery:item/bow_pulling_1"
     }, 
     "display": {
         "thirdperson_righthand": {

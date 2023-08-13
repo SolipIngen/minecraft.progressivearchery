@@ -1,8 +1,8 @@
 {
     "parent": "progressivearchery:item/generic/generic_crossbow_arrow",
     "textures": {
-        "3": "progressivearchery:item/wooden_crossbow_arrow",
-        "particle": "progressivearchery:item/wooden_crossbow_standby"
+        "3": "progressivearchery:item/crossbow_arrow",
+        "particle": "progressivearchery:item/crossbow_standby"
     }, 
     "display": {
         "thirdperson_righthand": {

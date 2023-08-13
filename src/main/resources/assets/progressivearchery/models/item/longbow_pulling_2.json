@@ -1,8 +1,8 @@
 {
     "parent": "progressivearchery:item/generic/generic_longbow_pulling_2",
     "textures": {
-        "2": "progressivearchery:item/wooden_longbow_pulling_2",
-        "particle": "progressivearchery:item/wooden_longbow"
+        "2": "progressivearchery:item/longbow_pulling_2",
+        "particle": "progressivearchery:item/longbow"
     }, 
     "display": {
         "thirdperson_righthand": {

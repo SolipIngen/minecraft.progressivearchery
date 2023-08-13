@@ -1,8 +1,8 @@
 {
     "parent": "progressivearchery:item/generic/generic_crossbow_firework",
     "textures": {
-        "4": "progressivearchery:item/wooden_crossbow_firework",
-        "particle": "progressivearchery:item/wooden_crossbow_standby"
+        "4": "progressivearchery:item/crossbow_firework",
+        "particle": "progressivearchery:item/crossbow_standby"
     }, 
     "display": {
         "thirdperson_righthand": {

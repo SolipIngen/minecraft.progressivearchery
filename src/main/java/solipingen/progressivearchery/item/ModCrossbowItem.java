@@ -2,6 +2,8 @@ package solipingen.progressivearchery.item;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -11,6 +13,10 @@ import org.joml.Vector3f;
 
 import com.google.common.collect.Lists;
 
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketInventory;
+import dev.emi.trinkets.api.TrinketsApi;
+import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.yarn.constants.MiningLevels;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
@@ -253,14 +259,29 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
     }
 
     private static ItemStack getFilledQuiver(PlayerEntity playerEntity) {
-        for (int i = 0; i < playerEntity.getInventory().size(); ++i) {
-            ItemStack itemStack = playerEntity.getInventory().getStack(i);
-            if (itemStack.isOf(ModItems.QUIVER) && QuiverItem.getQuiverOccupancy(itemStack) > 0) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        if (FabricLoader.getInstance().isModLoaded("trinkets")) {
+            Optional<TrinketComponent> trinketComponentOptional = TrinketsApi.getTrinketComponent(playerEntity);
+            if (trinketComponentOptional.isPresent()) {
+                Map<String, Map<String, TrinketInventory>> trinketInventoryMap = trinketComponentOptional.get().getInventory();
+                if (trinketInventoryMap.containsKey("chest") && trinketInventoryMap.get("chest").containsKey("back")) {
+                    TrinketInventory trinketInventory = trinketInventoryMap.get("chest").get("back");
+                    for (int j = 0; j < trinketInventory.size(); j++) {
+                        if (trinketInventory.getStack(j).getItem() instanceof QuiverItem) {
+                            itemStack = trinketInventory.getStack(j);
+                            return itemStack;
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < playerEntity.getInventory().size(); i++) {
+            itemStack = playerEntity.getInventory().getStack(i);
+            if (itemStack.getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(itemStack) > 0) {
                 return itemStack;
             }
-            continue;
         }
-        return ItemStack.EMPTY;
+        return itemStack;
     }
 
     public static boolean isCharged(ItemStack stack) {

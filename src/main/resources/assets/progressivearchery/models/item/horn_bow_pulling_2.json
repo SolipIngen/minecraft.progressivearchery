@@ -1,8 +1,8 @@
 {
     "parent": "progressivearchery:item/generic/generic_horn_bow_pulling_2",
     "textures": {
-        "2": "progressivearchery:item/wooden_horn_bow_pulling_2",
-        "particle": "progressivearchery:item/wooden_horn_bow"
+        "2": "progressivearchery:item/horn_bow_pulling_2",
+        "particle": "progressivearchery:item/horn_bow"
     }, 
     "display": {
         "thirdperson_righthand": {
