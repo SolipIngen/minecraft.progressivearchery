@@ -1,0 +1,38 @@
+{
+    "parent": "progressivearchery:adventure/fletcher",
+    "criteria": {
+      "has_quiver": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:quiver"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.quivering.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "item": "progressivearchery:quiver",
+          "nbt": "{Damage:0}"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.quivering.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_quiver"
+      ]
+    ]
+}

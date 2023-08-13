@@ -1,0 +1,50 @@
+{
+    "parent": "progressivearchery:adventure/down_the_tube",
+    "criteria": {
+      "killed_creeper_with_tubular_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:creeper", 
+                  "distance": {
+                    "horizontal": {
+                      "min": 100.0
+                    }
+                  }
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_tubular_bow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.revenge_for_my_kidhood.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:diamond_fused_tubular_bow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.revenge_for_my_kidhood.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_creeper_with_tubular_bow"
+      ]
+    ],
+    "rewards": {
+      "experience": 100
+    }
+}
