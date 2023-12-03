@@ -1,0 +1,7 @@
+{
+    "parent": "progressivearchery:item/generic/generic_crossbow_pulling_0",
+    "textures": {
+        "0": "progressivearchery:item/diamond_fused_crossbow_pulling_0",
+        "particle": "progressivearchery:item/diamond_fused_crossbow_standby"
+    }
+}
