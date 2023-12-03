@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "pattern": [
+      "##",
+      " #"
+    ],
+    "result": {
+      "item": "progressivearchery:diamond_arrowhead",
+      "count": 9
+    }
+}

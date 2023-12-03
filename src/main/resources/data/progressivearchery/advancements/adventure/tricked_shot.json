@@ -1,0 +1,45 @@
+{
+    "parent": "minecraft:adventure/whos_the_pillager_now",
+    "criteria": {
+      "killed_illusioner_blinded": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:illusioner"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_blinded_horn_bow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.tricked_shot.description"
+      },
+      "frame": "challenge",
+      "hidden": true,
+      "icon": {
+        "item": "progressivearchery:copper_fused_horn_bow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.tricked_shot.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_illusioner_blinded"
+      ]
+    ],
+    "rewards": {
+      "experience": 75
+    }
+}

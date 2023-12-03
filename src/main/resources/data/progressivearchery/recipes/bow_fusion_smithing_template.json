@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": {
+        "item": "progressivearchery:bow_fusion_smithing_template"
+      }, 
+      "$": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "pattern": [
+      "$$$",
+      "$#$", 
+      " $ "
+    ],
+    "result": {
+      "item": "progressivearchery:bow_fusion_smithing_template", 
+      "count": 2
+    }
+}
