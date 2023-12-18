@@ -11,6 +11,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -32,7 +33,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 
-public class ModBundleItem extends Item {
+public class ModBundleItem extends Item implements DyeableItem {
     private static final String ITEMS_KEY = "Items";
     public static final int MAX_STORAGE = 768;
     private static final int ITEM_BAR_COLOR = MathHelper.packRgb(0.4f, 0.4f, 1.0f);
