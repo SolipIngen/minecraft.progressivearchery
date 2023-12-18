@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_spectral_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "minecraft:spectral_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_the_recipe": {
+        "conditions": {
+          "recipe": "progressivearchery:spectral_kid_arrow"
+        },
+        "trigger": "minecraft:recipe_unlocked"
+      }
+    },
+    "requirements": [
+      [
+        "has_spectral_arrow",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "progressivearchery:spectral_kid_arrow"
+      ]
+    }
+  }

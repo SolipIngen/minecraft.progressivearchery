@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "progressivearchery:item/tipped_kid_arrow_head",
+        "layer1": "progressivearchery:item/tipped_kid_arrow_base"
+    }
+}

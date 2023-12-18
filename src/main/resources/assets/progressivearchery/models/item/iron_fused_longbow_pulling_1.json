@@ -1,0 +1,94 @@
+{
+    "parent": "progressivearchery:item/generic/generic_longbow_pulling_1",
+    "textures": {
+        "1": "progressivearchery:item/iron_fused_longbow_pulling_1",
+        "particle": "progressivearchery:item/iron_fused_longbow"
+    }, 
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [
+                -80,
+                260,
+                -40
+            ],
+            "translation": [
+                -1,
+                -2.0,
+                3.0
+            ],
+            "scale": [
+                0.9,
+                1.2,
+                1.2
+            ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [
+                -160,
+                260,
+                -40
+            ],
+            "translation": [
+                -1,
+                -2.0,
+                3.0
+            ],
+            "scale": [
+                0.9,
+                1.2,
+                1.2
+            ]
+        },
+        "firstperson_righthand": {
+            "rotation": [
+                0,
+                -90,
+                25
+            ],
+            "translation": [
+                1.13,
+                3.2,
+                1.13
+            ],
+            "scale": [
+                0.68,
+                0.78,
+                0.68
+            ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [
+                -80,
+                -90,
+                25
+            ],
+            "translation": [
+                1.13,
+                3.2,
+                1.13
+            ],
+            "scale": [
+                0.68,
+                0.78,
+                0.68
+            ]
+        }, 
+        "ground": {
+            "rotation": [ 
+                0, 
+                0, 
+                0 
+            ],
+            "translation": [ 
+                0, 
+                4, 
+                0
+            ],
+            "scale":[ 
+                0.8, 
+                0.8, 
+                0.8 
+            ]
+        }
+    }
+}

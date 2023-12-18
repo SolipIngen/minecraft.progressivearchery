@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "progressivearchery:gold_fused_bow",
+        "progressivearchery:gold_fused_horn_bow",
+        "progressivearchery:gold_fused_longbow",
+        "progressivearchery:gold_fused_tubular_bow",
+        "progressivearchery:gold_fused_crossbow",
+        "progressivearchery:golden_arrow",
+        "progressivearchery:golden_kid_arrow"
+    ]
+}
