@@ -1,0 +1,38 @@
+{
+    "parent": "progressivearchery:adventure/flint_and_feather",
+    "criteria": {
+      "has_copper_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:copper_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.trust_the_rust.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "item": "progressivearchery:copper_arrow",
+          "nbt": "{Damage:0}"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.trust_the_rust.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_copper_arrow"
+      ]
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "parent": "progressivearchery:adventure/this_bow_has_horns",
+    "criteria": {
+      "killed_stray_with_horn_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:stray", 
+                  "distance": {
+                    "horizontal": {
+                      "min": 75.0
+                    }
+                  }
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_horn_bow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.snow_talks.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "item": "progressivearchery:diamond_fused_horn_bow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.snow_talks.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_stray_with_horn_bow"
+      ]
+    ],
+    "rewards": {
+      "experience": 75
+    }
+}

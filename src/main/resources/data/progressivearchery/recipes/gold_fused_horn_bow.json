@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": {
+      "item": "progressivearchery:bow_fusion_smithing_template"
+    }, 
+    "addition": {
+      "item": "minecraft:gold_ingot"
+    },
+    "base": {
+      "item": "progressivearchery:horn_bow"
+    },
+    "result": {
+      "item": "progressivearchery:gold_fused_horn_bow"
+    }
+  }

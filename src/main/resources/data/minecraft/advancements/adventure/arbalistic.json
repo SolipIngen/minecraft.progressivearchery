@@ -1,0 +1,63 @@
+{
+    "parent": "minecraft:adventure/two_birds_one_arrow",
+    "criteria": {
+      "ghost_shot_bow": {
+        "conditions": {
+          "unique_entity_types": 5
+        },
+        "trigger": "progressivearchery:killed_by_bow"
+      },
+      "ghost_shot_horn_bow": {
+        "conditions": {
+          "unique_entity_types": 5
+        },
+        "trigger": "progressivearchery:killed_by_horn_bow"
+      },
+      "ghost_shot_longbow": {
+        "conditions": {
+          "unique_entity_types": 5
+        },
+        "trigger": "progressivearchery:killed_by_longbow"
+      },
+      "ghost_shot_tubular_bow": {
+        "conditions": {
+          "unique_entity_types": 5
+        },
+        "trigger": "progressivearchery:killed_by_tubular_bow"
+      },
+      "arbalistic": {
+        "conditions": {
+          "unique_entity_types": 5
+        },
+        "trigger": "minecraft:killed_by_crossbow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.arbalistic.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "item": "minecraft:spectral_arrow",
+        "nbt": "{Damage:0}"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.arbalistic.title"
+      }
+    },
+    "requirements": [
+      [
+        "ghost_shot_bow",
+        "ghost_shot_horn_bow",
+        "ghost_shot_longbow",
+        "ghost_shot_tubular_bow",
+        "arbalistic"
+      ]
+    ],
+    "rewards": {
+      "experience": 85
+    }
+}
