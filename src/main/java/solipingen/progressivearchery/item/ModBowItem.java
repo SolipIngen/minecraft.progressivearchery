@@ -37,6 +37,7 @@ import net.minecraft.world.World;
 import solipingen.progressivearchery.advancement.criterion.ModCriteria;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
+import solipingen.progressivearchery.registry.tag.ModItemTags;
 import solipingen.progressivearchery.sound.ModSoundEvents;
 
 
@@ -86,22 +87,19 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
         float randomf = user.getRandom().nextFloat();
         boolean bl = playerEntity.getAbilities().creativeMode;
         if (EnchantmentHelper.getLevel(Enchantments.INFINITY, quiverItemStack) > 0) {
-            if (itemStack.isOf(ModItems.WOODEN_ARROW) || itemStack.isOf(ModItems.WOODEN_KID_ARROW)) {
+            if (itemStack.isIn(ModItemTags.INFINITY_100P)) {
                 bl |= randomf <= 1.0f;
             }
-            else if ((itemStack.isOf(ModItems.FLINT_ARROW) || itemStack.isOf(ModItems.FLINT_KID_ARROW))) {
+            else if (itemStack.isIn(ModItemTags.INFINITY_75P)) {
                 bl |= randomf <= 0.75f;
             }
-            else if ((itemStack.isOf(ModItems.COPPER_ARROW) || itemStack.isOf(ModItems.COPPER_KID_ARROW))) {
+            else if (itemStack.isIn(ModItemTags.INFINITY_50P)) {
                 bl |= randomf <= 0.5f;
             }
-            else if ((itemStack.isOf(ModItems.GOLDEN_ARROW) || itemStack.isOf(Items.SPECTRAL_ARROW) || itemStack.isOf(Items.TIPPED_ARROW) || itemStack.isOf(ModItems.GOLDEN_KID_ARROW) || itemStack.isOf(ModItems.SPECTRAL_KID_ARROW) || itemStack.isOf(ModItems.TIPPED_KID_ARROW))) {
-                bl |= randomf <= 0.5f;
-            }
-            else if ((itemStack.isOf(ModItems.IRON_ARROW) || itemStack.isOf(ModItems.IRON_KID_ARROW))) {
+            else if (itemStack.isIn(ModItemTags.INFINITY_25P)) {
                 bl |= randomf <= 0.25f;
             }
-            else if ((itemStack.isOf(ModItems.DIAMOND_ARROW) || itemStack.isOf(ModItems.DIAMOND_KID_ARROW))) {
+            else if (itemStack.isIn(ModItemTags.INFINITY_12p5P)) {
                 bl |= randomf <= 0.125f;
             }
         }
@@ -138,7 +136,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
             }
             int j = EnchantmentHelper.getLevel(Enchantments.POWER, stack);
             if (j > 0) {
-                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + 0.5*j);
+                persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + 0.2*j);
             }
             int k = EnchantmentHelper.getLevel(Enchantments.PUNCH, stack);
             if (k > 0) {
@@ -156,7 +154,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
                 persistentProjectileEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
             }
             if (persistentProjectileEntity.pickupType == PersistentProjectileEntity.PickupPermission.ALLOWED && !playerEntity.isCreative()) {
-                if (quiverItemStack != ItemStack.EMPTY) {
+                if (!quiverItemStack.isEmpty()) {
                     NbtCompound quiverNbtCompound = quiverItemStack.getOrCreateNbt();
                     if (!quiverNbtCompound.contains(QuiverItem.ITEMS_KEY)) {
                         quiverNbtCompound.put(QuiverItem.ITEMS_KEY, new NbtList());
@@ -263,7 +261,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
         if (!(stack.getItem() instanceof ModBowItem)) {
             return ItemStack.EMPTY;
         }
-        if (ModBowItem.getFilledQuiver(playerEntity) != ItemStack.EMPTY) {
+        if (!ModBowItem.getFilledQuiver(playerEntity).isEmpty()) {
             ItemStack quiverStack = ModBowItem.getFilledQuiver(playerEntity);
             Stream<ItemStack> quiverStream = QuiverItem.getStoredStacks(quiverStack);
             ItemStack itemStack3 = ItemStack.EMPTY;
@@ -300,6 +298,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
                 for (int j = 0; j < trinketInventory.size(); j++) {
                     if (trinketInventory.getStack(j).getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(trinketInventory.getStack(j)) > 0) {
                         itemStack = trinketInventory.getStack(j);
+                        break;
                     }
                 }
             }
@@ -307,6 +306,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
                 for (int i = 0; i < playerEntity.getInventory().size(); i++) {
                     if (playerEntity.getInventory().getStack(i).getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(playerEntity.getInventory().getStack(i)) > 0) {
                         itemStack = playerEntity.getInventory().getStack(i);
+                        break;
                     }
                 }
             }
@@ -315,6 +315,7 @@ public class ModBowItem extends RangedWeaponItem implements Vanishable {
             for (int i = 0; i < playerEntity.getInventory().size(); i++) {
                 if (itemStack.getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(itemStack) > 0) {
                     itemStack = playerEntity.getInventory().getStack(i);
+                    break;
                 }
             }
         }

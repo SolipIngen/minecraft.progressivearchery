@@ -54,6 +54,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
+import solipingen.progressivearchery.registry.tag.ModItemTags;
 import solipingen.progressivearchery.util.interfaces.mixin.entity.projectile.FireworkRocketEntityInterface;
 import solipingen.progressivearchery.util.interfaces.mixin.server.network.ServerPlayerEntityInterface;
 
@@ -121,7 +122,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         predicate = ((ModCrossbowItem)stack.getItem()).getProjectiles();
         if (shooter instanceof PlayerEntity) {
         PlayerEntity playerEntity = (PlayerEntity)shooter;
-            if (ModCrossbowItem.getFilledQuiver(playerEntity) != ItemStack.EMPTY) {
+            if (!ModCrossbowItem.getFilledQuiver(playerEntity).isEmpty()) {
                 ItemStack quiverStack = ModCrossbowItem.getFilledQuiver(playerEntity);
                 Stream<ItemStack> quiverStream = QuiverItem.getStoredStacks(quiverStack);
                 ItemStack itemStack3 = quiverStream.filter(a -> a.getItem() instanceof ArrowItem || a.getItem() instanceof ModArrowItem || a.getItem() instanceof FireworkRocketItem).findFirst().orElse(ItemStack.EMPTY);
@@ -202,19 +203,16 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         Boolean crossbowProjectileBl = projectile.getItem() instanceof ArrowItem || projectile.getItem() instanceof ModArrowItem || projectile.getItem() instanceof FireworkRocketItem;
         float randomf = shooter.getRandom().nextFloat();
         bl = (creative || EnchantmentHelper.getLevel(Enchantments.INFINITY, quiverItemStack) > 0) && crossbowProjectileBl;
-        if (projectile.isOf(ModItems.FLINT_ARROW) && randomf > 0.75f) {
+        if (projectile.isIn(ModItemTags.INFINITY_75P) && randomf > 0.75f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if (projectile.isOf(ModItems.COPPER_ARROW) && randomf > 0.5f) {
+        else if (projectile.isIn(ModItemTags.INFINITY_50P) && randomf > 0.5f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if ((projectile.isOf(ModItems.GOLDEN_ARROW) || projectile.isOf(Items.TIPPED_ARROW) || projectile.isOf(Items.SPECTRAL_ARROW)) && randomf > 0.5f) {
+        else if (projectile.isIn(ModItemTags.INFINITY_25P) && randomf > 0.25f) {
             bl = creative && crossbowProjectileBl;
         }
-        else if (projectile.isOf(ModItems.IRON_ARROW) && randomf > 0.25f) {
-            bl = creative && crossbowProjectileBl;
-        }
-        else if (projectile.isOf(ModItems.DIAMOND_ARROW) && randomf > 0.125f) {
+        else if (projectile.isIn(ModItemTags.INFINITY_12p5P) && randomf > 0.125f) {
             bl = creative && crossbowProjectileBl;
         }
         else if (projectile.isOf(Items.FIREWORK_ROCKET)) {
@@ -227,7 +225,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
         if (!(bl || creative || simulated)) {
             itemStack = projectile.split(1);
             if (shooter instanceof PlayerEntity) {
-                if (quiverItemStack != ItemStack.EMPTY) {
+                if (!quiverItemStack.isEmpty()) {
                     NbtCompound quivernbtCompound = quiverItemStack.getOrCreateNbt();
                     if (!quivernbtCompound.contains(QuiverItem.ITEMS_KEY)) {
                         quivernbtCompound.put(QuiverItem.ITEMS_KEY, new NbtList());
@@ -267,6 +265,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
                 for (int j = 0; j < trinketInventory.size(); j++) {
                     if (trinketInventory.getStack(j).getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(trinketInventory.getStack(j)) > 0) {
                         itemStack = trinketInventory.getStack(j);
+                        break;
                     }
                 }
             }
@@ -274,6 +273,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
                 for (int i = 0; i < playerEntity.getInventory().size(); i++) {
                     if (playerEntity.getInventory().getStack(i).getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(playerEntity.getInventory().getStack(i)) > 0) {
                         itemStack = playerEntity.getInventory().getStack(i);
+                        break;
                     }
                 }
             }
@@ -282,6 +282,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
             for (int i = 0; i < playerEntity.getInventory().size(); i++) {
                 if (itemStack.getItem() instanceof QuiverItem && QuiverItem.getQuiverOccupancy(itemStack) > 0) {
                     itemStack = playerEntity.getInventory().getStack(i);
+                    break;
                 }
             }
         }
@@ -358,7 +359,7 @@ public class ModCrossbowItem extends RangedWeaponItem implements Vanishable {
             }
             int j = EnchantmentHelper.getLevel(Enchantments.POWER, crossbow);
             if (j > 0) {
-                ((PersistentProjectileEntity)projectileEntity).setDamage(((PersistentProjectileEntity)projectileEntity).getDamage() + 0.5*j);
+                ((PersistentProjectileEntity)projectileEntity).setDamage(((PersistentProjectileEntity)projectileEntity).getDamage() + 0.2*j);
             }
             int k = EnchantmentHelper.getLevel(Enchantments.PUNCH, crossbow);
             if (k > 0) {

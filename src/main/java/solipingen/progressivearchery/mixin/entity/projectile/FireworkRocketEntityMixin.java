@@ -58,7 +58,7 @@ public abstract class FireworkRocketEntityMixin extends ProjectileEntity impleme
         NbtCompound nbtCompound = itemStack.isEmpty() ? null : itemStack.getSubNbt("Fireworks");
         NbtList nbtList = nbtCompound != null ? nbtCompound.getList("Explosions", NbtElement.COMPOUND_TYPE) : null;
         if (nbtList != null && !nbtList.isEmpty()) {
-            f = 5.0f + 4.0f*nbtList.size();
+            f = 5.0f + 2.0f*nbtList.size();
         }
         if (f > 0.0f && nbtList.size() > 0) {
             if (this.shooter != null) {
@@ -77,7 +77,7 @@ public abstract class FireworkRocketEntityMixin extends ProjectileEntity impleme
                     break;
                 }
                 if (!reachBl) continue;
-                float g = f*((5.0f + 0.5f*(nbtList.size() - 1) - this.distanceTo(livingEntity)) / (5.0f + 0.5f*(nbtList.size() - 1)))*(1.0f + 0.2f*this.powerLevel);
+                float g = f*((5.0f + 0.5f*(nbtList.size() - 1) - this.distanceTo(livingEntity)) / (5.0f + 0.5f*(nbtList.size() - 1)))*(1.0f + 0.1f*this.powerLevel);
                 if (this.flameBl) {
                     livingEntity.setOnFireFor(5);
                 }

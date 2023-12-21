@@ -35,7 +35,7 @@ public class GoldenArrowEntity extends ModArrowEntity {
     private static final TrackedData<Integer> COLOR = DataTracker.registerData(GoldenArrowEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private Potion potion = Potions.EMPTY;
     private final Set<StatusEffectInstance> effects = Sets.newHashSet();
-    private static final double DAMAGE_AMOUNT = 3.0;
+    private static final double DAMAGE_AMOUNT = 2.0;
     private boolean colorSet;
 
     
