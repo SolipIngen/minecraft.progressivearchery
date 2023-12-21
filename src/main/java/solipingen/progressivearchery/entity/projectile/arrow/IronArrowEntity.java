@@ -15,7 +15,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 
 public class IronArrowEntity extends ModArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.IRON_ARROW);
-    private static final double DAMAGE_AMOUNT = 4.0;
+    private static final double DAMAGE_AMOUNT = 2.5;
 
     
     public IronArrowEntity(EntityType<? extends IronArrowEntity> entityType, World world) {

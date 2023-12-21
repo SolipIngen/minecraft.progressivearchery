@@ -12,8 +12,8 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.ProgressiveArchery;
-import solipingen.progressivearchery.item.ModItems;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
+import solipingen.progressivearchery.registry.tag.ModItemTags;
 import solipingen.progressivearchery.screen.fletching.FletchingScreenHandler;
 
 
@@ -38,11 +38,11 @@ public class FletchingScreen extends ArrowmakingScreen<FletchingScreenHandler> {
         Slot bodySlot = this.handler.getSlot(1);
         Slot additionSlot = this.handler.getSlot(3);
         if (bodySlot.getStack().getItem() instanceof ModArrowItem) {
-            if (bodySlot.getStack().isOf(ModItems.WOODEN_ARROW) || bodySlot.getStack().isOf(ModItems.FLINT_ARROW)) {
-                context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 0, 16, 16);
+            if (bodySlot.getStack().isIn(ModItemTags.CUTTABLE_METAL_ARROWS)) {
+                context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 48, 16, 16);
             }
             else {
-                context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 48, 16, 16);
+                context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 0, 16, 16);
             }
         }
         else {
@@ -52,7 +52,7 @@ public class FletchingScreen extends ArrowmakingScreen<FletchingScreenHandler> {
             else if (headSlot.getStack().isOf(Items.FLINT)) {
                 context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 16, 16, 16);
             }
-            else if (headSlot.getStack().isOf(ModItems.COPPER_ARROWHEAD) || headSlot.getStack().isOf(ModItems.GOLDEN_ARROWHEAD) || headSlot.getStack().isOf(ModItems.IRON_ARROWHEAD) || headSlot.getStack().isOf(ModItems.DIAMOND_ARROWHEAD)) {
+            else if (headSlot.getStack().isIn(ModItemTags.METAL_ARROWHEADS)) {
                 context.drawTexture(TEXTURE, i + additionSlot.x, j + additionSlot.y, this.backgroundWidth + 1, 32, 16, 16);
             }
         }

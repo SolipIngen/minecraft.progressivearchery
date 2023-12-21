@@ -15,7 +15,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 
 public class DiamondKidArrowEntity extends KidArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.DIAMOND_KID_ARROW);
-    private static final double DAMAGE_AMOUNT = 5.0;
+    private static final double DAMAGE_AMOUNT = 3.5;
 
     
     public DiamondKidArrowEntity(EntityType<? extends DiamondKidArrowEntity> entityType, World world) {
