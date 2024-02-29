@@ -95,12 +95,12 @@ public abstract class MobEntityMixin extends LivingEntity implements MobEntityIn
     @Inject(method = "detachLeash", at = @At("HEAD"))
     private void injectedDetachLeash(boolean sendPacket, boolean dropItem, CallbackInfo cbi) {
         if (this.holdingEntity != null) {
-            this.holdingEntity = null;
             this.leashNbt = null;
             World world = this.getWorld();
             if (!world.isClient && dropItem && this.getLeashedByFireproofLead()) {
                 this.dropItem(ModItems.FIREPROOF_LEAD);
                 this.setLeashedByFireproofLead(false);
+                this.holdingEntity = null;
             }
             if (!world.isClient && sendPacket && this.getWorld() instanceof ServerWorld) {
                 ((ServerWorld)this.getWorld()).getChunkManager().sendToOtherNearbyPlayers(this, new EntityAttachS2CPacket(this, null));
