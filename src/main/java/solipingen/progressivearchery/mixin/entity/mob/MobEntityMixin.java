@@ -2,6 +2,8 @@ package solipingen.progressivearchery.mixin.entity.mob;
 
 import java.util.UUID;
 
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,6 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -25,12 +28,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
-import net.minecraft.network.packet.s2c.play.EntityAttachS2CPacket;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModCrossbowItem;
 import solipingen.progressivearchery.item.ModItems;
@@ -92,20 +95,13 @@ public abstract class MobEntityMixin extends LivingEntity implements MobEntityIn
         }
     }
 
-    @Inject(method = "detachLeash", at = @At("HEAD"))
-    private void injectedDetachLeash(boolean sendPacket, boolean dropItem, CallbackInfo cbi) {
-        if (this.holdingEntity != null) {
-            this.leashNbt = null;
-            World world = this.getWorld();
-            if (!world.isClient && dropItem && this.getLeashedByFireproofLead()) {
-                this.dropItem(ModItems.FIREPROOF_LEAD);
-                this.setLeashedByFireproofLead(false);
-                this.holdingEntity = null;
-            }
-            if (!world.isClient && sendPacket && this.getWorld() instanceof ServerWorld) {
-                ((ServerWorld)this.getWorld()).getChunkManager().sendToOtherNearbyPlayers(this, new EntityAttachS2CPacket(this, null));
-            }
+    @ModifyArg(method = "detachLeash", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/MobEntity;dropItem(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/entity/ItemEntity;"))
+    private ItemConvertible modifyDetachLeash(ItemConvertible dropItem) {
+        if (this.getLeashedByFireproofLead()) {
+            this.setLeashedByFireproofLead(false);
+            return ModItems.FIREPROOF_LEAD;
         }
+        return Items.LEAD;
     }
 
     @Inject(method = "readLeashNbt", at = @At("HEAD"))
