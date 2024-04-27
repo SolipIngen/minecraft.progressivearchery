@@ -22,6 +22,7 @@ import net.minecraft.entity.decoration.LeashKnotEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
@@ -92,25 +93,31 @@ public abstract class MobEntityMixin extends LivingEntity implements MobEntityIn
         }
     }
 
-    @Inject(method = "detachLeash", at = @At("HEAD"))
+    @Inject(method = "detachLeash", at = @At("HEAD"), cancellable = true)
     private void injectedDetachLeash(boolean sendPacket, boolean dropItem, CallbackInfo cbi) {
         if (this.holdingEntity != null) {
             this.holdingEntity = null;
             this.leashNbt = null;
             World world = this.getWorld();
-            if (!world.isClient && dropItem && this.getLeashedByFireproofLead()) {
-                this.dropItem(ModItems.FIREPROOF_LEAD);
-                this.setLeashedByFireproofLead(false);
+            if (!world.isClient && dropItem) {
+                if (this.getLeashedByFireproofLead()) {
+                    this.dropItem(ModItems.FIREPROOF_LEAD);
+                    this.setLeashedByFireproofLead(false);
+                }
+                else {
+                    this.dropItem(Items.LEAD);
+                }
             }
             if (!world.isClient && sendPacket && this.getWorld() instanceof ServerWorld) {
                 ((ServerWorld)this.getWorld()).getChunkManager().sendToOtherNearbyPlayers(this, new EntityAttachS2CPacket(this, null));
             }
         }
+        cbi.cancel();
     }
 
-    @Inject(method = "readLeashNbt", at = @At("HEAD"))
+    @Inject(method = "readLeashNbt", at = @At("HEAD"), cancellable = true)
     private void injectedReadLeashNbt(CallbackInfo cbi) {
-        if (this.leashNbt != null && this.getWorld() instanceof ServerWorld && this.getLeashedByFireproofLead()) {
+        if (this.leashNbt != null && this.getWorld() instanceof ServerWorld) {
             if (this.leashNbt.containsUuid("UUID")) {
                 UUID uUID = this.leashNbt.getUuid("UUID");
                 Entity entity = ((ServerWorld)this.getWorld()).getEntity(uUID);
@@ -124,10 +131,16 @@ public abstract class MobEntityMixin extends LivingEntity implements MobEntityIn
                 return;
             }
             if (this.age > 100) {
-                this.dropItem(ModItems.FIREPROOF_LEAD);
+                if (this.getLeashedByFireproofLead()) {
+                    this.dropItem(ModItems.FIREPROOF_LEAD);
+                }
+                else {
+                    this.dropItem(Items.LEAD);
+                }
                 this.leashNbt = null;
             }
         }
+        cbi.cancel();
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))

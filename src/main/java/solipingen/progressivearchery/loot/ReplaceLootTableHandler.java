@@ -29,10 +29,18 @@ public class ReplaceLootTableHandler implements LootTableEvents.Replace {
     // Fishing Treasure Loot
     private static final Identifier FISHING_TREASURE_ID = new Identifier(ProgressiveArchery.MOD_ID, "gameplay/fishing/treasure");
 
+    // Trial Chamber Loot
+    private static final Identifier TRIAL_CHAMBERS_DISPENSER_CHAMBER_ID = new Identifier(ProgressiveArchery.MOD_ID, "dispensers/trial_chambers/chamber");
+    private static final Identifier TRIAL_CHAMBERS_DISPENSER_CORRIDOR_ID = new Identifier(ProgressiveArchery.MOD_ID, "dispensers/trial_chambers/corridor");
+    private static final Identifier TRIAL_CHAMBERS_CHEST_ENTRANCE_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/trial_chambers/entrance");
+    private static final Identifier TRIAL_CHAMBERS_CHEST_SUPPLY_ID = new Identifier(ProgressiveArchery.MOD_ID, "chests/trial_chambers/supply");
+    private static final Identifier TRIAL_CHAMBERS_POT_CORRIDOR_ID = new Identifier(ProgressiveArchery.MOD_ID, "pots/trial_chambers/corridor");
+
     // Mod Loot Tables
     private static final Identifier[] ID_ARRAY = new Identifier[]{ 
         JUNGLE_TEMPLE_DISPENSER_ID, FLETCHER_CHEST_ID, PILLAGER_OUTPOST_ID, BASTION_GENERIC_ID, BASTION_BRIDGE_ID, BASTION_HOGLIN_STABLE_ID, 
-        SKELETON_DROP_ID, STRAY_DROP_ID, PILLAGER_DROP_ID, FISHING_TREASURE_ID};
+        SKELETON_DROP_ID, STRAY_DROP_ID, PILLAGER_DROP_ID, FISHING_TREASURE_ID, 
+        TRIAL_CHAMBERS_DISPENSER_CHAMBER_ID, TRIAL_CHAMBERS_DISPENSER_CORRIDOR_ID, TRIAL_CHAMBERS_CHEST_ENTRANCE_ID, TRIAL_CHAMBERS_CHEST_SUPPLY_ID, TRIAL_CHAMBERS_POT_CORRIDOR_ID};
 
 
     @Override
