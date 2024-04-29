@@ -1,0 +1,12 @@
+{
+    "values": [
+        "minecraft:spectral_arrow", 
+        "minecraft:tipped_arrow", 
+        "progressivearchery:copper_arrow", 
+        "progressivearchery:copper_kid_arrow", 
+        "progressivearchery:golden_arrow", 
+        "progressivearchery:golden_kid_arrow", 
+        "progressivearchery:spectral_kid_arrow", 
+        "progressivearchery:tipped_kid_arrow"
+    ]
+}

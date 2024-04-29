@@ -12,7 +12,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 
 public class FlintArrowEntity extends ModArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.FLINT_ARROW);
-    private static final double DAMAGE_AMOUNT = 2.5;
+    private static final double DAMAGE_AMOUNT = 1.5;
 
 
     public FlintArrowEntity(EntityType<? extends FlintArrowEntity> entityType, World world) {
