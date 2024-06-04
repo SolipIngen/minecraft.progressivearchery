@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:bow"
+      },
+      "X": {
+        "item": "minecraft:stick"
+      },
+      "Y": {
+        "item": "minecraft:string"
+      }
+    },
+    "pattern": [
+      "  X",
+      " #Y",
+      "  X"
+    ],
+    "result": {
+      "id": "progressivearchery:longbow"
+    }
+}

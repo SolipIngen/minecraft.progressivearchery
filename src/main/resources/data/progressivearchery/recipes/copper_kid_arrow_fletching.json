@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:copper_arrowhead"
+  },
+  "body": {
+    "item": "progressivearchery:copper_arrow"
+  },
+  "tail": {
+    "tag": "progressivearchery:fletches"
+  },
+  "addition": {
+    "tag": "progressivearchery:metal_arrow_cutters"
+  },
+  "output": {
+    "id": "progressivearchery:copper_kid_arrow",
+    "count": 2
+  }
+}

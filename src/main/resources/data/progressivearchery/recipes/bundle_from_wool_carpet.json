@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "tag": "minecraft:wool_carpets"
+      },
+      "$": {
+        "item": "minecraft:string"
+      }
+    },
+    "pattern": [
+      "$#$",
+      "# #", 
+      "###"
+    ],
+    "result": {
+      "id": "minecraft:bundle"
+    }
+}

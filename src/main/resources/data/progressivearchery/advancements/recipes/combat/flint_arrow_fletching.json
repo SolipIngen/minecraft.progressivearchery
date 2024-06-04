@@ -1,0 +1,34 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_flint": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "minecraft:flint"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_the_recipe": {
+        "conditions": {
+          "recipe": "progressivearchery:flint_arrow_fletching"
+        },
+        "trigger": "minecraft:recipe_unlocked"
+      }
+    },
+    "requirements": [
+      [
+        "has_flint",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "progressivearchery:flint_arrow_fletching"
+      ]
+    }
+  }

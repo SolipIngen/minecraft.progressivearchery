@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "$": {
+        "tag": "minecraft:planks"
+      },
+      "~": {
+        "item": "minecraft:bow"
+      }
+    },
+    "pattern": [
+      "~",
+      "$",
+      "#"
+    ],
+    "result": {
+      "id": "minecraft:crossbow"
+    }
+  }

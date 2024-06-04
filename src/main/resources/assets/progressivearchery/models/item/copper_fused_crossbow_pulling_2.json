@@ -1,0 +1,7 @@
+{
+    "parent": "progressivearchery:item/generic/generic_crossbow_pulling_2",
+    "textures": {
+        "2": "progressivearchery:item/copper_fused_crossbow_pulling_2",
+        "particle": "progressivearchery:item/copper_fused_crossbow_standby"
+    }
+}
