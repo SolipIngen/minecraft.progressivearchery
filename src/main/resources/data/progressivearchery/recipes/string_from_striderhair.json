@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "progressivearchery:striderhair"
+      }
+    ],
+    "result": {
+      "id": "minecraft:string",
+      "count": 3
+    }
+}

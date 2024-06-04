@@ -1,0 +1,13 @@
+{
+	"pack": {
+		"pack_format": 41,
+		"supported_formats": {
+			"min_inclusive": 12, 
+			"max_inclusive": 41
+		}, 
+		"description": {
+			"translate": "dataPack.solipingen_tooltip_order.description",
+			"fallback": "Tooltip order for SolipIngen's mods."
+		}
+	}
+}

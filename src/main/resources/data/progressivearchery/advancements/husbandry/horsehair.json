@@ -1,0 +1,37 @@
+{
+    "parent": "minecraft:husbandry/tame_an_animal",
+    "criteria": {
+      "has_horsehair": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:horsehair"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.husbandry.horsehair.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "id": "progressivearchery:horsehair"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.husbandry.horsehair.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_horsehair"
+      ]
+    ]
+}

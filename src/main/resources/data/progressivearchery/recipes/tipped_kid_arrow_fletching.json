@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "minecraft:tipped_arrow"
+  },
+  "body": {
+    "item": "minecraft:tipped_arrow"
+  },
+  "tail": {
+    "item": "minecraft:tipped_arrow"
+  },
+  "addition": {
+    "item": "minecraft:stonecutter"
+  },
+  "output": {
+    "id": "progressivearchery:tipped_kid_arrow",
+    "count": 6
+  }
+}

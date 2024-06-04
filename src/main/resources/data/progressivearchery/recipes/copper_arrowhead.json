@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "pattern": [
+      "##",
+      " #"
+    ],
+    "result": {
+      "id": "progressivearchery:copper_arrowhead",
+      "count": 9
+    }
+}
