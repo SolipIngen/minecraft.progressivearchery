@@ -15,7 +15,7 @@ public class ModDataPacks {
         FabricLoader.getInstance().getModContainer(ProgressiveArchery.MOD_ID).ifPresent((container) -> {
             ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(ProgressiveArchery.MOD_ID, "progressivearchery"), container,
                     ResourcePackActivationType.DEFAULT_ENABLED);
-            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(ProgressiveArchery.MOD_ID, "solipingen_tooltip_order"), container,
+            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(ProgressiveArchery.MOD_ID, "solipingen_mods"), container,
                     ResourcePackActivationType.NORMAL);
         });
 
