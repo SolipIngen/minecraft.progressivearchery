@@ -180,7 +180,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         double g = Math.sqrt(d * d + f * f);
         int difficultyLevel = this.getWorld().getDifficulty().getId();
         if (itemStack.isOf(Items.BOW)) {
-            persistentProjectileEntity.setVelocity(d, e + g*0.2, f, 2.4f - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*0.15, f, 2.4f - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
@@ -191,7 +191,7 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
             if (((ModBowItem)itemStack.getItem()).getBowType() == 3) {
                 persistentProjectileEntity = this.createKidArrowProjectile(itemStack, pullProgress);
             }
-            persistentProjectileEntity.setVelocity(d, e + g*(0.2 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*(0.15 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }

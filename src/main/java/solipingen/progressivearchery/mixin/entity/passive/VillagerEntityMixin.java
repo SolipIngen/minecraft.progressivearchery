@@ -230,7 +230,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         int strengthLevel = this.hasStatusEffect(StatusEffects.STRENGTH) ? this.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1 : 0;
         int weaknessLevel = this.hasStatusEffect(StatusEffects.WEAKNESS) ? this.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1 : 0;
         if (itemStack.isOf(Items.BOW)) {
-            persistentProjectileEntity.setVelocity(d, e + g * 0.1, f, 3.0f + 0.2f*level + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*0.15, f, 3.0f + 0.2f*level + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(ModSoundEvents.VILLAGER_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
@@ -239,7 +239,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
             if (((ModBowItem)itemStack.getItem()).getBowType() == 3) {
                 persistentProjectileEntity = this.createKidArrowProjectile(itemStack, pullProgress);
             }
-            persistentProjectileEntity.setVelocity(d, e + g*(0.2 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed + 0.2f*level - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*(0.15 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed + 0.2f*level - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(ModSoundEvents.VILLAGER_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
