@@ -8,7 +8,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.Slot;
@@ -20,6 +19,7 @@ import solipingen.progressivearchery.advancement.criterion.ModCriteria;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
 import solipingen.progressivearchery.item.arrows.ModArrowItem;
 import solipingen.progressivearchery.recipe.FletchingRecipe;
+import solipingen.progressivearchery.registry.tag.ModItemTags;
 import solipingen.progressivearchery.screen.ModScreenHandlers;
 import solipingen.progressivearchery.sound.ModSoundEvents;
 
@@ -125,7 +125,7 @@ public class FletchingScreenHandler extends ArrowmakingScreenHandler {
         this.decrementStack(0);
         this.decrementStack(1);
         this.decrementStack(2);
-        if (this.input.getStack(3).getItem() == Items.STRING || this.input.getStack(3).getItem() == Items.GLOWSTONE_DUST) {
+        if (!this.input.getStack(3).isIn(ModItemTags.UNCONSUMED_FLETCHING_ADDITIONS)) {
             this.decrementStack(3);
         }
         this.context.run((world, pos) -> world.playSound(null, (BlockPos)pos, ModSoundEvents.FLETCHING_TABLE_USED, SoundCategory.BLOCKS, 1.0f, 1.0f + world.getRandom().nextBetween(-1, 1)*world.getRandom().nextFloat()*0.2f));

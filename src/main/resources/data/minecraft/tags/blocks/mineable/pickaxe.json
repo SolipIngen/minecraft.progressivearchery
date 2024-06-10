@@ -2,6 +2,7 @@
     "replace": false,
     "values": [
         "progressivearchery:potion_cauldron", 
-        "progressivearchery:archer_marker"
+        "progressivearchery:archer_marker",
+        "progressivearchery:fletcher"
     ]
 }

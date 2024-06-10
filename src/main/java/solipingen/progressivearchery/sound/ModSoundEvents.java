@@ -25,6 +25,9 @@ public class ModSoundEvents {
 
     public static final SoundEvent VILLAGER_SHOOT = ModSoundEvents.registerSoundEvent("villager_shoots_arrow");
     public static final SoundEvent VILLAGER_ATTACK = ModSoundEvents.registerSoundEvent("villager_attack");
+
+    public static final SoundEvent FLETCHER_FLETCH = ModSoundEvents.registerSoundEvent("fletcher_fletch");
+    public static final SoundEvent FLETCHER_FAIL = ModSoundEvents.registerSoundEvent("fletcher_fail");
     
 
     private static SoundEvent registerSoundEvent(String name) {

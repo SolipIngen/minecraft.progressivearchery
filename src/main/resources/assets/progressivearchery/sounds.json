@@ -80,5 +80,17 @@
             "minecraft:mob/villager/no2", 
             "minecraft:mob/villager/no3"
         ]
+    },
+    "fletcher_fletch": {
+        "subtitle": "subtitles.progressivearchery.fletcher_fletch",
+        "sounds": [
+            "minecraft:block/crafter/craft"
+        ]
+    },
+    "fletcher_fail": {
+        "subtitle": "subtitles.progressivearchery.fletcher_fail",
+        "sounds": [
+            "minecraft:block/crafter/fail"
+        ]
     }
 }

@@ -71,13 +71,13 @@ public abstract class IllusionerEntityMixin extends SpellcastingIllagerEntity im
         int strengthLevel = this.hasStatusEffect(StatusEffects.STRENGTH) ? this.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1 : 0;
         int weaknessLevel = this.hasStatusEffect(StatusEffects.WEAKNESS) ? this.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1 : 0;
         if (itemStack.isOf(Items.BOW)) {
-            persistentProjectileEntity.setVelocity(d, e + g*0.15, f, 3.0f + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyId), 13.0f - difficultyId*4);
+            persistentProjectileEntity.setVelocity(d, e + g*0.14, f, 3.0f + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyId), 13.0f - difficultyId*4);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             cbi.cancel();
         }
         if (itemStack.getItem() instanceof ModBowItem) {
-            persistentProjectileEntity.setVelocity(d, e + g*0.15 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel()), f, ((ModBowItem)itemStack.getItem()).getMaxReleaseSpeed() + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyId), 13.0f - difficultyId*4);
+            persistentProjectileEntity.setVelocity(d, e + g*0.14 - 0.01*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel()), f, ((ModBowItem)itemStack.getItem()).getMaxReleaseSpeed() + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyId), 13.0f - difficultyId*4);
             this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
             this.getWorld().spawnEntity(persistentProjectileEntity);
             cbi.cancel();

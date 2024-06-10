@@ -4,7 +4,10 @@
     "language.code": "en_gb",
 
     "block.progressivearchery.potion_cauldron": "Potion Cauldron", 
-    "block.progressivearchery.archer_marker": "Archer Marker", 
+    "block.progressivearchery.archer_marker": "Archer Marker",
+    "block.progressivearchery.fletcher": "Fletcher",
+
+    "container.progressivearchery.fletcher": "Fletcher",
 
     "item.progressivearchery.copper_fused_bow": "Copper Fused Bow",
     "item.progressivearchery.iron_fused_bow": "Iron Fused Bow",
@@ -175,6 +178,8 @@
     "subtitles.progressivearchery.arrow_tipped": "Arrow tipped", 
     "subtitles.progressivearchery.villager_shoots_arrow": "Villager shoots", 
     "subtitles.progressivearchery.villager_attack": "Villager attacks",
+    "subtitles.progressivearchery.fletcher_fletch": "Fletcher fletches",
+    "subtitles.progressivearchery.fletcher_fail": "Fletcher fails fletching",
 
     "dataPack.progressivearchery.description": "For full §1Progressive Archery§r loot.",
     "dataPack.solipingen_mods.description": "Cross-integration of §iSolipIngen§r's mods.",

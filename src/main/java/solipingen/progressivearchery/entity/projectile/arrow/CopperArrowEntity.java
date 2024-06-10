@@ -15,7 +15,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 
 public class CopperArrowEntity extends ModArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.COPPER_ARROW);
-    private static final double DAMAGE_AMOUNT = 2.25;
+    private static final double DAMAGE_AMOUNT = 3.0;
 
     
     public CopperArrowEntity(EntityType<? extends CopperArrowEntity> entityType, World world) {
