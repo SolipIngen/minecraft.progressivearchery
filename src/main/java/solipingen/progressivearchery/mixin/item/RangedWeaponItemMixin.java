@@ -66,7 +66,7 @@ public abstract class RangedWeaponItemMixin extends Item {
         }
         int i = EnchantmentHelper.getLevel(Enchantments.POWER, weaponStack);
         if (i > 0) {
-            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + 0.25*i);
+            persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() + 0.5*i);
         }
         int j = EnchantmentHelper.getLevel(Enchantments.PUNCH, weaponStack);
         if (j > 0) {

@@ -29,7 +29,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 public class GoldenKidArrowEntity extends KidArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.GOLDEN_KID_ARROW);
     private static final TrackedData<Integer> COLOR = DataTracker.registerData(GoldenKidArrowEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static final double DAMAGE_AMOUNT = 2.25;
+    private static final double DAMAGE_AMOUNT = 3.0;
 
 
     public GoldenKidArrowEntity(EntityType<? extends GoldenKidArrowEntity> entityType, World world) {

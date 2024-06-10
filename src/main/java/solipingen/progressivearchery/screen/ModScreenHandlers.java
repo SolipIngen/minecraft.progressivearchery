@@ -8,12 +8,14 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.ScreenHandlerType.Factory;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.ProgressiveArchery;
+import solipingen.progressivearchery.screen.fletching.FletcherScreenHandler;
 import solipingen.progressivearchery.screen.fletching.FletchingScreenHandler;
 
 
 public class ModScreenHandlers {
 
-    public static final ScreenHandlerType<FletchingScreenHandler> FLETCHING_SCREEN_HANDLER = ModScreenHandlers.register(new Identifier(ProgressiveArchery.MOD_ID), FletchingScreenHandler::new);
+    public static final ScreenHandlerType<FletchingScreenHandler> FLETCHING_SCREEN_HANDLER = ModScreenHandlers.register(new Identifier(ProgressiveArchery.MOD_ID, "fletching"), FletchingScreenHandler::new);
+    public static final ScreenHandlerType<FletcherScreenHandler> FLETCHER_SCREEN_HANDLER = ModScreenHandlers.register(new Identifier(ProgressiveArchery.MOD_ID, "fletcher"), FletcherScreenHandler::new);
 
 
     private static <T extends ScreenHandler> ScreenHandlerType<T> register(Identifier id, Factory<T> factory) {

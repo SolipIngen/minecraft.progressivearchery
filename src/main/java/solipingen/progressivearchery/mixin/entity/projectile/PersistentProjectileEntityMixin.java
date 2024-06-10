@@ -2,6 +2,8 @@ package solipingen.progressivearchery.mixin.entity.projectile;
 
 import java.util.List;
 
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
@@ -80,9 +82,9 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
 
     @ModifyArg(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), index = 1)
     private float redirectedDamage(float originalf) {
-        float amount = 0.5f*MathHelper.clamp((float)(this.damage*this.getVelocity().lengthSquared()), 0.0f, 2.147483647E9f);
+        float amount = MathHelper.clamp((float)(this.damage*this.getVelocity().length()), 0.0f, 2.147483647E9f);
         if (((PersistentProjectileEntity)(Object)this).isCritical()) {
-            float criticalBonus = 1.1f + 0.1f*this.random.nextFloat();
+            float criticalBonus = 1.0f + 0.25f*Math.abs((float)this.random.nextGaussian());
             amount *= criticalBonus;
         }
         return amount;
@@ -153,6 +155,23 @@ public abstract class PersistentProjectileEntityMixin extends ProjectileEntity {
                 }
             }
         }
+    }
+
+    @Inject(method = "applyEnchantmentEffects", at = @At("HEAD"), cancellable = true)
+    private void injectedApplyEnchantmentEffects(LivingEntity entity, float damageModifier, CallbackInfo cbi) {
+        int i = EnchantmentHelper.getEquipmentLevel(Enchantments.POWER, entity);
+        int j = EnchantmentHelper.getEquipmentLevel(Enchantments.PUNCH, entity);
+        ((PersistentProjectileEntity)(Object)this).setDamage((double)(damageModifier*2.0f) + this.random.nextTriangular((double)this.getWorld().getDifficulty().getId()*0.11, 0.57425));
+        if (i > 0) {
+            ((PersistentProjectileEntity)(Object)this).setDamage(((PersistentProjectileEntity)(Object)this).getDamage() + 0.5*i);
+        }
+        if (j > 0) {
+            ((PersistentProjectileEntity)(Object)this).setPunch(j);
+        }
+        if (EnchantmentHelper.getEquipmentLevel(Enchantments.FLAME, entity) > 0) {
+            this.setOnFireFor(100);
+        }
+        cbi.cancel();
     }
 
     @ModifyConstant(method = "age", constant = @Constant(intValue = 1200))

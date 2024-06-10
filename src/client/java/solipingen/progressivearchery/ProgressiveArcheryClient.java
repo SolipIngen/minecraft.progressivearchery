@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import solipingen.progressivearchery.client.color.block.ModBlockColorProvider;
 import solipingen.progressivearchery.client.color.item.ModItemColorProvider;
+import solipingen.progressivearchery.client.gui.screen.ingame.FletcherScreen;
 import solipingen.progressivearchery.client.gui.screen.ingame.FletchingScreen;
 import solipingen.progressivearchery.client.item.ModModelPredicateProvider;
 import solipingen.progressivearchery.client.render.entity.ModEntityModelLayers;
@@ -27,6 +28,7 @@ public class ProgressiveArcheryClient implements ClientModInitializer {
         ModModelPredicateProvider.registerModItemModelPredicates();
 
         HandledScreens.register(ModScreenHandlers.FLETCHING_SCREEN_HANDLER, FletchingScreen::new);
+        HandledScreens.register(ModScreenHandlers.FLETCHER_SCREEN_HANDLER, FletcherScreen::new);
 
     }
     

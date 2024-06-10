@@ -11,5 +11,7 @@ public class ModEntityTypeTags {
 
     public static final TagKey<EntityType<?>> BIRDS = TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier(ProgressiveArchery.MOD_ID, "birds"));
 
+    public static final TagKey<EntityType<?>> ARCHER_VILLAGER_TARGETS = TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier(ProgressiveArchery.MOD_ID, "archer_villager_targets"));
+
     
 }

@@ -17,7 +17,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 public class SpectralKidArrowEntity extends KidArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.SPECTRAL_KID_ARROW);
     private int duration = 200;
-    private static final double DAMAGE_AMOUNT = 2.25;
+    private static final double DAMAGE_AMOUNT = 3.0;
 
     
     public SpectralKidArrowEntity(EntityType<? extends SpectralKidArrowEntity> entityType, World world) {

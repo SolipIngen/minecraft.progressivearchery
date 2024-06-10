@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import solipingen.progressivearchery.advancement.criterion.ModCriteria;
 import solipingen.progressivearchery.block.ModBlocks;
+import solipingen.progressivearchery.block.entity.ModBlockEntityTypes;
 import solipingen.progressivearchery.component.type.ModDataComponentTypes;
 import solipingen.progressivearchery.entity.ModEntityTypes;
 import solipingen.progressivearchery.item.ModItemGroups;
@@ -30,6 +31,7 @@ public class ProgressiveArchery implements ModInitializer {
 	public void onInitialize() {
 
 		ModBlocks.registerModBlocks();
+		ModBlockEntityTypes.registerModBlockEntities();
 		ModCriteria.registerModAdvancementCriteria();
 		ModDataComponentTypes.registerModDataComponentTypes();
 		ModDataPacks.registerModDataPacks();

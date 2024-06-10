@@ -12,7 +12,7 @@ import solipingen.progressivearchery.util.interfaces.mixin.entity.LivingEntityIn
 
 public class WoodenKidArrowEntity extends KidArrowEntity {
     private static final ItemStack DEFAULT_STACK = new ItemStack(ModItems.WOODEN_KID_ARROW);
-    private static final double DAMAGE_AMOUNT = 1.75;
+    private static final double DAMAGE_AMOUNT = 2.0;
 
     
     public WoodenKidArrowEntity(EntityType<? extends WoodenKidArrowEntity> entityType, World world) {

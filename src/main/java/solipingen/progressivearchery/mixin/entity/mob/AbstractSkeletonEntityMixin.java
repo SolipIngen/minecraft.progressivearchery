@@ -179,19 +179,19 @@ public abstract class AbstractSkeletonEntityMixin extends HostileEntity implemen
         double f = target.getZ() - this.getZ();
         double g = Math.sqrt(d * d + f * f);
         int difficultyLevel = this.getWorld().getDifficulty().getId();
+        int strengthLevel = this.hasStatusEffect(StatusEffects.STRENGTH) ? this.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1 : 0;
+        int weaknessLevel = this.hasStatusEffect(StatusEffects.WEAKNESS) ? this.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1 : 0;
         if (itemStack.isOf(Items.BOW)) {
-            persistentProjectileEntity.setVelocity(d, e + g*0.2, f, 2.4f - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*0.175, f, 1.5f + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
         if (itemStack.getItem() instanceof ModBowItem) {
-            int strengthLevel = this.hasStatusEffect(StatusEffects.STRENGTH) ? this.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1 : 0;
-            int weaknessLevel = this.hasStatusEffect(StatusEffects.WEAKNESS) ? this.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1 : 0;
-            float releaseSpeed = 0.75f*((ModBowItem)itemStack.getItem()).getMaxReleaseSpeed() + 0.15f*strengthLevel - 0.15f*weaknessLevel;
+            float releaseSpeed = 0.5f*((ModBowItem)itemStack.getItem()).getMaxReleaseSpeed() + 0.15f*strengthLevel - 0.15f*weaknessLevel;
             if (((ModBowItem)itemStack.getItem()).getBowType() == 3) {
                 persistentProjectileEntity = this.createKidArrowProjectile(itemStack, pullProgress);
             }
-            persistentProjectileEntity.setVelocity(d, e + g*(0.2 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*(0.175 - 0.01*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
