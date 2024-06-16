@@ -187,7 +187,7 @@ public class ModCrossbowItem extends RangedWeaponItem {
             double d = target.getX() - shooter.getX();
             double e = target.getZ() - shooter.getZ();
             double f = Math.sqrt(d * d + e * e);
-            double g = target.getBodyY(0.3333333333333333) - projectile.getY() + f*(0.2000000298023224 - 0.005*this.material.getMiningLevel());
+            double g = target.getBodyY(0.3333333333333333) - projectile.getY() + f*(0.10 - 0.01*this.material.getMiningLevel());
             vector3f = ModCrossbowItem.calcVelocity(shooter, new Vec3d(d, g, e), yaw);
         }
         else {

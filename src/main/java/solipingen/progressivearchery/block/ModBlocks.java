@@ -16,12 +16,16 @@ import solipingen.progressivearchery.block.cauldron.PotionCauldronBlock;
 public class ModBlocks {
 
     // Potion Cauldron
-    public static final Block POTION_CAULDRON = ModBlocks.registerBlock("potion_cauldron", 
-        new PotionCauldronBlock(Biome.Precipitation.NONE, PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR, AbstractBlock.Settings.copy(Blocks.CAULDRON).luminance(PotionCauldronBlock.LEVEL_TO_LUMINANCE)), false);
+    public static final Block POTION_CAULDRON = ModBlocks.registerBlock("potion_cauldron",
+            new PotionCauldronBlock(Biome.Precipitation.NONE, PotionCauldronBlock.POTION_CAULDRON_BEHAVIOR, AbstractBlock.Settings.copy(Blocks.CAULDRON).luminance(PotionCauldronBlock.LEVEL_TO_LUMINANCE)), false);
 
     // Archer Villager Marker
-    public static final Block ARCHER_MARKER = ModBlocks.registerBlock("archer_marker", 
-        new VillagerFighterMarkerBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE_SLAB)), true);
+    public static final Block ARCHER_MARKER = ModBlocks.registerBlock("archer_marker",
+            new VillagerFighterMarkerBlock(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE_SLAB)), true);
+
+    // Fletcher
+    public static final Block FLETCHER = ModBlocks.registerBlock("fletcher",
+            new FletcherBlock(AbstractBlock.Settings.copy(Blocks.CRAFTER)), true);
 
 
     private static Block registerBlock(String name, Block block, boolean withBlockItem) {

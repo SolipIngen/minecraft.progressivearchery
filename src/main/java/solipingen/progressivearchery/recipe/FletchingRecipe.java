@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -12,6 +13,7 @@ import net.minecraft.recipe.*;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
+import solipingen.progressivearchery.registry.tag.ModItemTags;
 
 
 public class FletchingRecipe implements Recipe<Inventory> {
@@ -83,6 +85,18 @@ public class FletchingRecipe implements Recipe<Inventory> {
     }
 
     @Override
+    public DefaultedList<ItemStack> getRemainder(Inventory inventory) {
+        DefaultedList<ItemStack> defaultedList = DefaultedList.ofSize(inventory.size(), ItemStack.EMPTY);
+        for (int i = 0; i < defaultedList.size(); ++i) {
+            Item item = inventory.getStack(i).getItem();
+            if (item.hasRecipeRemainder() && !(i == 3 && inventory.getStack(i).isIn(ModItemTags.UNCONSUMED_FLETCHING_ADDITIONS))) {
+                defaultedList.set(i, new ItemStack(item.getRecipeRemainder()));
+            }
+        }
+        return defaultedList;
+    }
+
+    @Override
     public ItemStack createIcon() {
         return new ItemStack(Blocks.FLETCHING_TABLE);
     }
@@ -105,7 +119,6 @@ public class FletchingRecipe implements Recipe<Inventory> {
 
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
     public static class Serializer implements RecipeSerializer<FletchingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "fletching";

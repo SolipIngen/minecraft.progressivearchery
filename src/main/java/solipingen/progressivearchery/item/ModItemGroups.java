@@ -98,6 +98,9 @@ public class ModItemGroups {
         // Archer Marker
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.add(ModBlocks.ARCHER_MARKER));
 
+        // Fletcher
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> entries.add(ModBlocks.FLETCHER));
+
         ProgressiveArchery.LOGGER.debug("Registering Mod Items to Vanilla Groups for " + ProgressiveArchery.MOD_ID);
 
     }

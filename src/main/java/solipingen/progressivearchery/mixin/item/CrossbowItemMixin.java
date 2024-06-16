@@ -104,6 +104,11 @@ public abstract class CrossbowItemMixin extends RangedWeaponItem {
         cbi.cancel();
     }
 
+    @ModifyConstant(method = "shoot", constant = @Constant(doubleValue = 0.20000000298023224))
+    private double modifiedShootDirection(double originalD) {
+        return 0.10;
+    }
+
     @Inject(method = "createArrowEntity", at = @At("HEAD"), cancellable = true)
     private void injectedCreateArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical, CallbackInfoReturnable<ProjectileEntity> cbireturn) {
         ProjectileEntity projectileEntity;

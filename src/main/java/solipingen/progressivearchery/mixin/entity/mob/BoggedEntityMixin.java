@@ -32,10 +32,10 @@ public abstract class BoggedEntityMixin extends AbstractSkeletonEntity {
         if (this.getMainHandStack().getItem() instanceof BowItem) {
             PersistentProjectileEntity persistentProjectileEntity = new GoldenArrowEntity(this.getWorld(), this, arrow);
             if (persistentProjectileEntity instanceof GoldenArrowEntity) {
-                ((GoldenArrowEntity)persistentProjectileEntity).addEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 600));
+                ((GoldenArrowEntity)persistentProjectileEntity).addEffect(new StatusEffectInstance(StatusEffects.POISON, 600));
             }
             else if (persistentProjectileEntity instanceof GoldenKidArrowEntity) {
-                ((GoldenKidArrowEntity)persistentProjectileEntity).addEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 600));
+                ((GoldenKidArrowEntity)persistentProjectileEntity).addEffect(new StatusEffectInstance(StatusEffects.POISON, 600));
             }
             cbireturn.setReturnValue(persistentProjectileEntity);
         }

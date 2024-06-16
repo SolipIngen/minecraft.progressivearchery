@@ -6,8 +6,8 @@
 			"max_inclusive": 41
 		}, 
 		"description": {
-			"translate": "dataPack.solipingen_tooltip_order.description",
-			"fallback": "Tooltip order for SolipIngen's mods."
+			"translate": "dataPack.solipingen_mods.description",
+			"fallback": "Cross-integration of §iSolipIngen§r's mods."
 		}
 	}
 }

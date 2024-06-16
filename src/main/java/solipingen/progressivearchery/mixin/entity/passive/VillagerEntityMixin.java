@@ -10,6 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -88,6 +89,7 @@ import solipingen.progressivearchery.entity.projectile.kid_arrow.KidArrowEntity;
 import solipingen.progressivearchery.item.ModBowItem;
 import solipingen.progressivearchery.item.ModItems;
 import solipingen.progressivearchery.item.arrows.KidArrowItem;
+import solipingen.progressivearchery.registry.tag.ModEntityTypeTags;
 import solipingen.progressivearchery.sound.ModSoundEvents;
 import solipingen.progressivearchery.village.ModVillagerProfessions;
 
@@ -155,6 +157,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         }
     }
 
+    @Unique
     private void initArcherGoals() {
         super.initGoals();
         World world = this.getWorld();
@@ -183,11 +186,10 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         this.targetSelector.add(1, this.villagerTrackTargetGoal);
         this.targetSelector.add(2, new RevengeGoal(this, MerchantEntity.class, IronGolemEntity.class).setGroupRevenge(new Class[0]));
         this.targetSelector.add(3, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, false, this::shouldArcherAngerAt));
-        this.targetSelector.add(3, new ActiveTargetGoal<RaiderEntity>((MobEntity)this, RaiderEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<ZombieEntity>((MobEntity)this, ZombieEntity.class, true, this::shouldBeTargetedMob));
-        this.targetSelector.add(3, new ActiveTargetGoal<VexEntity>((MobEntity)this, VexEntity.class, false, this::shouldBeTargetedMob));
+        this.targetSelector.add(3, new ActiveTargetGoal<LivingEntity>((MobEntity)this, LivingEntity.class, true, this::shouldBeTargetedMob));
     }
 
+    @Unique
     private static ImmutableList<Pair<Integer, ? extends Task<? super VillagerEntity>>> createArcherRaidTasks(ServerWorld world, VillagerEntity villager, float speed) {
         return ImmutableList.of(Pair.of(0, TaskTriggerer.runIf(TaskTriggerer.predicate(VillagerEntityMixin::wonRaid), Tasks.pickRandomly(ImmutableList.of(Pair.of(SeekSkyTask.create(speed), 5), Pair.of(FindWalkTargetTask.create(speed * 1.1f), 2))))), 
             Pair.of(0, new CelebrateRaidWinTask(600, 600)), 
@@ -195,16 +197,19 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
             VillagerEntityMixin.createBusyFollowTask(), Pair.of(99, EndRaidTask.create()));
     }
 
+    @Unique
     @SuppressWarnings({"rawtypes", "unchecked"})
     private static Pair<Integer, Task<LivingEntity>> createBusyFollowTask() {
         return Pair.of(5, new RandomTask(ImmutableList.of(Pair.of(LookAtMobTask.create(EntityType.VILLAGER, 8.0f), 2), Pair.of(LookAtMobTask.create(EntityType.PLAYER, 8.0f), 2), Pair.of(new WaitTask(30, 60), 8))));
     }
 
+    @Unique
     private static boolean hasActiveRaid(ServerWorld world, LivingEntity entity) {
         Raid raid = world.getRaidAt(entity.getBlockPos());
         return raid != null && raid.isActive() && !raid.hasWon() && !raid.hasLost();
     }
 
+    @Unique
     private static boolean wonRaid(ServerWorld world, LivingEntity livingEntity) {
         Raid raid = world.getRaidAt(livingEntity.getBlockPos());
         return raid != null && raid.hasWon();
@@ -230,7 +235,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         int strengthLevel = this.hasStatusEffect(StatusEffects.STRENGTH) ? this.getStatusEffect(StatusEffects.STRENGTH).getAmplifier() + 1 : 0;
         int weaknessLevel = this.hasStatusEffect(StatusEffects.WEAKNESS) ? this.getStatusEffect(StatusEffects.WEAKNESS).getAmplifier() + 1 : 0;
         if (itemStack.isOf(Items.BOW)) {
-            persistentProjectileEntity.setVelocity(d, e + g * 0.1, f, 3.0f + 0.2f*level + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*(0.14 - 0.01*level), f, 3.0f + 0.2f*level + 0.15f*strengthLevel - 0.15f*weaknessLevel - 0.3f*(3 - difficultyLevel), 11.0f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(ModSoundEvents.VILLAGER_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
@@ -239,7 +244,7 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
             if (((ModBowItem)itemStack.getItem()).getBowType() == 3) {
                 persistentProjectileEntity = this.createKidArrowProjectile(itemStack, pullProgress);
             }
-            persistentProjectileEntity.setVelocity(d, e + g*(0.2 - 0.005*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel())), f, releaseSpeed + 0.2f*level - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
+            persistentProjectileEntity.setVelocity(d, e + g*(0.14 - 0.01*(((ModBowItem)itemStack.getItem()).getBowType() + ((ModBowItem)itemStack.getItem()).getMaterial().getMiningLevel()) - 0.01*level), f, releaseSpeed + 0.2f*level - 0.3f*(3 - difficultyLevel), 10.5f - difficultyLevel * 3);
             this.getWorld().spawnEntity(persistentProjectileEntity);
             this.playSound(ModSoundEvents.VILLAGER_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
         }
@@ -288,10 +293,12 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         }
     }
 
+    @Unique
     private PersistentProjectileEntity createArrowProjectile(ItemStack arrow, float damageModifier) {
         return ProjectileUtil.createArrowProjectile(this, arrow, damageModifier);
     }
 
+    @Unique
     private KidArrowEntity createKidArrowProjectile(ItemStack stack, float damageModifier) {
         KidArrowItem kidArrowItem = (KidArrowItem)(stack.getItem() instanceof KidArrowItem ? stack.getItem() : ModItems.WOODEN_KID_ARROW);
         KidArrowEntity kiadArrowEntity = kidArrowItem.createKidArrow(this.getWorld(), stack, this);
@@ -508,12 +515,15 @@ public abstract class VillagerEntityMixin extends MerchantEntity implements Ange
         this.setAttacker(attacker);
     }
 
+    @Unique
     private boolean shouldBeTargetedMob(LivingEntity livingEntity) {
-        if (livingEntity instanceof ZombieEntity) {
-            return !(livingEntity instanceof ZombifiedPiglinEntity);
-        }
-        else if (livingEntity instanceof VexEntity) {
-            return ((VexEntity)livingEntity).getOwner() instanceof RaiderEntity;
+        VillagerData villagerData = this.getVillagerData();
+        VillagerProfession profession = villagerData.getProfession();
+        if (profession == ModVillagerProfessions.ARCHER) {
+            if (livingEntity instanceof VexEntity vexEntity && vexEntity.getOwner() != null) {
+                return vexEntity.getOwner().getType().isIn(ModEntityTypeTags.ARCHER_VILLAGER_TARGETS);
+            }
+            return livingEntity.getType().isIn(ModEntityTypeTags.ARCHER_VILLAGER_TARGETS);
         }
         return false;
     }
