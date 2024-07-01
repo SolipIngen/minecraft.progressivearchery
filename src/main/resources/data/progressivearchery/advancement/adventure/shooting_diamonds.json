@@ -1,0 +1,38 @@
+{
+    "parent": "progressivearchery:adventure/too_much_iron",
+    "criteria": {
+      "has_diamond_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:diamond_arrow", 
+                "progressivearchery:diamond_kid_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.shooting_diamonds.description"
+        },
+        "frame": "goal",
+        "hidden": false,
+        "icon": {
+          "id": "progressivearchery:diamond_arrow"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.shooting_diamonds.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_diamond_arrow"
+      ]
+    ]
+  }

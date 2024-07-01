@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:copper_arrowhead"
+  },
+  "body": {
+    "item": "minecraft:copper_ingot"
+  },
+  "tail": {
+    "tag": "progressivearchery:fletches"
+  },
+  "addition": {
+    "tag": "progressivearchery:metal_arrow_welding_heat_sources"
+  },
+  "output": {
+    "id": "progressivearchery:copper_arrow",
+    "count": 4
+  }
+}

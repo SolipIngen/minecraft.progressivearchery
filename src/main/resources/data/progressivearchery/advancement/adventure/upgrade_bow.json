@@ -1,0 +1,41 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "has_copper_bow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:copper_fused_bow",
+                "progressivearchery:copper_fused_horn_bow",
+                "progressivearchery:copper_fused_longbow",
+                "progressivearchery:copper_fused_tubular_bow", 
+                "progressivearchery:copper_fused_crossbow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.upgrade_bow.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "id": "progressivearchery:bow_fusion_smithing_template"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.upgrade_bow.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_copper_bow"
+      ]
+    ]
+  }

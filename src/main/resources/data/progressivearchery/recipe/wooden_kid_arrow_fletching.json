@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:wooden_arrow"
+  },
+  "body": {
+    "item": "progressivearchery:wooden_arrow"
+  },
+  "tail": {
+    "tag": "progressivearchery:fletches"
+  },
+  "addition": {
+    "item": "minecraft:flint"
+  },
+  "output": {
+    "id": "progressivearchery:wooden_kid_arrow",
+    "count": 4
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "parent": "progressivearchery:adventure/fletcher",
+    "criteria": {
+      "has_flint_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:flint_arrow",
+                "progressivearchery:flint_kid_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.flint_and_feather.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "id": "progressivearchery:flint_arrow"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.flint_and_feather.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_flint_arrow"
+      ]
+    ]
+}

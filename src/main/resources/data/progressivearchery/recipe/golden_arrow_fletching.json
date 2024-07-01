@@ -1,0 +1,19 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": {
+    "item": "progressivearchery:golden_arrowhead"
+  },
+  "body": {
+    "item": "minecraft:gold_ingot"
+  },
+  "tail": {
+    "tag": "progressivearchery:fletches"
+  },
+  "addition": {
+    "tag": "progressivearchery:metal_arrow_welding_heat_sources"
+  },
+  "output": {
+    "id": "progressivearchery:golden_arrow",
+    "count": 8
+  }
+}
