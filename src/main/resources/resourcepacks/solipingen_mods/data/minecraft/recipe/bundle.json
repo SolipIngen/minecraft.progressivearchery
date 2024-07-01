@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "progressivearchery:bundle_ingredients"
+    },
+    "$": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "$#$",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "id": "minecraft:bundle"
+  }
+}

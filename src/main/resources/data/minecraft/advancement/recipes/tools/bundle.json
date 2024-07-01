@@ -26,9 +26,8 @@
   ],
   "rewards": {
     "recipes": [
-      "progressivearchery:bundle",
-      "progressivearchery:bundle_from_rabbit_hide",
-      "progressivearchery:bundle_from_wool_carpet"
+      "minecraft:bundle",
+      "progressivearchery:bundle_from_ingredients"
     ]
   }
 }

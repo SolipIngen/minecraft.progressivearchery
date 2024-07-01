@@ -25,7 +25,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import solipingen.progressivearchery.advancement.criterion.ModCriteria;
@@ -175,19 +174,19 @@ public abstract class BowItemMixin extends RangedWeaponItem {
             Stream<ItemStack> quiverStream = QuiverItem.getStoredStacks(quiverStack);
             ItemStack itemStack3 = quiverStream.filter(item -> (item.getItem() instanceof ArrowItem || item.getItem() instanceof ModArrowItem)).findFirst().orElse(ItemStack.EMPTY);
             if (!itemStack3.isEmpty()) {
-                return itemStack3.copyWithCount(1);
+                return itemStack3;
             }
         }
         Predicate<ItemStack> predicate = ((BowItem)stack.getItem()).getHeldProjectiles();
         ItemStack itemStack = ModBowItem.getHeldProjectile(playerEntity, predicate);
         if (!itemStack.isEmpty()) {
-            return itemStack.copyWithCount(1);
+            return itemStack;
         }
         predicate = ((BowItem)stack.getItem()).getProjectiles();
         for (int j = 0; j < playerEntity.getInventory().size(); ++j) {
             ItemStack itemStack2 = playerEntity.getInventory().getStack(j);
             if (predicate.test(itemStack2)) {
-                return itemStack2.copyWithCount(1);
+                return itemStack2;
             }
         }
         return playerEntity.getAbilities().creativeMode ? new ItemStack(ModItems.WOODEN_ARROW) : ItemStack.EMPTY;

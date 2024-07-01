@@ -25,6 +25,7 @@ public class ModItemTags {
     public static final TagKey<Item> METAL_ARROW_WELDING_HEAT_SOURCES = TagKey.of(RegistryKeys.ITEM, Identifier.of(ProgressiveArchery.MOD_ID, "metal_arrow_welding_heat_sources"));
     public static final TagKey<Item> UNCONSUMED_FLETCHING_ADDITIONS = TagKey.of(RegistryKeys.ITEM, Identifier.of(ProgressiveArchery.MOD_ID, "unconsumed_fletching_additions"));
 
+    public static final TagKey<Item> BUNDLE_INGREDIENTS = TagKey.of(RegistryKeys.ITEM, Identifier.of(ProgressiveArchery.MOD_ID, "bundle_ingredients"));
     public static final TagKey<Item> QUIVER_COVERINGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(ProgressiveArchery.MOD_ID, "quiver_coverings"));
     
     

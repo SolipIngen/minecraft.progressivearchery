@@ -140,18 +140,18 @@ public class ModBowItem extends RangedWeaponItem {
                 itemStack3 = quiverStream.filter(item -> (item.getItem() instanceof ArrowItem || item.getItem() instanceof ModArrowItem)).findFirst().orElse(ItemStack.EMPTY);
             }
             if (!itemStack3.isEmpty()) {
-                return itemStack3.copyWithCount(1);
+                return itemStack3;
             }
         }
         ItemStack itemStack = ModBowItem.getHeldProjectile(playerEntity, predicate);
         if (!itemStack.isEmpty()) {
-            return itemStack.copyWithCount(1);
+            return itemStack;
         }
         predicate = ((ModBowItem)stack.getItem()).getProjectiles();
         for (int j = 0; j < playerEntity.getInventory().size(); ++j) {
             ItemStack itemStack2 = playerEntity.getInventory().getStack(j);
             if (predicate.test(itemStack2)) {
-                return itemStack2.copyWithCount(1);
+                return itemStack2;
             }
         }
         return playerEntity.getAbilities().creativeMode ? (this.bowType == 3 ? new ItemStack(ModItems.WOODEN_KID_ARROW) : new ItemStack(ModItems.WOODEN_ARROW)) : ItemStack.EMPTY;

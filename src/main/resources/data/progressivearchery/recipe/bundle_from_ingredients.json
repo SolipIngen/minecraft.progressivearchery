@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shaped",
     "key": {
       "#": {
-        "item": "minecraft:leather"
+        "tag": "progressivearchery:bundle_ingredients"
       },
       "$": {
         "item": "minecraft:string"

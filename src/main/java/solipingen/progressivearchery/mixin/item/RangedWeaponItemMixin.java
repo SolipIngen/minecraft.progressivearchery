@@ -63,23 +63,6 @@ public abstract class RangedWeaponItemMixin extends Item {
         cbireturn.setReturnValue(persistentProjectileEntity);
     }
 
-//    @Inject(method = "load", at = @At("HEAD"), cancellable = true)
-//    private static void injetcedLoad(ItemStack weaponStack, ItemStack projectileStack, LivingEntity shooter, CallbackInfoReturnable<List<ItemStack>> cbireturn) {
-//        if (projectileStack.isEmpty()) {
-//            cbireturn.setReturnValue(List.of());
-//        }
-//        else {
-//            int i = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, weaponStack);
-//            int j = 2*i + 1;
-//            List<ItemStack> list = new ArrayList(j);
-//            ItemStack itemStack = projectileStack.copy();
-//            for(int k = 0; k < j; ++k) {
-//                list.add(getProjectile(weaponStack, k == 0 ? projectileStack : itemStack, shooter, k > 0));
-//            }
-//            cbireturn.setReturnValue(list);
-//        }
-//    }
-
     @Inject(method = "getProjectile", at = @At("HEAD"), cancellable = true)
     private static void injectedGetProjectile(ItemStack weaponStack, ItemStack projectileStack, LivingEntity shooter, boolean multishot, CallbackInfoReturnable<ItemStack> cbireturn) {
         if (shooter instanceof PlayerEntity playerEntity) {
