@@ -106,8 +106,13 @@ public abstract class RangedWeaponItemMixin extends Item {
                             QuiverContentsComponent.Builder builder = new QuiverContentsComponent.Builder(quiverContentsComponent);
                             int index = builder.getItemIndex(storedStack);
                             itemStack = storedStack.copy();
-                            itemStack.decrement(1);
-                            builder.set(index, itemStack);
+                            if (itemStack.getCount() <= 1) {
+                                builder.remove(index);
+                            }
+                            else {
+                                itemStack.decrement(1);
+                                builder.set(index, itemStack);
+                            }
                             quiverItemStack.set(ModDataComponentTypes.QUIVER_CONTENTS, builder.build());
                             cbireturn.setReturnValue(itemStack);
                         }

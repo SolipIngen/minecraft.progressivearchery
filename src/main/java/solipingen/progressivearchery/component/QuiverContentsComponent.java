@@ -23,9 +23,9 @@ import java.util.stream.Stream;
 
 public final class QuiverContentsComponent implements TooltipData {
     public static final QuiverContentsComponent DEFAULT = new QuiverContentsComponent(List.of());
-    public static final Codec<QuiverContentsComponent> CODEC;
-    public static final PacketCodec<RegistryByteBuf, QuiverContentsComponent> PACKET_CODEC;
-    private static final Fraction NESTED_QUIVER_OCCUPANCY;
+    public static final Codec<QuiverContentsComponent> CODEC = ItemStack.CODEC.listOf().xmap(QuiverContentsComponent::new, (component) -> component.stacks);
+    public static final PacketCodec<RegistryByteBuf, QuiverContentsComponent> PACKET_CODEC = ItemStack.PACKET_CODEC.collect(PacketCodecs.toList()).xmap(QuiverContentsComponent::new, (component) -> component.stacks);
+    private static final Fraction NESTED_QUIVER_OCCUPANCY = Fraction.getFraction(1, 96);
     private static final int ADD_TO_NEW_SLOT = -1;
     final List<ItemStack> stacks;
     final Fraction occupancy;
@@ -108,22 +108,13 @@ public final class QuiverContentsComponent implements TooltipData {
         return "QuiverContents" + String.valueOf(this.stacks);
     }
 
-    static {
-        CODEC = ItemStack.CODEC.listOf().xmap(QuiverContentsComponent::new, (component) -> {
-            return component.stacks;
-        });
-        PACKET_CODEC = ItemStack.PACKET_CODEC.collect(PacketCodecs.toList()).xmap(QuiverContentsComponent::new, (component) -> {
-            return component.stacks;
-        });
-        NESTED_QUIVER_OCCUPANCY = Fraction.getFraction(1, 96);
-    }
 
     public static class Builder {
         private final List<ItemStack> stacks;
         private Fraction occupancy;
 
         public Builder(QuiverContentsComponent base) {
-            this.stacks = new ArrayList(base.stacks);
+            this.stacks = new ArrayList<>(base.stacks);
             this.occupancy = base.occupancy;
         }
 
