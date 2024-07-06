@@ -37,7 +37,7 @@ public abstract class IllusionerEntityMixin extends SpellcastingIllagerEntity im
 
     @Inject(method = "initialize", at = @At("TAIL"), cancellable = true)
     private void injectedInitialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, CallbackInfoReturnable<EntityData> cbireturn) {
-        float hornbowrandom = Math.min(random.nextFloat()*difficulty.getClampedLocalDifficulty()*this.getWorld().getDifficulty().getId(), 1.0f);
+        float hornbowrandom = Math.min(world.getRandom().nextFloat()*difficulty.getClampedLocalDifficulty()*difficulty.getGlobalDifficulty().getId(), 1.0f);
         if (0.2f <= hornbowrandom && hornbowrandom < 0.5f) {
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_HORN_BOW));
         }

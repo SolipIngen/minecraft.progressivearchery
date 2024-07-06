@@ -62,7 +62,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity implements Cross
     @Inject(method = "initEquipment", at = @At("TAIL"))
     private void injectedInitEquipment(Random random, LocalDifficulty localDifficulty, CallbackInfo cbi) {
         if (this.getMainHandStack().isOf(Items.CROSSBOW) && !this.isPatrolLeader()) {
-            float crossbowchooser = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*this.getWorld().getDifficulty().getId(), 1.0f);
+            float crossbowchooser = Math.min(random.nextFloat()*localDifficulty.getClampedLocalDifficulty()*localDifficulty.getGlobalDifficulty().getId(), 1.0f);
             if (0.4f <= crossbowchooser && crossbowchooser < 0.8f) {
                 this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(ModItems.COPPER_FUSED_CROSSBOW));
             }
