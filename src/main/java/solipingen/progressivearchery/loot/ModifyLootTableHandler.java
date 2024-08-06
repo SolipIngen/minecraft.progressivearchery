@@ -1,7 +1,7 @@
 package solipingen.progressivearchery.loot;
 
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.fabricmc.fabric.api.loot.v2.LootTableSource;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
@@ -11,6 +11,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import solipingen.progressivearchery.item.ModItems;
 
@@ -27,25 +28,26 @@ public class ModifyLootTableHandler implements LootTableEvents.Modify {
     private static final RegistryKey<LootTable> PILLAGER_ENTITY = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("entities/pillager"));
     private static final RegistryKey<LootTable> PIGLIN_ENTITY = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("entities/piglin"));
 
-    // Loot Tables
-    private static final List<RegistryKey<LootTable>> LOOT_TABLE_LIST = List.of(
+    // Template Added Tables
+    private static final List<RegistryKey<LootTable>> TEMPLATE_ADDED= List.of(
             LootTables.VILLAGE_FLETCHER_CHEST,
             SKELETON_ENTITY, STRAY_ENTITY, BOGGED_ENTITY, PILLAGER_ENTITY, PIGLIN_ENTITY,
             LootTables.FISHING_TREASURE_GAMEPLAY);
 
 
     @Override
-    public void modifyLootTable(RegistryKey<LootTable> key, LootTable.Builder tableBuilder, LootTableSource source) {
-        for (RegistryKey<LootTable> modKey : LOOT_TABLE_LIST) {
+    public void modifyLootTable(RegistryKey<LootTable> key, LootTable.Builder tableBuilder, LootTableSource source, RegistryWrapper.WrapperLookup registries) {
+        for (RegistryKey<LootTable> modKey : TEMPLATE_ADDED) {
             if (modKey.getValue().equals(key.getValue())) {
                 float probability = key.getValue().getPath().startsWith("entities") ? 0.10f : (key.getValue().getPath().startsWith("gameplay") ? 0.15f : 0.5f);
                 LootPool.Builder bowFusionPoolBuilder = LootPool.builder()
-                    .rolls(ConstantLootNumberProvider.create(1))
-                    .conditionally(RandomChanceLootCondition.builder(probability))
-                    .with(ItemEntry.builder(ModItems.BOW_FUSION_SMITHING_TEMPLATE))
-                    .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)).build());
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(probability))
+                        .with(ItemEntry.builder(ModItems.BOW_FUSION_SMITHING_TEMPLATE))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)).build());
                 tableBuilder.pool(bowFusionPoolBuilder.build());
             }
         }
     }
+
 }

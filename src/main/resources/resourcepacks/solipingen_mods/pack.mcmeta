@@ -7,7 +7,7 @@
 		}, 
 		"description": {
 			"translate": "dataPack.solipingen_mods.description",
-			"fallback": "Cross-integration of §iSolipIngen§r's mods."
+			"fallback": "§lENABLE§r if §2SolipIngen§r's other mods are installed."
 		}
 	}
 }
