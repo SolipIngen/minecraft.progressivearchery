@@ -1,9 +1,14 @@
 package solipingen.progressivearchery.item;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketInventory;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ChargedProjectilesComponent;
@@ -163,10 +168,33 @@ public class ModCrossbowItem extends RangedWeaponItem {
 
     private static ItemStack getFilledQuiver(PlayerEntity playerEntity) {
         ItemStack itemStack = ItemStack.EMPTY;
-        for (int i = 0; i < playerEntity.getInventory().size(); i++) {     
-            if (playerEntity.getInventory().getStack(i).getItem() instanceof QuiverItem && QuiverItem.getAmountFilled(playerEntity.getInventory().getStack(i)) > 0.0f) {
-                itemStack = playerEntity.getInventory().getStack(i);
-                break;
+        Optional<TrinketComponent> trinketComponentOptional = TrinketsApi.getTrinketComponent(playerEntity);
+        if (trinketComponentOptional.isPresent()) {
+            Map<String, Map<String, TrinketInventory>> trinketInventoryMap = trinketComponentOptional.get().getInventory();
+            if (trinketInventoryMap.containsKey("chest") && trinketInventoryMap.get("chest").containsKey("back")) {
+                TrinketInventory trinketInventory = trinketInventoryMap.get("chest").get("back");
+                for (int j = 0; j < trinketInventory.size(); j++) {
+                    if (trinketInventory.getStack(j).getItem() instanceof QuiverItem && QuiverItem.getAmountFilled(trinketInventory.getStack(j)) > 0) {
+                        itemStack = trinketInventory.getStack(j);
+                        break;
+                    }
+                }
+            }
+            if (itemStack.isEmpty()) {
+                for (int i = 0; i < playerEntity.getInventory().size(); i++) {
+                    if (playerEntity.getInventory().getStack(i).getItem() instanceof QuiverItem && QuiverItem.getAmountFilled(playerEntity.getInventory().getStack(i)) > 0) {
+                        itemStack = playerEntity.getInventory().getStack(i);
+                        break;
+                    }
+                }
+            }
+        }
+        else {
+            for (int i = 0; i < playerEntity.getInventory().size(); i++) {
+                if (playerEntity.getInventory().getStack(i).getItem() instanceof QuiverItem && QuiverItem.getAmountFilled(playerEntity.getInventory().getStack(i)) > 0.0f) {
+                    itemStack = playerEntity.getInventory().getStack(i);
+                    break;
+                }
             }
         }
         return itemStack;
