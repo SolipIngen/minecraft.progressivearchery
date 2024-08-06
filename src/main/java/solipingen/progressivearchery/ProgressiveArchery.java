@@ -2,7 +2,7 @@ package solipingen.progressivearchery;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import solipingen.progressivearchery.advancement.criterion.ModCriteria;
 import solipingen.progressivearchery.block.ModBlocks;
 import solipingen.progressivearchery.block.entity.ModBlockEntityTypes;

@@ -110,11 +110,24 @@
     "item.progressivearchery.smithing_template.bow_fusion.applies_to": "Bows", 
     "item.progressivearchery.smithing_template.bow_fusion.base_slot_description": "Put a Bow, Horn Bow, Longbow, Tubular Bow or Crossbow here",
     "item.progressivearchery.smithing_template.bow_fusion.ingredients": "Ingots & Diamonds",
-    "item.progressivearchery.smithing_template.fusion": "Fusion: ", 
+    "item.progressivearchery.smithing_template.fusion": "Fusion: ",
 
     "upgrade.progressivearchery.bow_fusion": "Bow Fusion", 
 
-    "entity.minecraft.villager.archer": "Archer", 
+    "entity.minecraft.villager.archer": "Archer",
+
+    "entity.progressivearchery.wooden_arrow": "Wooden Arrow",
+    "entity.progressivearchery.wooden_kid_arrow": "Wooden Kid Arrow",
+    "entity.progressivearchery.flint_arrow": "Flint Arrow",
+    "entity.progressivearchery.flint_kid_arrow": "Flint Kid Arrow",
+    "entity.progressivearchery.copper_arrow": "Copper Arrow",
+    "entity.progressivearchery.copper_kid_arrow": "Copper Kid Arrow",
+    "entity.progressivearchery.golden_arrow": "Golden Arrow",
+    "entity.progressivearchery.golden_kid_arrow": "Golden Kid Arrow",
+    "entity.progressivearchery.iron_arrow": "Iron Arrow",
+    "entity.progressivearchery.iron_kid_arrow": "Iron Kid Arrow",
+    "entity.progressivearchery.diamond_arrow": "Diamond Arrow",
+    "entity.progressivearchery.diamond_kid_arrow": "Diamond Kid Arrow",
 
     "recipe.progressivearchery.fletching": "Fletching",
 
@@ -181,7 +194,7 @@
     "subtitles.progressivearchery.fletcher_fail": "Fletcher fails fletching",
 
     "dataPack.progressivearchery.description": "For full §1Progressive Archery§r loot.",
-    "dataPack.solipingen_mods.description": "Cross-integration of §iSolipIngen§r's mods.",
+    "dataPack.solipingen_mods.description": "§lENABLE§r if §2SolipIngen§r's other mods are installed.",
 
     "emi.category.progressivearchery.fletching": "Fletching",
     "emi.category.progressivearchery.tipping": "Tipping",

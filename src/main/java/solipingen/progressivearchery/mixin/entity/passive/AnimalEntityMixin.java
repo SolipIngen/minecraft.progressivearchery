@@ -1,5 +1,6 @@
 package solipingen.progressivearchery.mixin.entity.passive;
 
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,9 +30,11 @@ public abstract class AnimalEntityMixin extends PassiveEntity {
         if (this.getType().isIn(ModEntityTypeTags.BIRDS)) {
             float featherThreshold = ((AnimalEntity)(Object)this) instanceof ChickenEntity ? 0.0001f : 0.00005f;
             World world = this.getWorld();
-            if (!world.isClient && this.isAlive() && !this.isBaby() && this.random.nextFloat() < featherThreshold) {
-                ItemEntity itemEntity = this.dropItem(Items.FEATHER);
-                itemEntity.setVelocity(itemEntity.getVelocity().add((this.random.nextFloat() - this.random.nextFloat()) * 0.025f, this.random.nextFloat() * 0.0125f, (this.random.nextFloat() - this.random.nextFloat()) * 0.025f));
+            if (!world.isClient && this.isAlive() && !this.isBaby() && this.getRandom().nextFloat() < featherThreshold) {
+                ItemEntity itemEntity = this.dropStack(new ItemStack(Items.FEATHER, 1 + (int)Math.round(Math.abs(this.getRandom().nextTriangular(0.0, 1.75)))));
+                if (itemEntity != null) {
+                    itemEntity.addVelocity((this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.025f, this.getRandom().nextFloat() * 0.0125f, (this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.025f);
+                }
                 this.emitGameEvent(GameEvent.ENTITY_PLACE);
             }
         }
