@@ -1,0 +1,9 @@
+{
+  "parent": "progressivearchery:block/fletcher",
+  "textures": {
+    "top": "progressivearchery:block/fletcher_top_triggered",
+    "south": "progressivearchery:block/fletcher_south_triggered",
+    "west": "progressivearchery:block/fletcher_west_triggered",
+    "east": "progressivearchery:block/fletcher_east_triggered"
+  }
+}

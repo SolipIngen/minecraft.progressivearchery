@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:wool_carpets",
+    "minecraft:rabbit_hide",
+    "minecraft:leather",
+    "minecraft:paper",
+    "#armorrestitched:cotton_carpets",
+    "#armorrestitched:fur_carpets",
+    "#armorrestitched:linen_carpets",
+    "#armorrestitched:silk_carpets"
+  ]
+}

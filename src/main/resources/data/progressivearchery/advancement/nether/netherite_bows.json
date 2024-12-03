@@ -1,0 +1,60 @@
+{
+    "parent": "minecraft:nether/obtain_ancient_debris",
+    "criteria": {
+      "netherite_bows": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:netherite_fused_bow"
+              ]
+            },
+            {
+              "items": [
+                "progressivearchery:netherite_fused_horn_bow"
+              ]
+            },
+            {
+              "items": [
+                "progressivearchery:netherite_fused_longbow"
+              ]
+            },
+            {
+              "items": [
+                "progressivearchery:netherite_fused_tubular_bow"
+              ]
+            },
+            {
+            "items": [
+                "progressivearchery:netherite_fused_crossbow"
+            ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.nether.netherite_bows.description"
+      },
+      "frame": "challenge",
+      "hidden": true,
+      "icon": {
+        "id": "progressivearchery:netherite_fused_tubular_bow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.nether.netherite_bows.title"
+      }
+    },
+    "requirements": [
+      [
+        "netherite_bows"
+      ]
+    ],
+    "rewards": {
+      "experience": 100
+    }
+  }

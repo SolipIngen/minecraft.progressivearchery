@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "progressivearchery:wooden_arrow",
+    "progressivearchery:flint_arrow",
+    "progressivearchery:copper_arrow",
+    "progressivearchery:golden_arrow",
+    "progressivearchery:iron_arrow",
+    "progressivearchery:diamond_arrow",
+    "progressivearchery:wooden_kid_arrow",
+    "progressivearchery:flint_kid_arrow",
+    "progressivearchery:copper_kid_arrow",
+    "progressivearchery:golden_kid_arrow",
+    "progressivearchery:iron_kid_arrow",
+    "progressivearchery:diamond_kid_arrow",
+    "progressivearchery:tipped_kid_arrow",
+    "progressivearchery:spectral_kid_arrow"
+  ]
+}

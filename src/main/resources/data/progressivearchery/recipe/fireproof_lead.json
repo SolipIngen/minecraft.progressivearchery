@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "progressivearchery:striderhair"
+      },
+      "$": {
+        "item": "minecraft:magma_cream"
+      }
+    },
+    "pattern": [
+      "## ",
+      "#$ ",
+      "  #"
+    ],
+    "result": {
+      "id": "progressivearchery:fireproof_lead"
+    }
+  }

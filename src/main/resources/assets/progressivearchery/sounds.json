@@ -1,0 +1,96 @@
+{
+    "bow_pull": {
+        "subtitle": "subtitles.progressivearchery.bow_pull", 
+        "sounds": [
+            "progressivearchery:bow_pull"
+        ]
+    }, 
+    "bow_pull_quick_charge_1": {
+        "subtitle": "subtitles.progressivearchery.bow_pull_quick_charge_1", 
+        "sounds": [
+            "progressivearchery:bow_pull_quick_charge_1"
+        ]
+    }, 
+    "bow_pull_quick_charge_2": {
+        "subtitle": "subtitles.progressivearchery.bow_pull_quick_charge_2", 
+        "sounds": [
+            "progressivearchery:bow_pull_quick_charge_2"
+        ]
+    }, 
+    "bow_pull_quick_charge_3": {
+        "subtitle": "subtitles.progressivearchery.bow_pull_quick_charge_3", 
+        "sounds": [
+            "progressivearchery:bow_pull_quick_charge_3"
+        ]
+    }, 
+    "copper_golden_arrow_hit": {
+        "subtitle": "subtitles.progressivearchery.copper_golden_arrow_hit", 
+        "sounds": [
+            "progressivearchery:copper_golden_arrow_hit"
+        ]
+    }, 
+    "iron_arrow_hit": {
+        "subtitle": "subtitles.progressivearchery.iron_arrow_hit", 
+        "sounds": [
+            "progressivearchery:iron_arrow_hit"
+        ]
+    },
+    "diamond_arrow_hit": {
+        "subtitle": "subtitles.progressivearchery.diamond_arrow_hit", 
+        "sounds": [
+            "progressivearchery:diamond_arrow_hit"
+        ]
+    }, 
+    "draw_from_quiver": {
+        "subtitle": "subtitles.progressivearchery.draw_from_quiver",
+        "sounds": [
+            "progressivearchery:draw_from_quiver"
+        ]
+    },
+    "put_into_quiver": {
+        "subtitle": "subtitles.progressivearchery.put_into_quiver",
+        "sounds": [
+            "progressivearchery:put_into_quiver"
+        ]
+    }, 
+    "fletching_table_used": {
+        "subtitle": "subtitles.progressivearchery.fletching_table_used",
+        "sounds": [
+            "minecraft:block/fletching_table/fletching_table1", 
+            "minecraft:block/fletching_table/fletching_table2"
+        ]
+    }, 
+    "arrow_tipped": {
+        "subtitle": "subtitles.progressivearchery.arrow_tipped",
+        "sounds": [
+            "progressivearchery:arrow_tipped_ver1", 
+            "progressivearchery:arrow_tipped_ver2"
+        ]
+    }, 
+    "villager_shoots_arrow": {
+        "subtitle": "subtitles.progressivearchery.villager_shoots_arrow",
+        "sounds": [
+            "minecraft:random/bow"
+        ]
+    }, 
+    "villager_attack": {
+        "subtitle": "subtitles.progressivearchery.villager_attack", 
+        "sounds": [
+            "minecraft:mob/villager/no1", 
+            "minecraft:mob/villager/no2", 
+            "minecraft:mob/villager/no3"
+        ]
+    },
+    "fletcher_fletch": {
+        "subtitle": "subtitles.progressivearchery.fletcher_fletch",
+        "sounds": [
+            "minecraft:block/crafter/craft"
+        ]
+    },
+    "fletcher_fail": {
+        "subtitle": "subtitles.progressivearchery.fletcher_fail",
+        "sounds": [
+            "minecraft:block/crafter/fail"
+        ]
+    }
+}

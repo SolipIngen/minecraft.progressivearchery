@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": {
+      "item": "progressivearchery:bow_fusion_smithing_template"
+    }, 
+    "addition": {
+      "item": "minecraft:diamond"
+    },
+    "base": {
+      "item": "minecraft:crossbow"
+    },
+    "result": {
+      "id": "progressivearchery:diamond_fused_crossbow"
+    }
+  }

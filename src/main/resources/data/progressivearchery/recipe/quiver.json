@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "tag": "minecraft:wooden_slabs"
+      },
+      "$": {
+        "tag": "progressivearchery:quiver_coverings"
+      }
+    },
+    "pattern": [
+      "$$$",
+      "# #",
+      " # "
+    ],
+    "result": {
+      "id": "progressivearchery:quiver"
+    }
+}

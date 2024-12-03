@@ -1,0 +1,13 @@
+{
+	"pack": {
+		"pack_format": 48,
+		"supported_formats": {
+			"min_inclusive": 12, 
+			"max_inclusive": 48
+		}, 
+		"description": {
+			"translate": "dataPack.solipingen_mods.description",
+			"fallback": "Cross-integration of §iSolipIngen§r's mods."
+		}
+	}
+}

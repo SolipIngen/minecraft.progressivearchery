@@ -1,0 +1,157 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "two_birds_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_bow"
+      },
+      "two_birds_horn_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_horn_bow"
+      },
+      "two_birds_longbow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_longbow"
+      },
+      "two_birds_tubular_bow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_tubular_bow"
+      },
+      "two_birds_crossbow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "minecraft:killed_by_crossbow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.two_birds_one_arrow.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "minecraft:phantom_membrane"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.two_birds_one_arrow.title"
+      }
+    },
+    "requirements": [
+      [
+        "two_birds_bow",
+        "two_birds_horn_bow",
+        "two_birds_longbow",
+        "two_birds_tubular_bow",
+        "two_birds_crossbow"
+      ]
+    ],
+    "rewards": {
+      "experience": 65
+    }
+}

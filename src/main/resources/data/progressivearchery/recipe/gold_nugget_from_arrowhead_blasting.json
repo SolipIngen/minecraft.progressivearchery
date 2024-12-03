@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:blasting",
+    "category": "misc",
+    "cookingtime": 200,
+    "experience": 0.1,
+    "ingredient": [
+      {
+        "item": "progressivearchery:golden_arrowhead"
+      }
+    ],
+    "result": {
+      "id": "minecraft:gold_nugget"
+    }
+}

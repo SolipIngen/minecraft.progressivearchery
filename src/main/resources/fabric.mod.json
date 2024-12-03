@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "progressivearchery",
+  "version": "1.2.2-1.21.1+trinkets",
+
+  "name": "Progressive Archery",
+  "description": "A mod that revamps and expands archery. New variants of bows, upgrades, and arrows are added, alongside various changes and tweaks to all things archery & projectile related.",
+  "authors": [
+    "SolipIngen"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "https://github.com/SolipIngen/minecraft.progressivearchery"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/progressivearchery/progressivearchery_icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "solipingen.progressivearchery.ProgressiveArchery"
+    ],
+    "client": [
+      "solipingen.progressivearchery.ProgressiveArcheryClient"
+    ],
+    "fabric-datagen": [
+      "solipingen.progressivearchery.ProgressiveArcheryDataGenerator"
+    ],
+    "dynamiclights": [
+      "solipingen.progressivearchery.client.integration.lambdynlights.ModLambDynamicLightsPlugin"
+    ],
+    "rei_common": [
+      "solipingen.progressivearchery.integration.rei.ModREIPlugin"
+    ],
+    "rei_client": [
+      "solipingen.progressivearchery.client.integration.rei.ModREIClientPlugin"
+    ],
+    "emi": [
+      "solipingen.progressivearchery.client.integration.emi.ModEMIClientPlugin"
+    ]
+  },
+  "mixins": [
+    "progressivearchery.mixins.json",
+    {
+			"config": "progressivearchery.client.mixins.json",
+			"environment": "client"
+		}
+  ],
+
+  "depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": ">=1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+  "suggests": {
+    "another-mod": [
+      "armorrestitched",
+      "sassot"
+    ]
+  }
+}
