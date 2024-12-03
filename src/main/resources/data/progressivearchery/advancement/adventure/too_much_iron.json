@@ -1,0 +1,38 @@
+{
+    "parent": "progressivearchery:adventure/trust_the_rust",
+    "criteria": {
+      "has_iron_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:iron_arrow",
+                "progressivearchery:iron_kid_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+          "translate": "advancements.adventure.too_much_iron.description"
+        },
+        "frame": "task",
+        "hidden": false,
+        "icon": {
+          "id": "progressivearchery:iron_arrow"
+        },
+        "show_toast": true,
+        "title": {
+          "translate": "advancements.adventure.too_much_iron.title"
+        }
+    },
+    "requirements": [
+      [
+        "has_iron_arrow"
+      ]
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "parent": "progressivearchery:adventure/long_shot",
+    "criteria": {
+      "killed_husk_with_longbow": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:husk", 
+                  "distance": {
+                    "horizontal": {
+                      "min": 100.0
+                    }
+                  }
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "progressivearchery:killed_by_longbow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.pitatincourt.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "progressivearchery:diamond_fused_longbow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.pitatincourt.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_husk_with_longbow"
+      ]
+    ],
+    "rewards": {
+      "experience": 100
+    }
+}

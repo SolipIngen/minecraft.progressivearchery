@@ -1,0 +1,14 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "progressivearchery:item/quiver"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "filled": 0.0000001
+            },
+            "model": "progressivearchery:item/quiver_filled"
+        }
+    ]  
+}

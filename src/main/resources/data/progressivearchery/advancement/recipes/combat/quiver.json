@@ -1,0 +1,86 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+      "has_wooden_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:wooden_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_flint_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:flint_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_copper_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:copper_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_golden_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:golden_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_iron_arrow": {
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "progressivearchery:iron_arrow"
+              ]
+            }
+          ]
+        },
+        "trigger": "minecraft:inventory_changed"
+      },
+      "has_the_recipe": {
+        "conditions": {
+          "recipe": "progressivearchery:quiver"
+        },
+        "trigger": "minecraft:recipe_unlocked"
+    }
+    },
+    "requirements": [
+      [
+        "has_wooden_arrow",
+        "has_flint_arrow",
+        "has_copper_arrow",
+        "has_golden_arrow",
+        "has_iron_arrow",
+        "has_the_recipe"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "progressivearchery:quiver"
+      ]
+    }
+}

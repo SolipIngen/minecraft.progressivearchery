@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "pattern": [
+      "##",
+      " #"
+    ],
+    "result": {
+      "id": "progressivearchery:iron_arrowhead",
+      "count": 9
+    }
+}
