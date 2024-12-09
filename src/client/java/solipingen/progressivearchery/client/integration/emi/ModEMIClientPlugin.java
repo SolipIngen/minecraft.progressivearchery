@@ -101,12 +101,12 @@ public class ModEMIClientPlugin implements EmiPlugin {
                         ModEMIClientPlugin.addRecipeSafeNoType(registry, () ->
                                 new EmiCraftingRecipe(rightInput, output,
                                         Identifier.of(ProgressiveArchery.MOD_ID,
-                                                Registries.ITEM.getId(itemEntry.value()).getPath() + "_" + "crafting/quick_charge_bow_" + level + "_right"),
+                                                "/crafting/quick_charge_bow/" + Registries.ITEM.getId(itemEntry.value()).getPath() + "_" + level + "_right"),
                                         false));
                         ModEMIClientPlugin.addRecipeSafeNoType(registry, () ->
                                 new EmiCraftingRecipe(leftInput, output,
                                         Identifier.of(ProgressiveArchery.MOD_ID,
-                                                Registries.ITEM.getId(itemEntry.value()).getPath() + "_" + "crafting/quick_charge_bow_" + level + "_left"),
+                                                "/crafting/quick_charge_bow/" + Registries.ITEM.getId(itemEntry.value()).getPath() + "_" +  level + "_left"),
                                         false));
                     }
                 }

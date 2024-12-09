@@ -19,6 +19,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import solipingen.progressivearchery.ProgressiveArchery;
+import solipingen.progressivearchery.recipe.FletchingRecipe;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +49,7 @@ public class EMITippingRecipe implements EmiRecipe {
     public Identifier getId() {
         Optional<RegistryEntry<Potion>> potionOptional = this.output.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT).potion();
         return potionOptional.map(potionEntry -> Identifier.of(ProgressiveArchery.MOD_ID,
-                this.output.getId().getPath() + "_" + Registries.POTION.getId(potionEntry.value()).getPath() + "_tipping")).orElse(null);
+                "/tipping/" + this.output.getId().getNamespace() + "/" + this.output.getId().getPath() + "_" + Registries.POTION.getId(potionEntry.value()).getPath())).orElse(null);
     }
 
     @Override

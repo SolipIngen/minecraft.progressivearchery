@@ -53,7 +53,7 @@ public class EMIFletchingRecipe implements EmiRecipe {
     public Identifier getId() {
         Optional<RegistryEntry<Potion>> potionOptional = this.output.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT).potion();
         return potionOptional.map(potionEntry -> Identifier.of(ProgressiveArchery.MOD_ID,
-                this.output.getId().getPath() + "_" + Registries.POTION.getId(potionEntry.value()).getPath() + "_" + FletchingRecipe.Type.ID)).orElse(null);
+                "/" + FletchingRecipe.Type.ID + "/" + this.output.getId().getNamespace() + "/" + this.output.getId().getPath() + "_" + Registries.POTION.getId(potionEntry.value()).getPath())).orElse(null);
     }
 
     @Override
