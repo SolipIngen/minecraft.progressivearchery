@@ -1,0 +1,59 @@
+{
+    "parent": "progressivearchery:adventure/down_the_tube",
+    "criteria": {
+      "killed_creeper_with_tubular_bow": {
+        "conditions": {
+          "fired_from_weapon": {
+            "items": [
+              "progressivearchery:tubular_bow",
+              "progressivearchery:copper_fused_tubular_bow",
+              "progressivearchery:iron_fused_tubular_bow",
+              "progressivearchery:gold_fused_tubular_bow",
+              "progressivearchery:diamond_fused_tubular_bow",
+              "progressivearchery:netherite_fused_tubular_bow"
+            ]
+          },
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:creeper", 
+                  "distance": {
+                    "horizontal": {
+                      "min": 100.0
+                    }
+                  }
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "minecraft:killed_by_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.revenge_for_my_kidhood.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "progressivearchery:diamond_fused_tubular_bow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.revenge_for_my_kidhood.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_creeper_with_tubular_bow"
+      ]
+    ],
+    "rewards": {
+      "experience": 100
+    }
+}

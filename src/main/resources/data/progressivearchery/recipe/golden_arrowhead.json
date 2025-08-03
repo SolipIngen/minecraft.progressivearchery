@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": "minecraft:gold_ingot"
+    },
+    "pattern": [
+      "##",
+      " #"
+    ],
+    "result": {
+      "id": "progressivearchery:golden_arrowhead",
+      "count": 9
+    }
+}

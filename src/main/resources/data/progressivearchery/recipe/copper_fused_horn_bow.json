@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": "progressivearchery:bow_fusion_smithing_template",
+    "addition": "minecraft:copper_ingot",
+    "base": "progressivearchery:horn_bow",
+    "result": {
+      "count": 1,
+      "id": "progressivearchery:copper_fused_horn_bow"
+    }
+  }

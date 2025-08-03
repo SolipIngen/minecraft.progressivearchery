@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "key": {
+      "#": "minecraft:polished_diorite_slab",
+      "$": "minecraft:emerald"
+    },
+    "pattern": [
+      "$",
+      "#"
+    ],
+    "result": {
+      "id": "progressivearchery:archer_marker",
+      "count": 4
+    }
+}

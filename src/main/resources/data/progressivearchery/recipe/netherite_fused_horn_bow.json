@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "addition": "minecraft:netherite_ingot",
+    "base": "progressivearchery:diamond_fused_horn_bow",
+    "result": {
+      "count": 1,
+      "id": "progressivearchery:netherite_fused_horn_bow"
+    }
+}

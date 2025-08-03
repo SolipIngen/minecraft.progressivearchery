@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "progressivearchery:item/bow_fusion_smithing_template"
+    }
+}

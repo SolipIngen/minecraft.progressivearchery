@@ -1,0 +1,13 @@
+{
+	"pack": {
+		"pack_format": 81,
+		"supported_formats": {
+			"min_inclusive": 12, 
+			"max_inclusive": 81
+		}, 
+		"description": {
+			"translate": "dataPack.progressivearchery.description",
+			"fallback": "For full §1Progressive Archery§r loot."
+		}
+	}
+}

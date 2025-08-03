@@ -1,0 +1,11 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": "minecraft:glowstone_dust",
+  "body": "minecraft:spectral_arrow",
+  "tail": "minecraft:feather",
+  "addition": "minecraft:stonecutter",
+  "result": {
+    "id": "progressivearchery:spectral_kid_arrow",
+    "count": 2
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "progressivearchery:block/archer_marker"
+  }
+}

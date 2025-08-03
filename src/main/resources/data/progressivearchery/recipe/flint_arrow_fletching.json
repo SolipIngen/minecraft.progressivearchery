@@ -1,0 +1,11 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": "minecraft:flint",
+  "body": "minecraft:stick",
+  "tail": "#progressivearchery:fletches",
+  "addition": "minecraft:string",
+  "result": {
+    "id": "progressivearchery:flint_arrow",
+    "count": 4
+  }
+}

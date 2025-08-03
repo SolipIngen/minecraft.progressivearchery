@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": "progressivearchery:striderhair"
+    },
+    "pattern": [
+      "## ",
+      "## ",
+      "  #"
+    ],
+    "result": {
+      "count": 1,
+      "id": "progressivearchery:fireproof_lead"
+    }
+  }

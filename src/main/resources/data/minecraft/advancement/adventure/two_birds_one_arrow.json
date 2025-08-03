@@ -1,0 +1,53 @@
+{
+    "parent": "minecraft:adventure/shoot_arrow",
+    "criteria": {
+      "two_birds": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ],
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:phantom"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "minecraft:killed_by_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.two_birds_one_arrow.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "minecraft:phantom_membrane"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.two_birds_one_arrow.title"
+      }
+    },
+    "requirements": [
+      [
+        "two_birds"
+      ]
+    ],
+    "rewards": {
+      "experience": 65
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      "minecraft:bow",
+      "minecraft:bamboo"
+    ],
+    "result": {
+      "id": "progressivearchery:tubular_bow"
+    }
+}

@@ -1,0 +1,13 @@
+{
+	"pack": {
+		"pack_format": 81,
+		"supported_formats": {
+			"min_inclusive": 12, 
+			"max_inclusive": 81
+		}, 
+		"description": {
+			"translate": "dataPack.solipingen_mods.description",
+			"fallback": "§lENABLE§r if §2SolipIngen§r's other mods are installed."
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": "progressivearchery:diamond_arrowhead",
+  "body": "progressivearchery:diamond_arrow",
+  "tail": "#progressivearchery:fletches",
+  "addition": "#progressivearchery:metal_arrow_cutters",
+  "result": {
+    "id": "progressivearchery:diamond_kid_arrow",
+    "count": 2
+  }
+}

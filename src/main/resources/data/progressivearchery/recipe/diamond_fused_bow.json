@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": "progressivearchery:bow_fusion_smithing_template",
+    "addition": "minecraft:diamond",
+    "base": "minecraft:bow",
+    "result": {
+      "count": 1,
+      "id": "progressivearchery:diamond_fused_bow"
+    }
+  }

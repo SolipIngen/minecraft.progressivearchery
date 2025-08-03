@@ -1,0 +1,9 @@
+{
+  "parent": "progressivearchery:block/fletcher_triggered",
+  "textures": {
+    "top": "progressivearchery:block/fletcher_top_crafting",
+    "north": "progressivearchery:block/fletcher_north_crafting",
+    "east": "progressivearchery:block/fletcher_east_crafting",
+    "west": "progressivearchery:block/fletcher_west_crafting"
+  }
+}

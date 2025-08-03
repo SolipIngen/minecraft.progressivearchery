@@ -1,0 +1,98 @@
+{
+    "parent": "minecraft:adventure/whos_the_pillager_now",
+    "criteria": {
+      "killed_raiders": {
+        "conditions": {
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "#minecraft:raiders"
+                }
+              }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ], 
+            [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "#minecraft:raiders"
+                  }
+                }
+            ] 
+          ]
+        },
+        "trigger": "minecraft:killed_by_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.raid_this.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "progressivearchery:diamond_fused_crossbow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.raid_this.title"
+      }
+    },
+    "requirements": [
+      [
+        "killed_raiders"
+      ]
+    ],
+    "rewards": {
+      "experience": 140
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "parent": "minecraft:adventure/two_birds_one_arrow",
+    "criteria": {
+      "arbalistic": {
+        "conditions": {
+          "fired_from_weapon": {
+            "items": [
+              "minecraft:bow",
+              "minecraft:crossbow",
+              "progressivearchery:copper_fused_bow",
+              "progressivearchery:iron_fused_bow",
+              "progressivearchery:gold_fused_bow",
+              "progressivearchery:diamond_fused_bow",
+              "progressivearchery:netherite_fused_bow",
+              "progressivearchery:horn_bow",
+              "progressivearchery:copper_fused_horn_bow",
+              "progressivearchery:iron_fused_horn_bow",
+              "progressivearchery:gold_fused_horn_bow",
+              "progressivearchery:diamond_fused_horn_bow",
+              "progressivearchery:netherite_fused_horn_bow",
+              "progressivearchery:longbow",
+              "progressivearchery:copper_fused_longbow",
+              "progressivearchery:iron_fused_longbow",
+              "progressivearchery:gold_fused_longbow",
+              "progressivearchery:diamond_fused_longbow",
+              "progressivearchery:netherite_fused_longbow",
+              "progressivearchery:tubular_bow",
+              "progressivearchery:copper_fused_tubular_bow",
+              "progressivearchery:iron_fused_tubular_bow",
+              "progressivearchery:gold_fused_tubular_bow",
+              "progressivearchery:diamond_fused_tubular_bow",
+              "progressivearchery:netherite_fused_tubular_bow",
+              "progressivearchery:copper_fused_crossbow",
+              "progressivearchery:iron_fused_crossbow",
+              "progressivearchery:gold_fused_crossbow",
+              "progressivearchery:diamond_fused_crossbow",
+              "progressivearchery:netherite_fused_crossbow"
+            ]
+          },
+          "unique_entity_types": 5
+        },
+        "trigger": "minecraft:killed_by_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.arbalistic.description"
+      },
+      "frame": "challenge",
+      "hidden": false,
+      "icon": {
+        "id": "minecraft:spectral_arrow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.arbalistic.title"
+      }
+    },
+    "requirements": [
+      [
+        "arbalistic"
+      ]
+    ],
+    "rewards": {
+      "experience": 85
+    }
+}

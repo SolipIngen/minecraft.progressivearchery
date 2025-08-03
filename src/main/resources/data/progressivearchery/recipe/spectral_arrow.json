@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "progressivearchery:golden_arrow",
+    "minecraft:glowstone_dust"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:spectral_arrow"
+  }
+}

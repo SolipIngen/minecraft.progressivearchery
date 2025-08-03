@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": "minecraft:stick",
+      "$": "#minecraft:planks",
+      "~": "minecraft:bow"
+    },
+    "pattern": [
+      "~",
+      "$",
+      "#"
+    ],
+    "result": {
+      "count": 1,
+      "id": "minecraft:crossbow"
+    }
+  }

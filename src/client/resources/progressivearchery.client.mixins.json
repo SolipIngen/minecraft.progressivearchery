@@ -1,0 +1,28 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "solipingen.progressivearchery.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "WelcomeMixin",
+    "gui.tooltip.TooltipComponentMixin",
+    "render.entity.AbstractSkeletonEntityRendererMixin",
+    "render.entity.EntityRendererMixin",
+    "render.entity.LeashKnotEntityRendererMixin",
+    "render.entity.PlayerEntityRendererMixin",
+    "render.entity.StriderEntityRendererMixin",
+    "render.entity.feature.VillagerHeldItemFeatureRendererMixin",
+    "render.entity.model.BipedEntityModelMixin",
+    "render.entity.state.ArmedEntityRenderStateMixin",
+    "render.entity.state.EntityRenderState$LeashDataMixin",
+    "render.entity.state.EntityRenderStateMixin",
+    "render.entity.state.ItemHolderEntityRenderStateMixin",
+    "render.entity.state.PlayerEntityRenderStateMixin",
+    "render.entity.state.StriderEntityRenderStateMixin",
+    "render.item.HeldItemRendererMixin",
+    "screen.ingame.HandledScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

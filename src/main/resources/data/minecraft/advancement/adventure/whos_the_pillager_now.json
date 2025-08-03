@@ -1,0 +1,51 @@
+{
+    "parent": "minecraft:adventure/ol_betsy",
+    "criteria": {
+      "kill_pillager": {
+        "conditions": {
+          "fired_from_weapon": {
+            "items": [
+              "minecraft:crossbow",
+              "progressivearchery:copper_fused_crossbow",
+              "progressivearchery:iron_fused_crossbow",
+              "progressivearchery:gold_fused_crossbow",
+              "progressivearchery:diamond_fused_crossbow",
+              "progressivearchery:netherite_fused_crossbow"
+            ]
+          },
+          "victims": [
+            [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "type": "minecraft:pillager"
+                }
+              }
+            ]
+          ]
+        },
+        "trigger": "minecraft:killed_by_arrow"
+      }
+    },
+    "display": {
+      "announce_to_chat": true,
+      "description": {
+        "translate": "advancements.adventure.whos_the_pillager_now.description"
+      },
+      "frame": "task",
+      "hidden": false,
+      "icon": {
+        "id": "progressivearchery:gold_fused_crossbow"
+      },
+      "show_toast": true,
+      "title": {
+        "translate": "advancements.adventure.whos_the_pillager_now.title"
+      }
+    },
+    "requirements": [
+      [
+        "kill_pillager"
+      ]
+    ]
+}

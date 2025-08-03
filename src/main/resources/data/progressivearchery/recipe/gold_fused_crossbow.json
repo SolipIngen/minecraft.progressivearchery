@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smithing_transform", 
+    "template": "progressivearchery:bow_fusion_smithing_template",
+    "addition": "minecraft:gold_ingot",
+    "base": "minecraft:crossbow",
+    "result": {
+      "count": 1,
+      "id": "progressivearchery:gold_fused_crossbow"
+    }
+  }

@@ -1,0 +1,11 @@
+{
+  "type": "progressivearchery:fletching",
+  "head": "progressivearchery:iron_arrowhead",
+  "body": "minecraft:iron_ingot",
+  "tail": "#progressivearchery:fletches",
+  "addition": "#progressivearchery:metal_arrow_welding_heat_sources",
+  "result": {
+    "id": "progressivearchery:iron_arrow",
+    "count": 8
+  }
+}

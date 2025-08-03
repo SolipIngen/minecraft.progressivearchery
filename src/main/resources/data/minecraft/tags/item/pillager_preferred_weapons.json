@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "progressivearchery:copper_fused_crossbow",
+    "progressivearchery:gold_fused_crossbow",
+    "progressivearchery:iron_fused_crossbow",
+    "progressivearchery:diamond_fused_crossbow",
+    "progressivearchery:netherite_fused_crossbow"
+  ]
+}
